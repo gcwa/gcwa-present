@@ -19,6 +19,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -48,47 +49,32 @@ import ca.gc.collectionscanada.web.model.SearchParameters;
 @Controller
 public class GCWebArchiveController
 {
-	@RequestMapping("/")
-    public String welcome(Map<String, Object> model)
-    {
-           return "intro1";
-    }
-	
-	@RequestMapping("/foo")
-	public String foo(Map<String, Object> model) {
-		throw new RuntimeException("FOO exception");
-	}
- 
-	@RequestMapping("/faq")
-	public String faq(Map<String, Object> model) {
-		return "faq";
-	}
-	
 	/**
-	private Map<String, String> errorMessages = new HashMap<String, String>();
     @Autowired
 	private GCWebArchiveConfig config;
     @Autowired
     private DepartmentWiseURLDAO deptWiseDAO;
     @Autowired
     private DepartmentDAO deptDAO;
+    */
+	
+	private Map<String, String> errorMessages = new HashMap<String, String>();    
     protected final Log logger = LogFactory.getLog(GCWebArchiveController.class);
 
+	@RequestMapping("/")
+	public String welcomeOne(HttpServletRequest request, Model model) {
+		Locale locale = RequestContextUtils.getLocale(request);
+		ResourceBundle bundle = ResourceBundle.getBundle("uiproperties", locale);
+		model = setHeaderAndFooterProperties(model, bundle);
 
-    @RequestMapping("/")
-    public String welcomeOne(HttpServletRequest request, ModelMap model)
-    {
-        Locale locale = RequestContextUtils.getLocale(request);
-        ResourceBundle bundle = ResourceBundle.getBundle("uiproperties", locale);
-        model = setHeaderAndFooterProperties(model, bundle);
-   
-        model.addAttribute("sectiontitle", bundle.getString("intro1.title"));
-        model.addAttribute("locale", locale.toString());
-        model.addAttribute("language", locale.getLanguage());
+		model.addAttribute("sectiontitle", bundle.getString("intro1.title"));
+		model.addAttribute("locale", locale.toString());
+		model.addAttribute("language", locale.getLanguage());
 
-        return "intro1";
-    }
+		return "intro1";
+	}
 
+    /*
     @RequestMapping("intro1")
     public String introViewOne(HttpServletRequest request, ModelMap model)
     {
@@ -829,83 +815,83 @@ public class GCWebArchiveController
         model.addAttribute("language", locale.getLanguage());
         return "olymp2014";
     }
-    
-    public ModelMap setHeaderAndFooterProperties(ModelMap model, ResourceBundle bundle) {
-        HeaderProperties headerProp = new HeaderProperties();
-        FooterProperties footerProp = new FooterProperties();
-        
-        //Following is for header properties
-        headerProp.setAltTitle(bundle.getString("header.govt.of.canada"));
-        headerProp.setImageURL(bundle.getString("header.image.url"));
-        headerProp.setCanadaURL(bundle.getString("header.canada.ca.link"));
-        headerProp.setServiceURL(bundle.getString("header.services.link"));
-        headerProp.setDept(bundle.getString("header.dept"));
-        headerProp.setHeaderDeptURL(bundle.getString("header.dept.link"));
-        headerProp.setSearch(bundle.getString("header.search"));
-        
-        //Following is for footer properteis
-        
-        footerProp.setTermsCond(bundle.getString("footer.terms.and.condition"));
-       footerProp.setTermsCondLink(bundle.getString("footer.terms.and.condition.link"));
-        footerProp.setTransparency(bundle.getString("footer.transparency"));
-        footerProp.setTranspLink(bundle.getString("footer.transparency.link"));
-        footerProp.setAboutUsTitle(bundle.getString("footer.about.us"));
-        footerProp.setAboutUsLink(bundle.getString("footer.about.us.link"));
-        footerProp.setOurMandate(bundle.getString("footer.mandate"));
-        footerProp.setOurMandLink(bundle.getString("footer.mandate.link"));
-        footerProp.setLibAndArch(bundle.getString("footer.librarian.and.archivist"));
-        
-        footerProp.setLibAndArchLink(bundle.getString("footer.librarian.and.archivist.link"));
-        footerProp.setServAndProg(bundle.getString("footer.service.and.program"));
-        footerProp.setServAndProgLink(bundle.getString("footer.service.and.program.link"));
-        footerProp.setLacEvents(bundle.getString("footer.lac.events"));
-        footerProp.setLacEventsLink(bundle.getString("footer.lac.events.link"));
-        
-        footerProp.setNewsTitle(bundle.getString("footer.news.title"));
-        footerProp.setNewsTitleLink(bundle.getString("footer.news.title.link"));
-        footerProp.setNewsRelease(bundle.getString("footer.news.release"));
-        footerProp.setNewsReleaseLink(bundle.getString("footer.news.release.link"));
-        footerProp.setSpeeches(bundle.getString("footer.speeches"));
-        footerProp.setSpeechesLink(bundle.getString("footer.speeches.link"));
-        footerProp.setPhotoGallery(bundle.getString("footer.photo.gallery"));
-        footerProp.setPhotoGalLink(bundle.getString("footer.photo.gallery.link"));
-        footerProp.setVideos(bundle.getString("footer.videos"));
-        footerProp.setVideosLink(bundle.getString("footer.videos.link"));
-        footerProp.setPodCasts(bundle.getString("footer.podcasts"));
-        footerProp.setPodCastsLink(bundle.getString("footer.podcasts.link"));
-
-        footerProp.setContactUsTitle(bundle.getString("footer.contactus.title"));
-        footerProp.setContactUsLink(bundle.getString("footer.contactus.title.link"));
-        footerProp.setAddress(bundle.getString("footer.address"));
-        footerProp.setAddressLink(bundle.getString("footer.address.link"));
-        footerProp.setTelephoneNums(bundle.getString("footer.telephone.numbers"));
-        footerProp.setTelephoneLink(bundle.getString("footer.telephone.numbers.link"));
-        footerProp.setEmails(bundle.getString("footer.emails"));
-        footerProp.setEmailLink(bundle.getString("footer.emails.link"));
-        footerProp.setFindAnEmployee(bundle.getString("footer.find.employee"));
-        footerProp.setFindEmployeeLink(bundle.getString("footer.find.employee.link"));
-
-        footerProp.setStayConnectedTitle(bundle.getString("footer.stay.connected.title"));
-        footerProp.setStayConnectedLink(bundle.getString("footer.stay.connected.title.link"));
-        footerProp.setRssFeed(bundle.getString("footer.rss.feed"));
-        footerProp.setRssFeedLink(bundle.getString("footer.rss.feed.link"));
-
-        footerProp.setHealthTitle(bundle.getString("footer.health.title"));
-        footerProp.setHealthTitleLink(bundle.getString("footer.health.title.link"));
-        footerProp.setTravelTitle(bundle.getString("footer.travel.title"));
-        footerProp.setTravelLink(bundle.getString("footer.travel.title.link"));
-        footerProp.setServiceCanadaTitle(bundle.getString("footer.service.canada.title"));
-        footerProp.setServCandaLink(bundle.getString("footer.service.canada.title.link"));
-        footerProp.setJobsTitle(bundle.getString("footer.jobs.title"));
-        footerProp.setJobsLink(bundle.getString("footer.jobs.title.link"));
-        footerProp.setEconomyTitle(bundle.getString("footer.economy.title"));
-        footerProp.setEconomyLink(bundle.getString("footer.economy.title.link"));
-        footerProp.setDateModified(bundle.getString("date.modified"));
-       
-        model.addAttribute("headerProp", headerProp);
-        model.addAttribute("footerProp", footerProp);
-        
-        return model;
-    }
     */
+	public Model setHeaderAndFooterProperties(Model model, ResourceBundle bundle) {
+		HeaderProperties headerProp = new HeaderProperties();
+		FooterProperties footerProp = new FooterProperties();
+
+		// Following is for header properties
+		headerProp.setAltTitle(bundle.getString("header.govt.of.canada"));
+		headerProp.setImageURL(bundle.getString("header.image.url"));
+		headerProp.setCanadaURL(bundle.getString("header.canada.ca.link"));
+		headerProp.setServiceURL(bundle.getString("header.services.link"));
+		headerProp.setDept(bundle.getString("header.dept"));
+		headerProp.setHeaderDeptURL(bundle.getString("header.dept.link"));
+		headerProp.setSearch(bundle.getString("header.search"));
+
+		// Following is for footer properties
+
+		footerProp.setTermsCond(bundle.getString("footer.terms.and.condition"));
+		footerProp.setTermsCondLink(bundle.getString("footer.terms.and.condition.link"));
+		footerProp.setTransparency(bundle.getString("footer.transparency"));
+		footerProp.setTranspLink(bundle.getString("footer.transparency.link"));
+		footerProp.setAboutUsTitle(bundle.getString("footer.about.us"));
+		footerProp.setAboutUsLink(bundle.getString("footer.about.us.link"));
+		footerProp.setOurMandate(bundle.getString("footer.mandate"));
+		footerProp.setOurMandLink(bundle.getString("footer.mandate.link"));
+		footerProp.setLibAndArch(bundle.getString("footer.librarian.and.archivist"));
+
+		footerProp.setLibAndArchLink(bundle.getString("footer.librarian.and.archivist.link"));
+		footerProp.setServAndProg(bundle.getString("footer.service.and.program"));
+		footerProp.setServAndProgLink(bundle.getString("footer.service.and.program.link"));
+		footerProp.setLacEvents(bundle.getString("footer.lac.events"));
+		footerProp.setLacEventsLink(bundle.getString("footer.lac.events.link"));
+
+		footerProp.setNewsTitle(bundle.getString("footer.news.title"));
+		footerProp.setNewsTitleLink(bundle.getString("footer.news.title.link"));
+		footerProp.setNewsRelease(bundle.getString("footer.news.release"));
+		footerProp.setNewsReleaseLink(bundle.getString("footer.news.release.link"));
+		footerProp.setSpeeches(bundle.getString("footer.speeches"));
+		footerProp.setSpeechesLink(bundle.getString("footer.speeches.link"));
+		footerProp.setPhotoGallery(bundle.getString("footer.photo.gallery"));
+		footerProp.setPhotoGalLink(bundle.getString("footer.photo.gallery.link"));
+		footerProp.setVideos(bundle.getString("footer.videos"));
+		footerProp.setVideosLink(bundle.getString("footer.videos.link"));
+		footerProp.setPodCasts(bundle.getString("footer.podcasts"));
+		footerProp.setPodCastsLink(bundle.getString("footer.podcasts.link"));
+
+		footerProp.setContactUsTitle(bundle.getString("footer.contactus.title"));
+		footerProp.setContactUsLink(bundle.getString("footer.contactus.title.link"));
+		footerProp.setAddress(bundle.getString("footer.address"));
+		footerProp.setAddressLink(bundle.getString("footer.address.link"));
+		footerProp.setTelephoneNums(bundle.getString("footer.telephone.numbers"));
+		footerProp.setTelephoneLink(bundle.getString("footer.telephone.numbers.link"));
+		footerProp.setEmails(bundle.getString("footer.emails"));
+		footerProp.setEmailLink(bundle.getString("footer.emails.link"));
+		footerProp.setFindAnEmployee(bundle.getString("footer.find.employee"));
+		footerProp.setFindEmployeeLink(bundle.getString("footer.find.employee.link"));
+
+		footerProp.setStayConnectedTitle(bundle.getString("footer.stay.connected.title"));
+		footerProp.setStayConnectedLink(bundle.getString("footer.stay.connected.title.link"));
+		footerProp.setRssFeed(bundle.getString("footer.rss.feed"));
+		footerProp.setRssFeedLink(bundle.getString("footer.rss.feed.link"));
+
+		footerProp.setHealthTitle(bundle.getString("footer.health.title"));
+		footerProp.setHealthTitleLink(bundle.getString("footer.health.title.link"));
+		footerProp.setTravelTitle(bundle.getString("footer.travel.title"));
+		footerProp.setTravelLink(bundle.getString("footer.travel.title.link"));
+		footerProp.setServiceCanadaTitle(bundle.getString("footer.service.canada.title"));
+		footerProp.setServCandaLink(bundle.getString("footer.service.canada.title.link"));
+		footerProp.setJobsTitle(bundle.getString("footer.jobs.title"));
+		footerProp.setJobsLink(bundle.getString("footer.jobs.title.link"));
+		footerProp.setEconomyTitle(bundle.getString("footer.economy.title"));
+		footerProp.setEconomyLink(bundle.getString("footer.economy.title.link"));
+		footerProp.setDateModified(bundle.getString("date.modified"));
+
+		model.addAttribute("headerProp", headerProp);
+		model.addAttribute("footerProp", footerProp);
+
+		return model;
+	}
+
 }
