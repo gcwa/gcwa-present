@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC 
+"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<!--  "jndi:/localhost/GCWebArchive/WEB-INF/lib/tiles-config_3_0.dtd"-->
+
+
+
+<tiles-definitions>
+		<definition name="mainTemplate2"
+		template="/WEB-INF/jsp/common/main_template2.jsp">
+		</definition>
+		<definition name="intro2" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/intro2.jsp"/>
+		</definition>
+		<definition name="search" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/search.jsp"/>
+		</definition>
+		<definition name="searchResult" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/searchResult.jsp"/>
+		</definition>
+		<definition name="advancesearch" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/advancesearch.jsp"/>
+		</definition>
+		<definition name="deptList" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/deptList.jsp"/>
+		</definition>
+		<definition name="deptWiseURL" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/deptWiseURL.jsp"/>
+		</definition>
+		<definition name="help" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/help.jsp"/>
+		</definition>
+		<definition name="faq" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/faq.jsp"/>
+		</definition>
+		<definition name="techdetails" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/techdetails.jsp"/>
+		</definition>
+		<definition name="comments" extends="mainTemplate2">
+			<put-attribute name="content" value="/WEB-INF/jsp/comments.jsp"/>
+		</definition>
+	</tiles-definitions>

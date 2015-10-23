@@ -1,0 +1,1 @@
+<h1> This if FAQ page</h1>
