@@ -38,7 +38,7 @@ import ca.gc.collectionscanada.model.HeaderProperties;
 import ca.gc.collectionscanada.model.OpenSearchParser;
 import ca.gc.collectionscanada.model.SearchItem;
 import ca.gc.collectionscanada.model.SearchParameters;
-import ca.gc.collectionscanada.repository.DepartmentDAO;
+import ca.gc.collectionscanada.repository.DepartmentRepository;
 import ca.gc.collectionscanada.repository.DepartmentWiseURLDAO;
 
 /**
@@ -55,7 +55,7 @@ public class GeneralController
     private MessageSource message;
 	
 	private Map<String, String> errorMessages = new HashMap<String, String>();    
-    protected final Log logger = LogFactory.getLog(GeneralController.class);
+    protected final Log logger = LogFactory.getLog(getClass());
 
     
 	@RequestMapping("/")
