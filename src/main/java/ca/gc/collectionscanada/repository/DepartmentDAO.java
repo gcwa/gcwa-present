@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.common.dao;
+package ca.gc.collectionscanada.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,10 +10,10 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Configuration;
 
-import ca.gc.collectionscanada.web.model.Department;
+import ca.gc.collectionscanada.model.Department;
 
 /**
- * This class is used to call database table DEPT, which will bring all the departments
+ * This class is used to call database table DEPT, which will bring ALL the departments
  *  
  * @author khatrz
  *

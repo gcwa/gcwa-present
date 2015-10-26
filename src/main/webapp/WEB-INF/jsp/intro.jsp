@@ -3,7 +3,7 @@
 <fmt:message key="intro1.message"> </fmt:message>
 <section class="gc-prtts">
     <div class="row">
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md"><a href="deptList"">
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md"><a href="collection/gcwa"">
         <h3 class="h5"><fmt:message key="section.gcwebarchive.title"></fmt:message> </h3>
         <img src="${pageContext.request.contextPath}/resources/assets/gcwa_parl.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm"></a>
         <p><fmt:message key="section.gcwebarchive"></fmt:message></p>

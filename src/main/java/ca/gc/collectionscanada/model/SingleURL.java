@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.web.model;
+package ca.gc.collectionscanada.model;
 
 public class SingleURL {
 	String urlId;

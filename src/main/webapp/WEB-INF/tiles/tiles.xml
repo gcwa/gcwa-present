@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC 
+"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+<tiles-definitions>
+		
+	<!-- Templates -->
+	<definition name="mainTemplate1"
+		template="/WEB-INF/jsp/common/main_template1.jsp">
+	</definition>
+	
+	<!-- Pages -->
+	
+	<definition name="intro" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/intro.jsp"/>
+	</definition>
+	
+	<definition name="search" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/search.jsp"/>
+	</definition>
+	
+	<definition name="searchResult" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/searchResult.jsp"/>
+	</definition>
+	
+	<definition name="advancesearch" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/advancesearch.jsp"/>
+	</definition>
+	
+	<definition name="deptList" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/deptList.jsp"/>
+	</definition>
+	
+	<definition name="deptWiseURL" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/deptWiseURL.jsp"/>
+	</definition>
+	
+	<definition name="help" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/help.jsp"/>
+	</definition>
+	
+	<definition name="faq" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/faq.jsp"/>
+	</definition>
+	
+	<definition name="techdetails" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/techdetails.jsp"/>
+	</definition>
+	
+	<definition name="comments" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/comments.jsp"/>
+	</definition>
+	
+	<definition name="elections" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/elections.jsp"/>
+	</definition>
+	
+	<definition name="elect2006" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/elect2006.jsp"/>
+	</definition>
+	
+	<definition name="elect2008" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/elect2008.jsp"/>
+	</definition>
+	
+	<definition name="elect2011" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/elect2011.jsp"/>
+	</definition>
+	
+	<definition name="raildisaster" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/raildisaster.jsp"/>
+	</definition>
+	
+	<definition name="olympics" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olympics.jsp"/>
+	</definition>
+	
+	<definition name="olymp2006" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olymp2006.jsp"/>
+	</definition>
+	
+	<definition name="olymp2008" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olymp2008.jsp"/>
+	</definition>
+	
+	<definition name="olymp2010" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olymp2010.jsp"/>
+	</definition>
+	
+	<definition name="olymp2012" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olymp2012.jsp"/>
+	</definition>
+	
+	<definition name="olymp2014" extends="mainTemplate1">
+		<put-attribute name="content" value="/WEB-INF/jsp/olymp2014.jsp"/>
+	</definition>
+	
+</tiles-definitions>

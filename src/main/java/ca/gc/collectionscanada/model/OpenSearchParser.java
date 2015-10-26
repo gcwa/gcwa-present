@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.web.model;
+package ca.gc.collectionscanada.model;
 
 import java.util.List;
 import java.util.Map;

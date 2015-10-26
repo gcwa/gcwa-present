@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
-import ca.gc.collectionscanada.common.dao.CrawlJobDetailDAO;
+import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
 
 /**
  * This class takes one argument during runtime,

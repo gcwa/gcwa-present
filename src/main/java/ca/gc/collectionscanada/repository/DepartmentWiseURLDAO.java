@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.common.dao;
+package ca.gc.collectionscanada.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,12 +13,12 @@ import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Configuration;
 
-import ca.gc.collectionscanada.web.model.DepartmentWiseURLs;
-import ca.gc.collectionscanada.web.model.SingleURL;
+import ca.gc.collectionscanada.model.DepartmentWiseURLs;
+import ca.gc.collectionscanada.model.SingleURL;
 
 /**
  * This class is used to join DEPT and SEED_LIST table also DEPT_WISE_SEED,
- * see below for sql
+ * which will bring all the departments WITH seeds
  * @author khatrz
  *
  */

@@ -11,9 +11,9 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ca.gc.collectionscanada.web.model.Department;
-import ca.gc.collectionscanada.web.model.DepartmentWiseURLs;
-import ca.gc.collectionscanada.web.model.SingleURL;
+import ca.gc.collectionscanada.model.Department;
+import ca.gc.collectionscanada.model.DepartmentWiseURLs;
+import ca.gc.collectionscanada.model.SingleURL;
 
 public class SortUtility {
 	protected static final Log logger = LogFactory.getLog(SortUtility.class);

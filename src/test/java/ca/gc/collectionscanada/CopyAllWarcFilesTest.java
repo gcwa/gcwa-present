@@ -10,7 +10,7 @@ import java.nio.channels.FileChannel;
 import java.sql.SQLException;
 import java.util.List;
 
-import ca.gc.collectionscanada.common.dao.CrawlJobDetailDAO;
+import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
 
 public class CopyAllWarcFilesTest {
 	public static void main (String k []) throws ClassNotFoundException, SQLException, IOException {

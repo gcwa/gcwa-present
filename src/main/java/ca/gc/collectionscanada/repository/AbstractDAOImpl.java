@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.common.dao;
+package ca.gc.collectionscanada.repository;
 
 import java.util.List;
 

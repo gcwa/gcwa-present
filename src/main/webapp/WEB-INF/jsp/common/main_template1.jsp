@@ -178,13 +178,12 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 				<ul class="list-group menu list-unstyled">
 					<li>
 						<ul class="list-group menu list-unstyled">
-							<li><a class="list-group-item" href="intro1"><fmt:message
+							<li><a class="list-group-item" href="${pageContext.request.contextPath}/intro"><fmt:message
 										key="intro1.title">
 									</fmt:message></a></li>
-							<li> <a class="list-group-item" href="search"><fmt:message	key="search.basicsearch.title">	</fmt:message></a> </li>
-							<li> <a class="list-group-item" href="advancesearch"><fmt:message	key="search.advancesearch.title">	</fmt:message></a> </li>
-							<li><a class="list-group-item" href="help"><fmt:message key="help.title"> </fmt:message></a></li>
-							<li><a class="list-group-item" href="comments"><fmt:message key="comments.title"> </fmt:message></a></li>
+							<li> <a class="list-group-item" href="<%=request.getContextPath()%>/search"><fmt:message	key="search.basicsearch.title">	</fmt:message></a> </li>
+							<li><a class="list-group-item" href="<%=request.getContextPath()%>/help"><fmt:message key="help.title"> </fmt:message></a></li>
+							<li><a class="list-group-item" href="<%=request.getContextPath()%>/comments"><fmt:message key="comments.title"> </fmt:message></a></li>
 							
 						</ul>
 					</li>

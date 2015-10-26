@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.common.config;
+package ca.gc.collectionscanada.config;
 
 import java.util.Properties;
 

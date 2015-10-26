@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.web.model;
+package ca.gc.collectionscanada.model;
 
 /**
  * This class represents a row in DEPT database table of schema,

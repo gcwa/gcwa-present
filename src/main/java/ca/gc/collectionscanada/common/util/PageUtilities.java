@@ -16,7 +16,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import ca.gc.collectionscanada.common.config.GCWebArchiveConfig;
+import ca.gc.collectionscanada.config.GCWebArchiveConfig;
 
 /**
  * Page utility class to convert encoding, create previous and next link for navigation of search results
