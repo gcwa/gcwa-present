@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada;
+package ca.gc.collectionscanada.misc;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,9 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.List;
-
-import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
 
 /**
  * This class takes one argument during runtime,
@@ -16,24 +13,21 @@ import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
  * This class will be packaged in a jar file which will be executed in one of the index servers
  * where /u/webardb01 is accessible.
  * Usage will be as follows:
- * java -jar CreateIndexesFromTheme.jar "5"
+ * java -jar CreateIndexesFromCrawlJobNbr.jar "5"
  * 
  * 
  * @author khatrz
  *
  */
-public class CreateIndexesFromTheme {
+public class CreateIndexesFromCrawlJobNbr {
 public static void main (String k []) throws ClassNotFoundException, SQLException, IOException, InterruptedException {
 		
-		List<String> mockList = CrawlJobDetailDAO.retrieveCrawlJobList(k[0]);
+		String crawl_Job = (k[0]);
 		
-		System.out.println("The size of a crawl job list is =" + mockList.size());
 		int counter = 0;
 		
-		for(String crawlJobs: mockList) {
 			
-			
-			File newFile = new File("/u/webarcdb01/"+crawlJobs+"/arcs/path-index.txt");
+			File newFile = new File("/u/webarcdb01/"+crawl_Job+"/arcs/path-index.txt");
 			
 			System.out.println("The file path = " + newFile.getPath());
 			
@@ -144,5 +138,4 @@ public static void main (String k []) throws ClassNotFoundException, SQLExceptio
 		
 		System.out.println("Command 7 completed");
 	}	*/
-}
 }

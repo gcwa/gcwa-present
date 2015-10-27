@@ -184,17 +184,6 @@ public class PageUtilities
         return buf.toString();
     }
 
-/*    public static String getViewNameFromServletPath(String servletPath) {
-        if (servletPath.equals("/index-e.html"))
-            return GCWebArchiveConstants.DEFAULT_ENGLISH_VIEW_NAME;
-        else if (servletPath.equals("/index-f.html"))
-            return GCWebArchiveConstants.DEFAULT_FRENCH_VIEW_NAME;
-
-        if (servletPath.startsWith("/"))
-            servletPath = servletPath.substring(1);
-        String[] pathPieces = servletPath.split("/");
-        return pathPieces[0];
-    }*/
 
     public static String wrapText(String aString) {
         return wrapText(aString, DEFAULT_WRAP_SIZE);

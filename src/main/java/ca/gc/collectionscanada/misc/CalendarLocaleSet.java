@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada;
+package ca.gc.collectionscanada.misc;
 
 import java.util.Calendar;
 import java.util.Locale;
