@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import ca.gc.collectionscanada.common.util.SortUtility;
 import ca.gc.collectionscanada.model.Department;
+import ca.gc.collectionscanada.model.DepartmentWiseURLs;
 import ca.gc.collectionscanada.repository.DepartmentRepository;
+import ca.gc.collectionscanada.repository.DepartmentWiseURLDAO;
 
 /**
  *
@@ -27,9 +29,10 @@ public class CollectionController
 	/**
     @Autowired
 	private GCWebArchiveConfig config;
+	*/
+	
     @Autowired
     private DepartmentWiseURLDAO deptWiseDAO;
-    */
 
     @Autowired
     private DepartmentRepository deptDAO;
@@ -78,12 +81,11 @@ public class CollectionController
         return "deptList";
     }
 
-    /*
+    
     @RequestMapping(value="deptWiseURL")
     public String deptWiseListView(HttpServletRequest request, Model model, Locale locale)
     {
         logger.info("SERVLET PATH="+request.getServletPath());
-        Locale locale = RequestContextUtils.getLocale(request);
         DepartmentWiseURLs masterArray[] = deptWiseDAO.retrieveArray();
         String letters[] = {
             "[0-9]", "A", "B", "C", "D", "E", "F", "G", "H", "I", 
@@ -96,7 +98,7 @@ public class CollectionController
         {
             for(int i = 0; i < letters.length; i++)
             {
-                ca.gc.collectionscanada.web.model.DepartmentWiseURLs array[] = SortUtility.sortDeptAlphabeticallyEng(masterArray, letters[i]);
+                DepartmentWiseURLs array[] = SortUtility.sortDeptAlphabeticallyEng(masterArray, letters[i]);
                 departmentWiseURLs.add(array);
             }
 
@@ -104,23 +106,21 @@ public class CollectionController
         {
             for(int i = 0; i < letters.length; i++)
             {
-                ca.gc.collectionscanada.web.model.DepartmentWiseURLs array[] = SortUtility.sortDeptAlphabeticallyFr(masterArray, letters[i]);
+                DepartmentWiseURLs array[] = SortUtility.sortDeptAlphabeticallyFr(masterArray, letters[i]);
                 departmentWiseURLs.add(array);
             }
 
         }
         departmentWiseURLs.toArray(fromAtoZ);
-        ResourceBundle bundle = ResourceBundle.getBundle("uiproperties", locale);
-        model = setHeaderAndFooterProperties(model, bundle);
 
-        model.addAttribute("sectiontitle", bundle.getString("url.list.title"));
+        model.addAttribute("sectiontitle", message.getMessage("url.list.title", null, locale));
         model.addAttribute("locale", locale);
         model.addAttribute("language", locale.getLanguage());
         model.addAttribute("letters", letters);
         model.addAttribute("fromAtoZ", fromAtoZ);
         return "deptWiseURL";
     }
-*/
+
     
     /*
     
