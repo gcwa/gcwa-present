@@ -182,6 +182,7 @@ wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licenc
 										key="intro1.title">
 									</fmt:message></a></li>
 							<li> <a class="list-group-item" href="<%=request.getContextPath()%>/search"><fmt:message	key="search.basicsearch.title">	</fmt:message></a> </li>
+							<li> <a class="list-group-item" href="<%=request.getContextPath()%>/search/advanced"><fmt:message	key="search.advancesearch.title">	</fmt:message></a> </li>
 							<li><a class="list-group-item" href="<%=request.getContextPath()%>/help"><fmt:message key="help.title"> </fmt:message></a></li>
 							<li><a class="list-group-item" href="<%=request.getContextPath()%>/comments"><fmt:message key="comments.title"> </fmt:message></a></li>
 							
