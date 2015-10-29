@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+<div class="wb-frmvld">
+	<form method="get" action="#">
+		<p th:text="#{search.advancedsearch.message}"></p>
+		<div class="form-group">
+			<label for="data1" class="required"><span class="field-name" th:text="#{search.advancedsearch.contains}"></span> </label> <input
+				class="form-control" id="data1" name="containWord" type="text"
+				required="required" pattern=".{2,}" data-rule-minlength="2" />
+		</div>
+
+		<div class="form-group">
+			<label for="data2"><span class="field-name" th:text="#{search.advancedsearch.donotcontains}"></span> </label> <input
+				class="form-control" id="data2" name="notContainWord" type="text" />
+		</div>
+
+		<div class="form-group">
+			<label for="data3"><span class="field-name" th:text="#{search.advancedsearch.betweendates}"></span> </label>
+
+			<div class="form-group">
+				<label for="startdate">
+				<span th:text="#{search.advancedsearch.startdate}"></span>
+				<span class="datepicker-format"> (<abbr
+					title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)
+				</span>
+				</label>
+				<input class="form-control" type="date" id="startdate"
+					name="startDate" min="2005-01-01" />
+			</div>
+					
+			<div class="form-group">
+				<label for="enddate">
+				<span th:text="#{search.advancedsearch.enddate}"></span>
+				<span class="datepicker-format"> (<abbr
+					title="Four digits year, dash, two digits month, dash, two digits day">YYYY-MM-DD</abbr>)
+				</span>
+				</label>
+				<input class="form-control" type="date" id="enddate" name="endDate" min="2005-01-01"/>
+			</div>
+
+			<!-- Enter Start date and end date -->
+		</div>
+		<div class="form-group">
+			<label for="title1"><span class="field-name" th:text="#{search.advancedsearch.type}"></span> </label> <select
+				class="form-control" id="title1" name="type">
+				<option label="#{search.advancedsearch.type.label}"></option>
+				<option value="image" th:text="#{search.advancedsearch.type.image}">
+				</option>
+				<option value="video" th:text="#{search.advancedsearch.type.video}">
+				</option>
+				<option value="pdf" th:text="#{search.advancedsearch.type.pdf}">
+				</option>
+				<option value="msword" th:text="#{search.advancedsearch.type.doc}">
+				</option>
+				<option value="html" th:text="#{search.advancedsearch.type.html}">
+				</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="data4"><span class="field-name" th:text="#{search.advancedsearch.website}"></span> </label> <input
+				class="form-control" id="data4" name="fromWebsite" type="text" />
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary" th:text="#{button.submit}">Submit
+			</button>
+			<input type="reset"
+				value="Reset"
+				th:value="#{button.reset}"
+				class="btn btn-default" />
+		</div>
+	</form>
+</div>
+
+</main>
+</html>

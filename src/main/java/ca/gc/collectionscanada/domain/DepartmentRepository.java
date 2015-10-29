@@ -1,24 +1,13 @@
-package ca.gc.collectionscanada.repository;
+package ca.gc.collectionscanada.domain;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.sql.DataSource;
-
-import org.glassfish.jersey.server.spring.AutowiredInjectResolver;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
-import ca.gc.collectionscanada.model.Department;
 
 /**
  * This class is used to call database table DEPT, which will bring ALL the departments

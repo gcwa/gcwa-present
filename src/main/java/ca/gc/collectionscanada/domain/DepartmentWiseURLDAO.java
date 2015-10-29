@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.repository;
+package ca.gc.collectionscanada.domain;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,10 +17,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
-
-import ca.gc.collectionscanada.model.Department;
-import ca.gc.collectionscanada.model.DepartmentWiseURLs;
-import ca.gc.collectionscanada.model.SingleURL;
 
 /**
  * This class is used to join DEPT and SEED_LIST table also DEPT_WISE_SEED,

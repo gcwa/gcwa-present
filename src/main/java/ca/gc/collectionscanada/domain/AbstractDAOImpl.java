@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.repository;
+package ca.gc.collectionscanada.domain;
 
 import java.util.List;
 

@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<div class="wb-frmvld">
+	<form method="get" action="#" id="validation-example">
+		<div class="form-group">
+ 			<label for="data1"> </label> <input
+				class="form-control" id="data1" name="containWord" type="text"
+				required="required" pattern=".{2,}" data-rule-minlength="2" />
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary" th:text="#{button.submit}">
+			</button>
+			<input type="reset"
+				th:value="#{button.reset}"
+				class="btn btn-default" />
+		</div>
+		<div>
+			<p th:utext="#{search.message}" />
+		</div>
+	</form>
+</div>
+
+</main>
+</html>

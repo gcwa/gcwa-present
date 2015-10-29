@@ -1,88 +1,38 @@
 package ca.gc.collectionscanada.web;
 
-import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * This is the main common controller class which will be called everytime during navigation
- * of GC Web Archive portal. This class provides all mappings required for this web application
- * 
- * @author khatrz
- *
- */
 @Controller
-public class GeneralController
-{
+public class GeneralController {
 	@Autowired
-    private MessageSource message;
-	
-	private Map<String, String> errorMessages = new HashMap<String, String>();    
-    protected final Log logger = LogFactory.getLog(getClass());
+	private MessageSource message;
 
-    
+	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
+
 	@RequestMapping("/")
-	public String welcomeOne(HttpServletRequest request, Model model, Locale locale) {
-		model.addAttribute("sectiontitle", message.getMessage("intro1.title", null, locale));
-		model.addAttribute("locale", locale.toString());
-		model.addAttribute("language", locale.getLanguage());
-		return "intro";
+	public String home(Model model, Locale locale) {
+		log.info("Homepage requested");
+		model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
+		return "home";
 	}
 
-    @RequestMapping("/intro")
-    public String introViewOne(HttpServletRequest request, Model model, Locale locale)
-    {
-        logger.info((new StringBuilder()).append("SERVLET PATH=").append(request.getServletPath()).toString());
-        
-        model.addAttribute("sectiontitle", message.getMessage("intro1.title", null, locale));
-        model.addAttribute("locale", locale.toString());
-        model.addAttribute("language", locale.getLanguage());
-        return "intro";
-    }
-    
-    @RequestMapping(value="/help")
-    public String helpView(HttpServletRequest request, Model model, Locale locale)
-    {
-        logger.info("SERVLET PATH="+request.getServletPath());
-        model.addAttribute("sectiontitle", message.getMessage("help.title", null, locale));
-        model.addAttribute("language", locale.getLanguage());
-        return "help";
-    }
+	@RequestMapping("/help")
+	public String helpView(Model model, Locale locale) {
+		model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));
+		return "help";
+	}
 
-    @RequestMapping(value="/faq")
-    public String faqView(HttpServletRequest request, Model model, Locale locale)
-    {
-        logger.info((new StringBuilder()).append("SERVLET PATH=").append(request.getServletPath()).toString());
-        model.addAttribute("language", locale.getLanguage());
-        model.addAttribute("sectiontitle", message.getMessage("faq.title", null, locale));
-        return "faq";
-    }
-
-    @RequestMapping(value="/techdetails")
-    public String techDetailsView(HttpServletRequest request, Model model, Locale locale)
-    {
-        logger.info((new StringBuilder()).append("SERVLET PATH=").append(request.getServletPath()).toString());
-        model.addAttribute("language", locale.getLanguage());
-        model.addAttribute("sectiontitle", message.getMessage("tech.detail.title", null, locale));
-        return "techdetails";
-    }
-
-    @RequestMapping(value="/comments")
-    public String commentView(HttpServletRequest request, Model model, Locale locale)
-    {
-        logger.info((new StringBuilder()).append("SERVLET PATH=").append(request.getServletPath()).toString());
-        model.addAttribute("language", locale.getLanguage());
-        model.addAttribute("sectiontitle", message.getMessage("comments.title", null, locale));
-        return "comments";
-    }
+	@RequestMapping("/comments")
+	public String commentView(Model model, Locale locale) {
+		model.addAttribute("sectionTitle", message.getMessage("comments.title", null, locale));
+		return "comments";
+	}
 }

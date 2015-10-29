@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
+import ca.gc.collectionscanada.domain.CrawlJobDetailDAO;
 
 public class WritePathText {
 	public static void main(String k[]) throws ClassNotFoundException, SQLException, IOException{

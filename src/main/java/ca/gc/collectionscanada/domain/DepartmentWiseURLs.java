@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.model;
+package ca.gc.collectionscanada.domain;
 
 /**
  * This class represents a Department wise URLs

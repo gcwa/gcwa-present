@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+<div>
+ 	<h2 th:text="#{search.title}">Search GCWA</h2>
+		<p th:utext="#{search.message}"></p>	
+ 
+ 	<h2 th:text="#{help.resultlist.title}">Results List</h2>
+		<p th:utext="#{help.resultlist.message}"></p>
+		 <h3 th:text="#{help.viewpage.title}"></h3>
+			<p th:utext="#{help.viewpage.message}"></p>
+		 <h3 th:text="#{help.otherver.title}"></h3>
+			<p th:utext="#{help.otherver.message}"></p>
+		 <h3 th:text="#{help.morefrom.title}"></h3>
+			<p th:utext="#{help.morefrom.message}"></p>
+
+</div>
+<div th:replace="fragment/datemodified"></div>
+</main>
+</html>

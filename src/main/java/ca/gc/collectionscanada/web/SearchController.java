@@ -4,15 +4,15 @@ import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ca.gc.collectionscanada.model.SearchParameters;
+import ca.gc.collectionscanada.domain.SearchParameters;
 
 /**
  *
@@ -24,17 +24,26 @@ public class SearchController
 	@Autowired
     private MessageSource message;
 	
-    protected final Log logger = LogFactory.getLog(getClass());
+    private final Logger log = LoggerFactory.getLogger(SearchController.class);
 
     @RequestMapping
     public String searchView(HttpServletRequest request, Model model, Locale locale)
     {
-        logger.info((new StringBuilder()).append("SERVLET PATH=").append(request.getServletPath()).toString());
+        log.info((new StringBuilder()).append("PATH=").append(request.getServletPath()).toString());
         
-        model.addAttribute("sectiontitle", message.getMessage("search.basicsearch.title", null, locale));
-        model.addAttribute("language", locale.getLanguage());
+        model.addAttribute("sectionTitle", message.getMessage("search.basicsearch.title", null, locale));
         model.addAttribute("newSearch", new SearchParameters());
         return "search";
+    }
+    
+    @RequestMapping(value="/advanced")
+    public String advanceSearchView(HttpServletRequest request, Model model, Locale locale)
+    {
+        log.info((new StringBuilder()).append("PATH=").append(request.getServletPath()).toString());
+
+        model.addAttribute("sectionTitle", message.getMessage("search.advancedsearch.title", null, locale));
+        model.addAttribute("newSearch", new SearchParameters());
+        return "advancedsearch";
     }
     
 /*

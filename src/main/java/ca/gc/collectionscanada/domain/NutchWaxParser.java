@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.model;
+package ca.gc.collectionscanada.domain;
 
 import java.io.IOException;
 import java.net.ConnectException;

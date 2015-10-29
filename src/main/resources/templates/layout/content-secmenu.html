@@ -1,0 +1,240 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="#{locale.language}" dir="ltr"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
+<title>Government of Canada Web Archive</title>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+<!-- Meta data -->
+<meta name="description" content="Web Experience Toolkit (WET) includes reusable components for building and maintaining innovative Web sites that are accessible, usable, and interoperable. These reusable components are open source software and free for use by departments and external Web communities" />
+<meta name="dcterms.title" content="Working examples - Web Experience Toolkit" />
+<meta name="dcterms.creator" content="French name of the content author / Nom en français de l'auteur du contenu" />
+<meta name="dcterms.issued" title="W3CDTF" content="Date published (YYYY-MM-DD) / Date de publication (AAAA-MM-JJ)" />
+<meta name="dcterms.modified" title="W3CDTF" content="Date modified (YYYY-MM-DD) / Date de modification (AAAA-MM-JJ)" />
+<meta name="dcterms.subject" title="scheme" content="French subject terms / Termes de sujet en français" />
+<meta name="dcterms.language" title="ISO639-2" content="eng" />
+<!--[if gte IE 9 | !IE ]><!-->
+<link th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/assets/favicon.ico}" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css}" />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/assets/favicon.ico}" rel="shortcut icon" />
+<link rel="stylesheet" href="@{/theme-gcwu-fegc/theme-gcwu-fegc/css/ie8-theme-sp-pe.min.css}" />
+<script th:src="@{/theme-gcwu-fegc/js/jquery/1.11.1/jquery.min.js"></script>
+<script th:src="@{/theme-gcwu-fegc/wet-boew/js/theme.min.js}"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" th:href="@{/theme-gcwu-fegc/wet-boew/css/noscript.min.css}" /></noscript>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+<li class="wb-slc visible-md visible-lg">
+<a class="wb-sl" href="#wb-sec">Skip to section menu</a>
+</li>
+</ul>
+
+<header role="banner">
+		<div id="wb-bnr">
+			<div id="wb-bar">
+				<div class="container">
+					<div class="row">
+					<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/theme-gcwu-fegc/assets/sig-en.svg}" aria-label="Government of Canada"></object>
+					<ul id="gc-bar" class="list-inline">
+					<li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
+					<li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
+					<li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
+					<li id="wb-lng"><h2>Language selection</h2>
+					<ul class="list-inline">
+					<li><a lang="fr" href="#" th:text="#{header.language}"></a></li>
+					</ul>
+					</li>
+					</ul>
+					
+						<section class="wb-mb-links col-xs-12 visible-sm visible-xs"
+							id="wb-glb-mn">
+							<h2>Search and menus</h2>
+							<ul class="pnl-btn list-inline text-right">
+								<li><a href="#mb-pnl" title="Search and menus"
+									aria-controls="mb-pnl"
+									class="overlay-lnk btn btn-sm btn-default" role="button"><span
+										class="glyphicon glyphicon-search"><span
+											class="glyphicon glyphicon-th-list"><span
+												class="wb-inv">Search and menus</span></span></span></a></li>
+							</ul>
+							<div id="mb-pnl"></div>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div id="wb-sttl" class="col-md-5">
+						<a th:href="@{/}"> <span th:text="#{main.title}"></span>
+						</a>
+					</div>
+					<object id="wmms" type="image/svg+xml" tabindex="-1" role="img"
+						th:data="@{/theme-gcwu-fegc/assets/wmms.svg}"
+						aria-label="Symbol of the Government of Canada"></object>
+					<section id="wb-srch" class="visible-md visible-lg">
+						<h2>Search</h2>
+						<form action="https://google.ca/search" method="get" role="search"
+							class="form-inline">
+							<div class="form-group">
+								<label for="wb-srch-q">Search website</label> <input
+									id="wb-srch-q" class="form-control" name="q" type="search"
+									value="" size="27" maxlength="150" /> <input
+									type="hidden" name="q"
+									value="site:wet-boew.github.io OR site:github.com/wet-boew/" />
+							</div>
+							<button type="submit" id="wb-srch-sub" class="btn btn-default" th:text="#{header.search}">Search</button>
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
+		
+		<nav role="navigation" id="wb-bc" property="breadcrumb">
+			<h2>You are here:</h2>
+			<div class="container">
+				<div class="row">
+					<ol class="breadcrumb">
+						<li><a th:href="'http://www.collectionscanada.gc.ca/index-' + (${#locale.language} == 'en' ? 'e' : 'f') +'.html'" th:text="#{link.home}">Home</a></li>
+ 						<li><a th:href="@{/}" th:text="#{main.title}">main title</a></li>
+						<li th:text="${sectionTitle}">Section Title</li>
+					</ol>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<div class="row">
+		<main role="main" property="mainContentOfPage"
+				class="col-md-9 col-md-push-3"
+				layout:fragment="content">
+			
+				<!-- dummy text -->			
+				<h1>Static content for prototyping purposes only</h1>
+				<p>
+				  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				  Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+				  Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				  Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+				  Phasellus et placerat elit.
+				</p>
+			
+			</main>
+
+			<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
+				
+				<ul class="list-group menu list-unstyled">
+					<li>
+						<ul class="list-group menu list-unstyled">
+							<li><a class="list-group-item" th:href="@{/}" th:text="#{intro1.title}">intro</a></li>
+							<li><a class="list-group-item" th:href="@{/search}" th:text="#{search.basicsearch.title}">search</a></li>
+							<li><a class="list-group-item" th:href="@{/search/advanced}" th:text="#{search.advancedsearch.title}">advancedsearch</a></li>
+							<li><a class="list-group-item" th:href="@{/help}" th:text="#{help.title}">help</a></li>
+							<li><a class="list-group-item" th:href="@{/comments}" th:text="#{comments.title}">comments</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+			
+		</div>
+	</div>
+	
+	
+	<footer role="contentinfo" id="wb-info"
+		class="visible-sm visible-md visible-lg wb-navcurr">
+		<div class="container">
+			<nav role="navigation">
+				<h2>About this site</h2>
+				<ul id="gc-tctr" class="list-inline">
+					<li><a rel="license"
+						th:href="#{footer.terms.and.condition.link}" 
+						th:text="#{footer.terms.and.condition}"></a></li>
+					<li><a
+						th:href="#{footer.transparency.link}"
+						th:text="#{footer.transparency}"></a></li>
+				</ul>
+				<div class="row">
+					<section class="col-sm-3">
+						<h3><a th:href="#{footer.about.us.link}" th:text="#{footer.about.us}">About Us</a></h3>
+						<ul class="list-unstyled">
+							<li><a th:href="#{footer.mandate.link}" th:text="#{footer.mandate}"></a></li>
+							<li><a th:href="#{footer.librarian.and.archivist.link}" th:text="#{footer.librarian.and.archivist}"></a></li>
+							<li><a th:href="#{footer.service.and.program.link}" th:text="#{footer.service.and.program}"></a></li>
+							<li><a th:href="#{footer.lac.events.link}" th:text="#{footer.lac.events}"></a></li>
+						</ul>
+					</section>
+					<section class="col-sm-3">
+						<h3><a th:href="#{footer.news.title.link}" th:text="#{footer.news.title}">News</a></h3>
+						<ul class="list-unstyled">
+							<li><a th:href="#{footer.news.release.link}" th:text="#{footer.news.release}"></a></li>
+							<li><a th:href="#{footer.speeches.link}" th:text="#{footer.speeches}"></a></li>
+							<li><a th:href="#{footer.photo.gallery.link}" th:text="#{footer.photo.gallery}"></a></li>
+							<li><a th:href="#{footer.videos.link}" th:text="#{footer.videos}"></a></li>
+							<li><a th:href="#{footer.podcasts.link}" th:text="#{footer.podcasts}"></a></li>
+						</ul>
+					</section>
+					<section class="col-sm-3">
+						<h3><a th:href="#{footer.contactus.title.link}" th:text="#{footer.contactus.title}">Contact Us</a></h3>
+						<ul class="list-unstyled">
+							<li><a th:href="#{footer.address.link}" th:text="#{footer.address}"></a></li>
+							<li><a th:href="#{footer.telephone.numbers.link}" th:text="#{footer.telephone.numbers}"></a></li>
+							<li><a th:href="#{footer.email.link}" th:text="#{footer.emails}"></a></li>
+							<li><a th:href="#{footer.find.employee.link}" th:text="#{footer.find.employee}"></a></li>
+						</ul>
+					</section>
+					<section class="col-sm-3">
+						<h3> <a th:href="#{footer.stay.connected.title.link}" th:text="#{footer.stay.connected.title}">Stay Connected</a></h3>
+						<ul class="list-unstyled">
+							<li><a href="http://www.flickr.com/photos/lac-bac/collections/">Flickr </a></li>
+							<li><a href="https://twitter.com/@LibraryArchives">Twitter </a></li>
+							<li><a href="http://www.facebook.com/pages/Library-and-Archives-Canada/383985531647785"> Facebook </a></li>
+							<li><a href="http://www.youtube.com/user/LibraryArchiveCanada/">Youtube</a></li>
+							<li><a th:href="#{footer.rssFeedLink}" th:text="#{footer.rssFeed}"></a></li>
+						</ul>
+					</section>
+				</div>
+			</nav>
+		</div>
+		<div id="gc-info">
+			<div class="container">
+				<nav role="navigation">
+					<h2>Government of Canada footer</h2>
+					<ul class="list-inline">
+						<li><a th:href="#{footer.health.title.link}"><span th:text="#{footer.health.title}"></span></a></li>
+						<li><a th:href="#{footer.travel.title.link}"><span th:text="#{footer.travel.title}"></span></a></li>
+						<li><a th:href="#{footer.service.canada.title.link}"><span th:text="#{footer.service.canada.title}"></span></a></li>
+						<li><a th:href="#{footer.jobs.title.link}"><span th:text="#{footer.jobs.title}"></span></a></li>
+						<li><a th:href="#{footer.economy.title.link}"><span th:text="#{footer.economy.title}"></span></a></li>
+						<li id="canada-ca"><a
+							th:href="#{header.canada.ca.link}">Canada.ca</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</footer>
+	
+<!--[if gte IE 9 | !IE ]><!-->
+<script th:src="@{/theme-gcwu-fegc/js/jquery/2.1.4/jquery.min.js}"></script>
+<script th:src="@{/theme-gcwu-fegc/wet-boew/js/wet-boew.min.js}"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script th:src="@{/theme-gcwu-fegc/wet-boew/js/ie8-wet-boew2.min.js}"></script>
+
+<![endif]-->
+<script th:src="@{/theme-gcwu-fegc/theme-gcwu-fegc/js/theme.min.js}"></script>
+			
+</body>
+</html>

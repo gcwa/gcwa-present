@@ -1,0 +1,41 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+<p th:text="#{intro1.message}"></p>
+<section class="gc-prtts">
+    
+    <div class="row">
+
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+        <h2>
+        <a href="collection/gcwa" th:text="#{section.federal.title}">
+        <img src="/resources/assets/gcwa_parl.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
+        </a></h2>
+        <p th:text="#{section.federal.desc}"></p>
+      </section>
+
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+        <h2>
+        <a href="elections" th:text="#{section.federal.title}">
+        <img src="/resources/assets/ballot_box.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" /></a>
+        </h2>
+		<p th:text="#{section.provincial.desc}"></p>
+      </section>
+
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+        <h2>
+        <a href="raildisaster" th:text="#{section.curated.title}">
+        <img src="/resources/assets/lac-megantic.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" /></a>
+        </h2>
+        <p th:text="#{section.curated.desc}"></p>	
+      </section>
+
+    </div>
+
+  </section>
+  <div th:replace="fragment/datemodified"></div>
+</main>
+</html>

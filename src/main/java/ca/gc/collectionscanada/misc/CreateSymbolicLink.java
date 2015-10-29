@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
 
-import ca.gc.collectionscanada.repository.CrawlJobDetailDAO;
+import ca.gc.collectionscanada.domain.CrawlJobDetailDAO;
 
 /**
  * parameter k[0] = theme number and k[1] is the directory where the shortcuts will be placed

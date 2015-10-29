@@ -2,7 +2,7 @@ package ca.gc.collectionscanada.common.context;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import ca.gc.collectionscanada.model.SearchParameters;
+import ca.gc.collectionscanada.domain.SearchParameters;
 
 /**
  * This class holds the context for GCWebArchive portal which is called in GCWebArchiveController
