@@ -15,8 +15,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.WordUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Value;
 
-import ca.gc.collectionscanada.gcwa.config.GCWebArchiveConfig;
 
 /**
  * Page utility class to convert encoding, create previous and next link for navigation of search results
@@ -30,7 +30,6 @@ public class PageUtilities
 {
     public static final int DEFAULT_WRAP_SIZE = 72;
     protected static final Log logger = LogFactory.getLog(PageUtilities.class);
-
 
     public PageUtilities()
     {
@@ -66,15 +65,14 @@ public class PageUtilities
     }
 
 
-    public static String appendExclusionsToQuery(String query, GCWebArchiveConfig config) throws IOException
+    public static String appendExclusionsToQuery(String query, @Value("${exclusions.queryExclusionsFile}") String exclusionsFileString) 
+    		throws IOException
     {
     	DataInputStream in = null;
     	BufferedReader br = null;
         String newQuery = "";
         newQuery += query;
         try {
-            String exclusionsFileString = config.getProperties().getProperty(
-                    "exclusions.queryExclusionsFile");
             if (exclusionsFileString != null) {
                 File exclusionsFile = new File(exclusionsFileString);
                 FileInputStream fstream = new FileInputStream(exclusionsFile);

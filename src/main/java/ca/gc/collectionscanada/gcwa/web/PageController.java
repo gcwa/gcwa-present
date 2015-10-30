@@ -1,4 +1,4 @@
-package ca.gc.collectionscanada.gcwa.gcwa.web;
+package ca.gc.collectionscanada.gcwa.web;
 
 import java.util.Locale;
 
