@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+
+Ceci est une page de la category <span th:text="${category.id}"></span>
+
+  <div th:replace="fragment/datemodified"></div>
+</main>
+</html>
