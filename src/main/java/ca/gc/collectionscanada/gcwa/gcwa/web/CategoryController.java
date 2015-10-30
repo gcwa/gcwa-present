@@ -24,19 +24,31 @@ public class CategoryController {
 	private MessageSource message;
 
 	@Autowired
-	private CategoryRepository CategoryRepository;
+	private CategoryRepository categoryRepository;
 	
 	@Autowired
 	private SubcategoryRepository subcategoryRepository;
 	
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
+	@RequestMapping(value="/list")
+	public String list(Model model, Locale locale) {
+		List<Category> categories = categoryRepository.findAll();
+
+		log.info("Homepage requested");
+
+		model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
+		model.addAttribute("categories", categories);
+		return "category/list";
+	}
+
+	
 	@RequestMapping(value="/{id}")
 	public String category(@PathVariable("id") long id, Model model, Locale locale) {
 		log.info("/collection/" + String.valueOf(id) + "  requested");
 
 		//TODO 404 when 0 category
-		Category category = CategoryRepository.findOne(id);
+		Category category = categoryRepository.findOne(id);
 		List<Subcategory> subcategories = subcategoryRepository.findAllByCategory(category);
 		
 		model.addAttribute("sectionTitle", category.getTitle());

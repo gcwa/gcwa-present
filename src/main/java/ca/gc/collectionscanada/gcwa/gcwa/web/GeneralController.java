@@ -10,6 +10,7 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import ca.gc.collectionscanada.gcwa.domain.Category;
 import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
@@ -25,24 +26,9 @@ public class GeneralController {
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
 	@RequestMapping("/")
-	public String home(Model model, Locale locale) {
-		List<Category> categories = categoryRepository.findAll();
-		
+	public ModelAndView index() {
 		log.info("Homepage requested");
-		model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
-		model.addAttribute("categories", categories);
-		return "home";
+		return new ModelAndView("redirect:/category/list");
 	}
 
-	@RequestMapping("/help")
-	public String helpView(Model model, Locale locale) {
-		model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));
-		return "help";
-	}
-
-	@RequestMapping("/comments")
-	public String commentView(Model model, Locale locale) {
-		model.addAttribute("sectionTitle", message.getMessage("comments.title", null, locale));
-		return "comments";
-	}
 }

@@ -33,7 +33,7 @@ public class SearchController
         
         model.addAttribute("sectionTitle", message.getMessage("search.basicsearch.title", null, locale));
         model.addAttribute("newSearch", new SearchParameters());
-        return "search";
+        return "search/search";
     }
     
     @RequestMapping(value="/advanced")
@@ -43,7 +43,7 @@ public class SearchController
 
         model.addAttribute("sectionTitle", message.getMessage("search.advancedsearch.title", null, locale));
         model.addAttribute("newSearch", new SearchParameters());
-        return "advancedsearch";
+        return "search/advancedsearch";
     }
     
 /*
