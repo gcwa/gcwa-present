@@ -9,28 +9,13 @@
     
     <div class="row">
 
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md" th:each="category : ${categories}">
         <h2>
-        <a href="collection/gcwa" th:text="#{section.federal.title}">
-        <img src="/resources/assets/gcwa_parl.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
+        <a th:href="@{/category/} + ${category.id}">
+		<span th:text="${category.title}"></span>
+        <img th:src="@{/images/{img}(img=${category.thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
         </a></h2>
-        <p th:text="#{section.federal.desc}"></p>
-      </section>
-
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
-        <h2>
-        <a href="elections" th:text="#{section.federal.title}">
-        <img src="/resources/assets/ballot_box.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" /></a>
-        </h2>
-		<p th:text="#{section.provincial.desc}"></p>
-      </section>
-
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
-        <h2>
-        <a href="raildisaster" th:text="#{section.curated.title}">
-        <img src="/resources/assets/lac-megantic.jpg" alt="" class="img-responsive thumbnail mrgn-bttm-sm" /></a>
-        </h2>
-        <p th:text="#{section.curated.desc}"></p>	
+        <p th:text="${category.description}"></p>
       </section>
 
     </div>
