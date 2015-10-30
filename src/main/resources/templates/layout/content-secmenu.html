@@ -19,7 +19,7 @@
 <meta name="dcterms.language" title="ISO639-2" content="eng" />
 <!--[if gte IE 9 | !IE ]><!-->
 <link th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/assets/favicon.ico}" rel="icon" type="image/x-icon" />
-<link rel="stylesheet" th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css}" />
+<link rel="stylesheet" th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css}" href="../../static/theme-gcwu-fegc/theme-gcwu-fegc/css/theme.min.css" />
 <!--<![endif]-->
 <!--[if lt IE 9]>
 <link th:href="@{/theme-gcwu-fegc/theme-gcwu-fegc/assets/favicon.ico}" rel="shortcut icon" />
@@ -47,14 +47,14 @@
 			<div id="wb-bar">
 				<div class="container">
 					<div class="row">
-					<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/theme-gcwu-fegc/assets/sig-en.svg}" aria-label="Government of Canada"></object>
+					<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/theme-gcwu-fegc/assets/sig-en.svg}" data="../../static/theme-gcwu-fegc/assets/sig-en.svg" aria-label="Government of Canada"></object>
 					<ul id="gc-bar" class="list-inline">
 					<li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
 					<li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
 					<li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
 					<li id="wb-lng"><h2>Language selection</h2>
 					<ul class="list-inline">
-					<li><a lang="fr" href="#" th:text="#{header.language}"></a></li>
+					<li><a lang="fr" href="#" th:text="#{header.language}">Français</a></li>
 					</ul>
 					</li>
 					</ul>
@@ -78,11 +78,12 @@
 			<div class="container">
 				<div class="row">
 					<div id="wb-sttl" class="col-md-5">
-						<a th:href="@{/}"> <span th:text="#{main.title}"></span>
+						<a th:href="@{/}"> <span th:text="#{main.title}">Government of Canada</span>
 						</a>
 					</div>
 					<object id="wmms" type="image/svg+xml" tabindex="-1" role="img"
 						th:data="@{/theme-gcwu-fegc/assets/wmms.svg}"
+						data="../../static/theme-gcwu-fegc/assets/wmms.svg"
 						aria-label="Symbol of the Government of Canada"></object>
 					<section id="wb-srch" class="visible-md visible-lg">
 						<h2>Search</h2>
@@ -107,8 +108,8 @@
 			<div class="container">
 				<div class="row">
 					<ol class="breadcrumb">
-						<li><a th:href="'http://www.collectionscanada.gc.ca/index-' + (${#locale.language} == 'en' ? 'e' : 'f') +'.html'" th:text="#{link.home}">Home</a></li>
- 						<li><a th:href="@{/}" th:text="#{main.title}">main title</a></li>
+						<li><a th:href="'http://www.collectionscanada.gc.ca/index-' + (${#locale.language} == 'en' ? 'e' : 'f') +'.html'" th:text="#{link.home}" href="#">Home</a></li>
+ 						<li><a th:href="@{/}" th:text="#{main.title}" href="#">main title</a></li>
 						<li th:text="${sectionTitle}">Section Title</li>
 					</ol>
 				</div>
@@ -170,29 +171,29 @@
 					<section class="col-sm-3">
 						<h3><a th:href="#{footer.about.us.link}" th:text="#{footer.about.us}">About Us</a></h3>
 						<ul class="list-unstyled">
-							<li><a th:href="#{footer.mandate.link}" th:text="#{footer.mandate}"></a></li>
-							<li><a th:href="#{footer.librarian.and.archivist.link}" th:text="#{footer.librarian.and.archivist}"></a></li>
-							<li><a th:href="#{footer.service.and.program.link}" th:text="#{footer.service.and.program}"></a></li>
-							<li><a th:href="#{footer.lac.events.link}" th:text="#{footer.lac.events}"></a></li>
+							<li><a th:href="#{footer.mandate.link}" th:text="#{footer.mandate}"></a>Our Mandate</li>
+							<li><a th:href="#{footer.librarian.and.archivist.link}" th:text="#{footer.librarian.and.archivist}">Librarian and Archivist of Canada</a></li>
+							<li><a th:href="#{footer.service.and.program.link}" th:text="#{footer.service.and.program}">Services and Programs</a></li>
+							<li><a th:href="#{footer.lac.events.link}" th:text="#{footer.lac.events}">LAC's Events</a></li>
 						</ul>
 					</section>
 					<section class="col-sm-3">
 						<h3><a th:href="#{footer.news.title.link}" th:text="#{footer.news.title}">News</a></h3>
 						<ul class="list-unstyled">
-							<li><a th:href="#{footer.news.release.link}" th:text="#{footer.news.release}"></a></li>
-							<li><a th:href="#{footer.speeches.link}" th:text="#{footer.speeches}"></a></li>
-							<li><a th:href="#{footer.photo.gallery.link}" th:text="#{footer.photo.gallery}"></a></li>
-							<li><a th:href="#{footer.videos.link}" th:text="#{footer.videos}"></a></li>
-							<li><a th:href="#{footer.podcasts.link}" th:text="#{footer.podcasts}"></a></li>
+							<li><a th:href="#{footer.news.release.link}" th:text="#{footer.news.release}">News Releases</a></li>
+							<li><a th:href="#{footer.speeches.link}" th:text="#{footer.speeches}">Speeches</a></li>
+							<li><a th:href="#{footer.photo.gallery.link}" th:text="#{footer.photo.gallery}">Photo Gallery</a></li>
+							<li><a th:href="#{footer.videos.link}" th:text="#{footer.videos}">Videos</a></li>
+							<li><a th:href="#{footer.podcasts.link}" th:text="#{footer.podcasts}">Podcasts</a></li>
 						</ul>
 					</section>
 					<section class="col-sm-3">
 						<h3><a th:href="#{footer.contactus.title.link}" th:text="#{footer.contactus.title}">Contact Us</a></h3>
 						<ul class="list-unstyled">
-							<li><a th:href="#{footer.address.link}" th:text="#{footer.address}"></a></li>
-							<li><a th:href="#{footer.telephone.numbers.link}" th:text="#{footer.telephone.numbers}"></a></li>
-							<li><a th:href="#{footer.email.link}" th:text="#{footer.emails}"></a></li>
-							<li><a th:href="#{footer.find.employee.link}" th:text="#{footer.find.employee}"></a></li>
+							<li><a th:href="#{footer.address.link}" th:text="#{footer.address}">Address</a></li>
+							<li><a th:href="#{footer.telephone.numbers.link}" th:text="#{footer.telephone.numbers}">Telephone Numbers</a></li>
+							<li><a th:href="#{footer.email.link}" th:text="#{footer.emails}">Emails</a></li>
+							<li><a th:href="#{footer.find.employee.link}" th:text="#{footer.find.employee}">Find an employee</a></li>
 						</ul>
 					</section>
 					<section class="col-sm-3">
@@ -213,11 +214,11 @@
 				<nav role="navigation">
 					<h2>Government of Canada footer</h2>
 					<ul class="list-inline">
-						<li><a th:href="#{footer.health.title.link}"><span th:text="#{footer.health.title}"></span></a></li>
-						<li><a th:href="#{footer.travel.title.link}"><span th:text="#{footer.travel.title}"></span></a></li>
-						<li><a th:href="#{footer.service.canada.title.link}"><span th:text="#{footer.service.canada.title}"></span></a></li>
-						<li><a th:href="#{footer.jobs.title.link}"><span th:text="#{footer.jobs.title}"></span></a></li>
-						<li><a th:href="#{footer.economy.title.link}"><span th:text="#{footer.economy.title}"></span></a></li>
+						<li><a th:href="#{footer.health.title.link}"><span th:text="#{footer.health.title}">Health</span></a></li>
+						<li><a th:href="#{footer.travel.title.link}"><span th:text="#{footer.travel.title}">Travel</span></a></li>
+						<li><a th:href="#{footer.service.canada.title.link}"><span th:text="#{footer.service.canada.title}">Service Canada</span></a></li>
+						<li><a th:href="#{footer.jobs.title.link}"><span th:text="#{footer.jobs.title}">Jobs</span></a></li>
+						<li><a th:href="#{footer.economy.title.link}"><span th:text="#{footer.economy.title}">Economy</span></a></li>
 						<li id="canada-ca"><a
 							th:href="#{header.canada.ca.link}">Canada.ca</a></li>
 					</ul>
