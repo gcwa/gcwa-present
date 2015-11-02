@@ -6,20 +6,36 @@
 <h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
 <p th:text="#{intro1.message}">Intro message</p>
 <section class="gc-prtts">
-    
-    <div class="row">
+    <div class="row" th:each="index : ${#numbers.sequence(0, categories.size(), 3)}">
 
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md" th:each="category : ${categories}">
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
         <h2>
-        <a th:href="@{/category/} + ${category.id}">
-		<span th:text="${category.title}">Category 1</span>
-        <img src="../static/images/gcwa_parl.jpg" th:src="@{/images/{img}(img=${category.thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
+        <a th:href="@{/category/} + ${categories[index].id}">
+		<span th:text="${categories[index].title}">Category 1</span>
+        <img src="../static/images/gcwa_parl.jpg" th:src="@{/images/{img}(img=${categories[index].thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
         </a></h2>
-        <p th:text="${category.description}">Description</p>
+        <p th:text="${categories[index].description}">Description</p>
       </section>
 
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md" th:if="${index} + 1 &lt; ${categories.size()}">
+        <h2>
+        <a th:href="@{/category/} + ${categories[index + 1].id}">
+		<span th:text="${categories[index + 1].title}">Category 2</span>
+        <img src="../static/images/gcwa_parl.jpg" th:src="@{/images/{img}(img=${categories[index + 1].thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
+        </a></h2>
+        <p th:text="${categories[index + 1].description}">Description</p>
+      </section>
+      
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md" th:if="${index} + 2 &lt; ${categories.size()}">
+        <h2>
+        <a th:href="@{/category/} + ${categories[index + 2].id}">
+		<span th:text="${categories[index + 2].title}">Category 3</span>
+        <img src="../static/images/gcwa_parl.jpg" th:src="@{/images/{img}(img=${categories[index + 2].thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
+        </a></h2>
+        <p th:text="${categories[index + 2].description}">Description</p>
+      </section>
+      
     </div>
-
   </section>
   <div th:replace="_datemodified"></div>
 </main>
