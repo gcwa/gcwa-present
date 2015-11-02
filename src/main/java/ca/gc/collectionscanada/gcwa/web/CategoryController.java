@@ -43,7 +43,7 @@ public class CategoryController {
 	}
 
 	
-	@RequestMapping(value="/{id}")
+	@RequestMapping(value="/{id:\\d+}")
 	public String category(@PathVariable("id") long id, Model model, Locale locale) {
 		log.info("/collection/" + String.valueOf(id) + "  requested");
 
