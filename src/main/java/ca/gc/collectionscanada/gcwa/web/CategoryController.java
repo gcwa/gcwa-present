@@ -16,6 +16,7 @@ import ca.gc.collectionscanada.gcwa.domain.Category;
 import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
 import ca.gc.collectionscanada.gcwa.domain.Subcategory;
 import ca.gc.collectionscanada.gcwa.domain.SubcategoryRepository;
+import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 
 @Controller
 @RequestMapping("/category")
@@ -47,8 +48,10 @@ public class CategoryController {
 	public String category(@PathVariable("id") long id, Model model, Locale locale) {
 		log.info("/collection/" + String.valueOf(id) + "  requested");
 		
-		//TODO 404 when 0 category
 		Category category = categoryRepository.findOne(id);
+		if (category == null) { 
+			throw new ResourceNotFoundException(); 
+		}
 		List<Subcategory> subcategories = subcategoryRepository.findAllByCategory(category);
 		
 		model.addAttribute("sectionTitle", category.getTitle());
