@@ -136,15 +136,16 @@
 			</main>
 
 			<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
-				
+				<h2>Section Menu</h2>
 				<ul class="list-group menu list-unstyled">
 					<li>
+					<!-- <h3 th:text="#{main.title}">Content page - Secondary menu</h3>-->
 						<ul class="list-group menu list-unstyled">
-							<li><a class="list-group-item" th:href="@{/}" th:text="#{intro1.title}">intro</a></li>
-							<li><a class="list-group-item" th:href="@{/search}" th:text="#{search.basicsearch.title}">search</a></li>
-							<li><a class="list-group-item" th:href="@{/search/advanced}" th:text="#{search.advancedsearch.title}">advancedsearch</a></li>
-							<li><a class="list-group-item" th:href="@{/help}" th:text="#{help.title}">help</a></li>
-							<li><a class="list-group-item" th:href="@{/comments}" th:text="#{comments.title}">comments</a></li>
+							<li><a class="list-group-item" th:classappend="${navSection}=='category'?'wb-navcurr':''" th:href="@{/}" th:text="#{intro1.title}">intro</a></li>
+							<li><a class="list-group-item" th:classappend="${navSection}=='basicsearch'?'wb-navcurr':''" th:href="@{/search}" th:text="#{search.basicsearch.title}">search</a></li>
+							<li><a class="list-group-item" th:classappend="${navSection}=='advancedsearch'?'wb-navcurr':''" th:href="@{/search/advanced}" th:text="#{search.advancedsearch.title}">advancedsearch</a></li>
+							<li><a class="list-group-item" th:classappend="${navSection}=='help'?'wb-navcurr':''" th:href="@{/help}" th:text="#{help.title}">help</a></li>
+							<li><a class="list-group-item" th:classappend="${navSection}=='comments'?'wb-navcurr':''" th:href="@{/comments}" th:text="#{comments.title}">comments</a></li>
 						</ul>
 					</li>
 				</ul>

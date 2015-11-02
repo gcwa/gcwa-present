@@ -21,12 +21,14 @@ public class PageController {
 	@RequestMapping("/help")
 	public String helpView(Model model, Locale locale) {
 		model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));
+		model.addAttribute("navSection", "help");
 		return "page/help";
 	}
 
 	@RequestMapping("/comments")
 	public String commentView(Model model, Locale locale) {
 		model.addAttribute("sectionTitle", message.getMessage("comments.title", null, locale));
+		model.addAttribute("navSection", "comments");
 		return "page/comments";
 	}
 }

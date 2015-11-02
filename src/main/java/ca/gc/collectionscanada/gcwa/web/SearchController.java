@@ -33,6 +33,7 @@ public class SearchController
         
         model.addAttribute("sectionTitle", message.getMessage("search.basicsearch.title", null, locale));
         model.addAttribute("newSearch", new SearchParameters());
+		model.addAttribute("navSection", "basicsearch");
         return "search/search";
     }
     
@@ -43,6 +44,7 @@ public class SearchController
 
         model.addAttribute("sectionTitle", message.getMessage("search.advancedsearch.title", null, locale));
         model.addAttribute("newSearch", new SearchParameters());
+		model.addAttribute("navSection", "advancedsearch");
         return "search/advancedsearch";
     }
     
