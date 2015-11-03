@@ -12,8 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ca.gc.collectionscanada.gcwa.domain.SearchParameters;
-
 /**
  *
  */
@@ -32,7 +30,6 @@ public class SearchController
         log.info((new StringBuilder()).append("PATH=").append(request.getServletPath()).toString());
         
         model.addAttribute("sectionTitle", message.getMessage("search.basicsearch.title", null, locale));
-        model.addAttribute("newSearch", new SearchParameters());
 		model.addAttribute("navSection", "basicsearch");
         return "search/search";
     }
@@ -43,7 +40,6 @@ public class SearchController
         log.info((new StringBuilder()).append("PATH=").append(request.getServletPath()).toString());
 
         model.addAttribute("sectionTitle", message.getMessage("search.advancedsearch.title", null, locale));
-        model.addAttribute("newSearch", new SearchParameters());
 		model.addAttribute("navSection", "advancedsearch");
         return "search/advancedsearch";
     }

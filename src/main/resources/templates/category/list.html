@@ -6,9 +6,9 @@
 <h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
 <p th:text="#{intro1.message}">Intro message</p>
 <section class="gc-prtts">
-    <div class="row" th:each="index : ${#numbers.sequence(0, categories.size(), 3)}">
+    <div class="row" th:each="index : ${#numbers.sequence(0, categories.size() - 1, 3)}">
 
-      <section class="col-lg-4 col-md-6 mrgn-bttm-md">
+      <section class="col-lg-4 col-md-6 mrgn-bttm-md" th:if="${index} &lt; ${categories.size()}">
         <h2>
         <a th:href="@{/category/} + ${categories[index].id}">
 		<span th:text="${categories[index].title}">Category 1</span>
