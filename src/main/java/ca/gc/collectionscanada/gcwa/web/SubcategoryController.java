@@ -1,10 +1,13 @@
 package ca.gc.collectionscanada.gcwa.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,21 +49,32 @@ public class SubcategoryController {
 			throw new ResourceNotFoundException();
 		}
 
-		String letters[] = { "[0-9]", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P",
-				"Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-
 		Sort sort = new Sort("title"); 
 		List<Collection> collections = collectionRepository.findAllBySubcategory(subcategory, sort);
 
+		// Group collections by first letter (for alpha paginator)
+		Map<String, List<Collection>> alphabetizedCollections = new HashMap<String, List<Collection>>();
+		for (Collection collection : collections) {
+			String firstLetter = collection.getTitle().substring(0, 1).toUpperCase();
+			if (StringUtils.isAlpha(firstLetter) == false) {
+				firstLetter = "[0-9]";
+			}
+			if (alphabetizedCollections.containsKey(firstLetter) == false) {
+				alphabetizedCollections.put(firstLetter, new ArrayList<Collection>());
+			}
+			alphabetizedCollections.get(firstLetter).add(collection);
+		}
+		
 		Category category = subcategory.getCategory();
 
+		// Breadcrumbs parts
 		Map<String, String> breadcrumbs = new LinkedHashMap<String, String>();
 		breadcrumbs.put("/category/" + category.getId(), category.getTitle());
 
 		model.addAttribute("sectionTitle", subcategory.getTitle());
-		model.addAttribute("letters", letters);
 		model.addAttribute("subcategory", subcategory);
 		model.addAttribute("collections", collections);
+		model.addAttribute("alphabetizedCollections", alphabetizedCollections);
 		model.addAttribute("breadcrumbs", breadcrumbs);
 		model.addAttribute("navSection", "category");
 		return "subcategory/subcategory";

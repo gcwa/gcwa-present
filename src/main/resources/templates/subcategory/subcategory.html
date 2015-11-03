@@ -5,18 +5,21 @@
 
 <h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
 
-<ul class="pagination pagination-sm" style="margin-bottom: 20px;">
-	<li th:each="letter : ${letters}"><a th:href="'#' + ${letter}" style="padding: 10px;" th:text="${letter}"></a></li>
+<ul class="pagination pagination-sm">
+	<li th:each="letter : ${alphabetizedCollections}"><a th:href="'#' + ${letter.key}" th:text="${letter.key}"></a></li>
 </ul>
 			
 <div>
-	<ul>
-		<li th:each="collection : ${collections}" th:text="${collection.title}">Collection 1</li>
-		<li th:remove="all">Collection 2</li>
-		<li th:remove="all">Collection 3</li>
-	</ul>
 	
+	<div th:each="azlist : ${alphabetizedCollections}">
+		<h2 th:text="${azlist.key}" th:id="${azlist.key}">A</h2>
+		<ul>
+		<li th:each="collection : ${azlist.value}" th:text="${collection.title}">Agriculture and Agri-Food Canada</li>
+		</ul>
+	</div>
   <div th:replace="_datemodified"></div>
+
 </div>
+
 </main>
 </html>
