@@ -12,8 +12,8 @@
 	
 	<section class="col-lg-4 col-md-6 mrgn-bttm-md">
 		<ul>
-			<li th:each="subcategory : ${subcategories}" th:text="${subcategory.title}">
-				Sub Category 1
+			<li th:each="subcategory : ${subcategories}">
+				<a href="#" th:href="@{/subcategory/} + ${subcategory.id}" th:text="${subcategory.title}">Sub Category 1</a>
 			</li>
 			<li th:remove="all">Sub Category 2</li>
 			<li th:remove="all">Sub Category 3</li>

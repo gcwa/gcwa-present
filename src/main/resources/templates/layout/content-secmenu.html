@@ -110,6 +110,7 @@
 					<ol class="breadcrumb">
 						<li><a th:href="'http://www.collectionscanada.gc.ca/index-' + (${#locale.language} == 'en' ? 'e' : 'f') +'.html'" th:text="#{link.home}" href="#">Home</a></li>
  						<li><a th:href="@{/}" th:text="#{main.title}" href="#">main title</a></li>
+ 						<li th:each="bc : ${breadcrumbs}" th:if="#{breadcrumbs}"><a th:href="@{${bc.key}}" th:text="${bc.value}"></a></li>
 						<li th:text="${sectionTitle}">Section Title</li>
 					</ol>
 				</div>

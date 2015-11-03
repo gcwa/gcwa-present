@@ -35,7 +35,7 @@ public class CategoryController {
 	@RequestMapping(value="/list")
 	public String list(Model model, Locale locale) {
 		List<Category> categories = categoryRepository.findAll();
-		log.info("Homepage requested");
+		log.info("/category/list requested");
 
 		model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
 		model.addAttribute("categories", categories);
@@ -46,7 +46,7 @@ public class CategoryController {
 	
 	@RequestMapping(value="/{id:\\d+}")
 	public String category(@PathVariable("id") long id, Model model, Locale locale) {
-		log.info("/collection/" + String.valueOf(id) + "  requested");
+		log.info("/category/" + String.valueOf(id) + "  requested");
 		
 		Category category = categoryRepository.findOne(id);
 		if (category == null) { 
