@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+
+<ul class="pagination pagination-sm" style="margin-bottom: 20px;">
+	<li th:each="letter : ${letters}"><a th:href="'#' + ${letter}" style="padding: 10px;" th:text="${letter}"></a></li>
+</ul>
+			
+<div>
+	<ul>
+		<li th:each="collection : ${collections}" th:text="${collection.title}">Collection 1</li>
+		<li th:remove="all">Collection 2</li>
+		<li th:remove="all">Collection 3</li>
+	</ul>
+	
+  <div th:replace="_datemodified"></div>
+</div>
+</main>
+</html>
