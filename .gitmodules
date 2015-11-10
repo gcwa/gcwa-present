@@ -1,0 +1,3 @@
+[submodule "src/main/resources/static/wet-boew"]
+	path = src/main/resources/static/wet-boew
+	url = https://github.com/wet-boew/themes-dist.git
