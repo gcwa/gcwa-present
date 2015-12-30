@@ -54,7 +54,8 @@
 					<li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
 					<li id="wb-lng"><h2>Language selection</h2>
 					<ul class="list-inline">
-					<li><a lang="fr" href="#" th:text="#{header.language}">Français</a></li>
+					<li><a th:remove="__${#locale}__=='en'? all : none" lang="en" href="?lang=en" th:href="@{/(lang=en)}" th:text="#{header.language.other}">English</a></li>
+                    <li><a th:remove="__${#locale}__=='fr'? all : none" lang="fr" href="?lang=fr" th:href="@{/(lang=fr)}" th:text="#{header.language.other}">Français</a></li>
 					</ul>
 					</li>
 					</ul>
@@ -173,7 +174,7 @@
 					<section class="col-sm-3">
 						<h3><a th:href="#{footer.about.us.link}" th:text="#{footer.about.us}">About Us</a></h3>
 						<ul class="list-unstyled">
-							<li><a th:href="#{footer.mandate.link}" th:text="#{footer.mandate}"></a>Our Mandate</li>
+							<li><a th:href="#{footer.mandate.link}" th:text="#{footer.mandate}">Our Mandate</a></li>
 							<li><a th:href="#{footer.librarian.and.archivist.link}" th:text="#{footer.librarian.and.archivist}">Librarian and Archivist of Canada</a></li>
 							<li><a th:href="#{footer.service.and.program.link}" th:text="#{footer.service.and.program}">Services and Programs</a></li>
 							<li><a th:href="#{footer.lac.events.link}" th:text="#{footer.lac.events}">LAC's Events</a></li>
