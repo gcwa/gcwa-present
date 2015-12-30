@@ -49,9 +49,9 @@
 					<div class="row">
 					<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/wet-boew/assets/sig-en.svg}" data="../../static/wet-boew/assets/sig-en.svg" aria-label="Government of Canada"></object>
 					<ul id="gc-bar" class="list-inline">
-					<li><a href="http://www.canada.ca/en/index.html" rel="external">Canada.ca</a></li>
-					<li><a href="http://www.canada.ca/en/services/index.html" rel="external">Services</a></li>
-					<li><a href="http://www.canada.ca/en/gov/dept/index.html" rel="external">Departments</a></li>
+					<li><a href="http://www.canada.ca/en/index.html" th:href="#{header.canada.url}" rel="external">Canada.ca</a></li>
+					<li><a href="http://www.canada.ca/en/services/index.html" th:href="#{header.services.url}" rel="external" th:text="#{header.services}">Services</a></li>
+					<li><a href="http://www.canada.ca/en/gov/dept/index.html" th:href="#{header.departments.url}" rel="external" th:text="#{header.departments}">Departments</a></li>
 					<li id="wb-lng"><h2>Language selection</h2>
 					<ul class="list-inline">
 					<li><a th:remove="__${#locale}__=='en'? all : none" lang="en" href="?lang=en" th:href="@{/(lang=en)}" th:text="#{header.language.other}">English</a></li>
