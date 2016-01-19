@@ -24,6 +24,7 @@ import ca.gc.collectionscanada.gcwa.domain.Collection;
 import ca.gc.collectionscanada.gcwa.domain.CollectionRepository;
 import ca.gc.collectionscanada.gcwa.domain.Seed;
 import ca.gc.collectionscanada.gcwa.domain.SeedRepository;
+import ca.gc.collectionscanada.gcwa.domain.Subcategory;
 import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 
 @Controller
@@ -66,15 +67,18 @@ public class CollectionController {
 			alphabetizedSeeds.get(firstLetter).add(seed);
 		}
 		
+        // Breadcrumbs parts
+		Subcategory subcategory = collection.getSubcategory();
+		Category category = subcategory.getCategory();
+        Map<String, String> breadcrumbs = new LinkedHashMap<String, String>();
+        breadcrumbs.put("/category/" + category.getId(), category.getTitle());
+        breadcrumbs.put("/subcategory/" + subcategory.getId(), subcategory.getTitle());
+        breadcrumbs.put("/collection/" + collection.getId(), collection.getTitle());
 
-		// Breadcrumbs parts
-	    // TODO
-
-		model.addAttribute("sectionTitle", "Collection");
-		model.addAttribute("collection", collection);
+		model.addAttribute("sectionTitle", collection.getTitle());
 		model.addAttribute("alphabetizedSeeds", alphabetizedSeeds);
-		//model.addAttribute("breadcrumbs", breadcrumbs);
-		model.addAttribute("navSection", "collection");
+		model.addAttribute("breadcrumbs", breadcrumbs);
+		model.addAttribute("navSection", "category");
 		return "collection/collection";
 	}
 }
