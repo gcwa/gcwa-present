@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ca.gc.collectionscanada.gcwa.domain.Category;
-import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
 import ca.gc.collectionscanada.gcwa.domain.Collection;
 import ca.gc.collectionscanada.gcwa.domain.CollectionRepository;
 import ca.gc.collectionscanada.gcwa.domain.Seed;
@@ -51,12 +50,16 @@ public class CollectionController {
 		}
 
 		Sort sort = new Sort("url"); 
-		List<Seed> seeds = seedRepository.findAllByCollection(collection, sort);
+		List<Seed> seeds = seedRepository.findByCollectionAndAccess(collection, true, sort);
 
 		// Group seeds by first letter (for alpha paginator)
+		String previousUrl = "";
 		Map<String, List<Seed>> alphabetizedSeeds = new HashMap<String, List<Seed>>();
 		for (Seed seed : seeds) {
 		    String url = seed.getHumanReadableUrl().replaceFirst("www.", "");
+		    if (url.equalsIgnoreCase(previousUrl)) {
+		        continue;
+		    }
 			String firstLetter = url.toLowerCase().substring(0, 1);
 			if (StringUtils.isAlpha(firstLetter) == false) {
 				firstLetter = "[0-9]";
@@ -65,6 +68,7 @@ public class CollectionController {
 				alphabetizedSeeds.put(firstLetter, new ArrayList<Seed>());
 			}
 			alphabetizedSeeds.get(firstLetter).add(seed);
+			previousUrl = url;
 		}
 		
         // Breadcrumbs parts
