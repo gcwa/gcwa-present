@@ -9,7 +9,7 @@ public interface SeedRepository extends CrudRepository<Seed, Long> {
 
     List<Seed> findAll();
 
-    List<Seed> findByCollectionAndAccess(Collection collection, Boolean access, Sort sort);
+    List<Seed> findByCollection(Collection collection, Sort sort);
     
     Category findOneById(long id);
 }

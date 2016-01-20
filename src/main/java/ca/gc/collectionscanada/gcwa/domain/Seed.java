@@ -14,7 +14,6 @@ public class Seed {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String url;
-    private Boolean access;
     @ManyToOne()
     @JoinColumn(name = "collection_id")
     private Collection collection;
@@ -28,7 +27,7 @@ public class Seed {
 
     @Override
     public String toString() {
-        return String.format("Seed[url='%s', access='%b'", url, access);
+        return String.format("Seed[url='%s'", url);
     }
 
     public String getUrl() {
@@ -44,14 +43,6 @@ public class Seed {
         tmpUrl = tmpUrl.replaceAll("/$", "");
         //TODO add elipse (...) on long url
         return tmpUrl;
-    }
-
-    public Boolean getAccess() {
-        return access;
-    }
-
-    public void setAccess(Boolean access) {
-        this.access = access;
     }
 
     public Collection getCollection() {

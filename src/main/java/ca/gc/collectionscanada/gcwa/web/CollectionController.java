@@ -50,7 +50,7 @@ public class CollectionController {
 		}
 
 		Sort sort = new Sort("url"); 
-		List<Seed> seeds = seedRepository.findByCollectionAndAccess(collection, true, sort);
+		List<Seed> seeds = seedRepository.findByCollection(collection, sort);
 
 		// Group seeds by first letter (for alpha paginator)
 		String previousUrl = "";
