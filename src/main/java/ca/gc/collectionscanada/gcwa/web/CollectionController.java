@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.TreeMap;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -56,11 +57,11 @@ public class CollectionController {
 		String previousUrl = "";
 		Map<String, List<Seed>> alphabetizedSeeds = new HashMap<String, List<Seed>>();
 		for (Seed seed : seeds) {
-		    String url = seed.getHumanReadableUrl().replaceFirst("www.", "");
+		    String url = seed.getHumanReadableUrl().replaceFirst("www\\d?.", "");
 		    if (url.equalsIgnoreCase(previousUrl)) {
 		        continue;
 		    }
-			String firstLetter = url.toLowerCase().substring(0, 1);
+			String firstLetter = url.toUpperCase().substring(0, 1);
 			if (StringUtils.isAlpha(firstLetter) == false) {
 				firstLetter = "[0-9]";
 			}
@@ -70,6 +71,7 @@ public class CollectionController {
 			alphabetizedSeeds.get(firstLetter).add(seed);
 			previousUrl = url;
 		}
+		Map<String, List<Seed>> alphabetizedSeedsSorted = new TreeMap<String, List<Seed>>(alphabetizedSeeds);
 		
         // Breadcrumbs parts
 		Subcategory subcategory = collection.getSubcategory();
@@ -80,7 +82,7 @@ public class CollectionController {
         breadcrumbs.put("/collection/" + collection.getId(), collection.getTitle());
 
 		model.addAttribute("sectionTitle", collection.getTitle());
-		model.addAttribute("alphabetizedSeeds", alphabetizedSeeds);
+		model.addAttribute("alphabetizedSeeds", alphabetizedSeedsSorted);
 		model.addAttribute("breadcrumbs", breadcrumbs);
 		model.addAttribute("navSection", "category");
 		return "collection/collection";
