@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,12 @@ public class CollectionController {
 	@Autowired
 	private CollectionRepository collectionRepository;
 
+	@Value("${gcwa.wayback.url.en}")
+	private String waybackUrlEn;
+	
+	@Value("${gcwa.wayback.url.fr}")
+	private String waybackUrlFr;
+	
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
 	@RequestMapping(value = "/{id:\\d+}")
@@ -83,6 +90,12 @@ public class CollectionController {
 
 		model.addAttribute("sectionTitle", collection.getTitle());
 		model.addAttribute("alphabetizedSeeds", alphabetizedSeedsSorted);
+		if (locale.getISO3Language().equals("fra")) {
+		    model.addAttribute("waybackUrl", waybackUrlFr);
+		} else {
+		    model.addAttribute("waybackUrl", waybackUrlEn);
+		}
+		
 		model.addAttribute("breadcrumbs", breadcrumbs);
 		model.addAttribute("navSection", "category");
 		return "collection/collection";
