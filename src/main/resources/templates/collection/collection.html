@@ -15,7 +15,7 @@
 		<h2 th:text="${azlist.key}" th:id="${azlist.key}">A</h2>
 		<ul>
 		<li th:each="seed : ${azlist.value}">
-		  <a th:text="${seed.humanReadableUrl}" th:href="@{http://lacbac04.cloudapp.net:8080/wayback/*/} + ${seed.url}">Agriculture and Agri-Food Canada</a>
+		  <a th:text="${seed.humanReadableUrl}" th:href="@{${waybackUrl}} + ${seed.url}">Agriculture and Agri-Food Canada</a>
 		</li>
 		</ul>
 	</div>
