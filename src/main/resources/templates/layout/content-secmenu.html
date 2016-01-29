@@ -28,6 +28,18 @@
 <script th:src="@{/wet-boew/wet-boew/js/theme.min.js}"></script>
 <![endif]-->
 <noscript><link rel="stylesheet" th:href="@{/wet-boew/wet-boew/css/noscript.min.css}" /></noscript>
+<script th:inline="javascript">
+/*<![CDATA[*/
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', /*[[${@environment.getProperty('gcwa.google.analytics.tracking.id')}]]*/ 'UA-XXXXXXXX-1', 'auto');
+ga('send', 'pageview');
+
+/*]]>*/
+</script>
 </head>
 <body vocab="http://schema.org/" typeof="WebPage">
 <ul id="wb-tphp">
