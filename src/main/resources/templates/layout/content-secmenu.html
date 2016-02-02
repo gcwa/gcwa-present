@@ -98,6 +98,7 @@ ga('send', 'pageview');
 						th:data="@{/wet-boew/assets/wmms.svg}"
 						data="../../static/wet-boew/assets/wmms.svg"
 						aria-label="Symbol of the Government of Canada"></object>
+<!--
 					<section id="wb-srch" class="visible-md visible-lg">
 						<h2>Search</h2>
 						<form th:action="@{/search}" method="get" role="search"
@@ -110,6 +111,7 @@ ga('send', 'pageview');
 							<button type="submit" id="wb-srch-sub" class="btn btn-default" th:text="#{header.search}">Search</button>
 						</form>
 					</section>
+-->
 				</div>
 			</div>
 		</div>
@@ -153,8 +155,10 @@ ga('send', 'pageview');
 					<!-- <h3 th:text="#{main.title}">Content page - Secondary menu</h3>-->
 						<ul class="list-group menu list-unstyled">
 							<li><a class="list-group-item" th:classappend="${navSection}=='category'?'wb-navcurr':''" th:href="@{/}" th:text="#{intro1.title}">intro</a></li>
+<!-- 							
 							<li><a class="list-group-item" th:classappend="${navSection}=='basicsearch'?'wb-navcurr':''" th:href="@{/search}" th:text="#{search.basicsearch.title}">search</a></li>
 							<li><a class="list-group-item" th:classappend="${navSection}=='advancedsearch'?'wb-navcurr':''" th:href="@{/search/advanced}" th:text="#{search.advancedsearch.title}">advancedsearch</a></li>
+-->
 							<li><a class="list-group-item" th:classappend="${navSection}=='help'?'wb-navcurr':''" th:href="@{/help}" th:text="#{help.title}">help</a></li>
 							<li><a class="list-group-item" th:classappend="${navSection}=='comments'?'wb-navcurr':''" th:href="@{/comments}" th:text="#{comments.title}">comments</a></li>
 						</ul>
