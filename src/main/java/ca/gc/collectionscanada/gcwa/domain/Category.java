@@ -1,62 +1,104 @@
 package ca.gc.collectionscanada.gcwa.domain;
 
+import java.util.Locale;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.springframework.context.i18n.LocaleContextHolder;
+
 @Entity
 public class Category {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	private String title;
-	@Column(length=1024)
-	private String description;
-	private String thumbnail;
-	
-	protected Category() {};
-	
-	public Category(String title) {
-		this.title = title;
-	}
-	
-	@Override
-	public String toString() {
-		return String.format(
-				"Category[id=%d, title='%s']",
-				id, title);
-	}
 
-	public String getTitle() {
-		return title;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    
+    private String titleEn;
+    private String titleFr;
+    
+    @Column(length = 1024)
+    private String descriptionEn;
+    @Column(length = 1024)
+    private String descriptionFr;
+    
+    private String thumbnail;
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    
+    protected Category() {
+    };
 
-	public String getDescription() {
-		return description;
-	}
+    @Override
+    public String toString() {
+        return String.format(
+                "Category[id=%d, title='%s']",
+                id, getTitle());
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getTitle() {
+        Locale locale = LocaleContextHolder.getLocale();
+        if (locale.getISO3Language().equals("fra")) {
+            return getTitleFr();
+        } else {
+            return getTitleEn();
+        }
+    }
+    
+    public String getTitleEn() {
+        return titleEn;
+    }
 
-	public String getThumbnail() {
-		return thumbnail;
-	}
+    public String getTitleFr() {
+        return titleFr;
+    }
 
-	public void setThumbnail(String thumbnail) {
-		this.thumbnail = thumbnail;
-	}
+    public void setTitleFr(String titleFr) {
+        this.titleFr = titleFr;
+    }
 
-	public long getId() {
-		return id;
-	}
-	
-	
+    public String getDescriptionEn() {
+        return descriptionEn;
+    }
+
+    public void setDescriptionEn(String descriptionEn) {
+        this.descriptionEn = descriptionEn;
+    }
+
+    public String getDescriptionFr() {
+        return descriptionFr;
+    }
+
+    public void setDescriptionFr(String descriptionFr) {
+        this.descriptionFr = descriptionFr;
+    }
+
+    public void setTitleEn(String titleEn) {
+        this.titleEn = titleEn;
+    }
+
+    public String getDescription() {
+        Locale locale = LocaleContextHolder.getLocale();
+        if (locale.getISO3Language().equals("fra")) {
+            return getDescriptionFr();
+        } else {
+            return getDescriptionEn();
+        }
+
+    }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
+
+    public long getId() {
+        return id;
+    }
+
 }

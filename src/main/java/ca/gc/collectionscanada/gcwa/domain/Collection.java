@@ -1,11 +1,15 @@
 package ca.gc.collectionscanada.gcwa.domain;
 
+import java.util.Locale;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
 public class Collection {
@@ -14,43 +18,78 @@ public class Collection {
 	@GeneratedValue
 	private long id;
 	
-	private String title;
+	private String titleEn;
+	private String titleFr;
 	
-	@Column(length=1024)
-	private String description;
-	
+    @Column(length = 1024)
+    private String descriptionEn;
+    @Column(length = 1024)
+    private String descriptionFr;
+    
 	@ManyToOne()
 	@JoinColumn(name = "subcategory_id")
 	private Subcategory subcategory;
 	
-	protected Collection() {};
 	
-	public Collection(String title) {
-		this.title = title;
-	}
+	protected Collection() {};
 	
 	@Override
 	public String toString() {
 		return String.format(
 				"Collection[id=%d, title='%s']",
-				id, title);
+				id, getTitle());
 	}
 
 	public String getTitle() {
-		return title;
-	}
+        Locale locale = LocaleContextHolder.getLocale();
+        if (locale.getISO3Language().equals("fra")) {
+            return getTitleFr();
+        } else {
+            return getTitleEn();
+        }
+    }
+    
+    public String getTitleEn() {
+        return titleEn;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitleFr() {
+        return titleFr;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setTitleFr(String titleFr) {
+        this.titleFr = titleFr;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescriptionEn() {
+        return descriptionEn;
+    }
+
+    public void setDescriptionEn(String descriptionEn) {
+        this.descriptionEn = descriptionEn;
+    }
+
+    public String getDescriptionFr() {
+        return descriptionFr;
+    }
+
+    public void setDescriptionFr(String descriptionFr) {
+        this.descriptionFr = descriptionFr;
+    }
+
+    public void setTitleEn(String titleEn) {
+        this.titleEn = titleEn;
+    }
+
+    public String getDescription() {
+        Locale locale = LocaleContextHolder.getLocale();
+        if (locale.getISO3Language().equals("fra")) {
+            return getDescriptionFr();
+        } else {
+            return getDescriptionEn();
+        }
+
+    }
 
 	public long getId() {
 		return id;
