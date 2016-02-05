@@ -15,7 +15,7 @@
 		<h2 th:text="${azlist.key}" th:id="${azlist.key}">A</h2>
 		<ul>
 		<li th:each="collection : ${azlist.value}">
-		  <a  th:href="@{/collection/} + ${collection.id}"  th:text="${collection.title}">Agriculture and Agri-Food Canada</a>
+		  <a  th:href="@{/collection/} + ${collection.id}"  th:text="${collection.getTitle()}">Agriculture and Agri-Food Canada</a>
 		</li>
 		</ul>
 	</div>

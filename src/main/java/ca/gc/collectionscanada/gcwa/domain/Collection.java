@@ -7,10 +7,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 
+/**
+ * (W)eb (A)rchive (Collection), to avoid confusion with Java Collection
+ *
+ */
 @Entity
 public class Collection {
 	
@@ -30,6 +35,8 @@ public class Collection {
 	@JoinColumn(name = "subcategory_id")
 	private Subcategory subcategory;
 	
+	@ManyToMany(mappedBy = "collection")
+	private java.util.Collection<Seed> seed;
 	
 	protected Collection() {};
 	

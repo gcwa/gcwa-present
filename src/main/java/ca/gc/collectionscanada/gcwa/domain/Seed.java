@@ -1,11 +1,14 @@
 package ca.gc.collectionscanada.gcwa.domain;
 
+import java.util.ArrayList;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Seed {
@@ -13,11 +16,18 @@ public class Seed {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    
     private String url;
-    @ManyToOne()
+    
+    @ManyToMany()
+    @JoinTable(name = "collection_seed",
+                    joinColumns = @JoinColumn(name = "seed_id"),
+                    inverseJoinColumns = @JoinColumn(name = "collection_id")
+    )
     @JoinColumn(name = "collection_id")
-    private Collection collection;
+    private java.util.Collection<Collection> collection = new ArrayList<Collection>();
 
+    
     protected Seed() {
     };
 
@@ -45,11 +55,11 @@ public class Seed {
         return tmpUrl;
     }
 
-    public Collection getCollection() {
+    public java.util.Collection<Collection> getCollection() {
         return collection;
     }
 
-    public void setCollection(Collection collection) {
+    public void setCollection(java.util.Collection<Collection> collection) {
         this.collection = collection;
     }
     

@@ -49,7 +49,13 @@ public class SubcategoryController {
 			throw new ResourceNotFoundException();
 		}
 
-		Sort sort = new Sort("title"); 
+		Sort sort;
+		if (locale.getISO3Language().equals("fra")) {
+		    sort = new Sort("titleFr");
+		} else {
+		    sort = new Sort("titleEn");
+		}
+		 
 		List<Collection> collections = collectionRepository.findAllBySubcategory(subcategory, sort);
 
 		// Group collections by first letter (for alpha paginator)
