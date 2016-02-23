@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Seed {
 
@@ -25,6 +27,7 @@ public class Seed {
                     inverseJoinColumns = @JoinColumn(name = "collection_id")
     )
     @JoinColumn(name = "collection_id")
+    @JsonIgnore
     private java.util.Collection<Collection> collection = new ArrayList<Collection>();
 
     

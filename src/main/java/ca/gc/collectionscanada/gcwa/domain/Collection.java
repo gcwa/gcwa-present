@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 
 import org.springframework.context.i18n.LocaleContextHolder;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * (W)eb (A)rchive (Collection), to avoid confusion with Java Collection
  *
@@ -36,6 +38,7 @@ public class Collection {
 	private Subcategory subcategory;
 	
 	@ManyToMany(mappedBy = "collection")
+	@JsonIgnore
 	private java.util.Collection<Seed> seed;
 	
 	protected Collection() {};
