@@ -1,0 +1,2 @@
+-- dummy file for maven to create this directory structure
+-- database was created before flywaydb was introduced in the project
