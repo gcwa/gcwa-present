@@ -11,3 +11,5 @@ In order to include [WET-BOEW](http://wet-boew.github.io) directory use these co
 
     git submodule init
     git submodule update
+
+[EditorConfig](http://editorconfig.org/) is used to enforce some minimaly consistent coding styles, please install the appropriate plugin for your IDE if it's not supported out of the box.
