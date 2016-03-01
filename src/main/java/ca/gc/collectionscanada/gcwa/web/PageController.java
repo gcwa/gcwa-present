@@ -1,6 +1,8 @@
 package ca.gc.collectionscanada.gcwa.web;
 
+import java.util.LinkedHashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,18 +22,21 @@ public class PageController {
 
 	@RequestMapping("/help")
 	public String helpView(Model model, Locale locale) {
+        model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));
 		model.addAttribute("navSection", "help");
 		return "page/help";
 	}
 
 	@RequestMapping("/about-us")
 	public String aboutUsView(Model model, Locale locale) {
+        model.addAttribute("sectionTitle", message.getMessage("aboutus.title", null, locale));
 		model.addAttribute("navSection", "about-us");
 		return "page/about-us";
 	}
 	
     @RequestMapping("/copyright-disclaimer")
     public String copyrightDisclaimerView(Model model, Locale locale) {
+        model.addAttribute("sectionTitle", message.getMessage("copyright.disclaimer.title", null, locale));
         model.addAttribute("navSection", "copyright-disclaimer");
         return "page/copyright-disclaimer";
     }
