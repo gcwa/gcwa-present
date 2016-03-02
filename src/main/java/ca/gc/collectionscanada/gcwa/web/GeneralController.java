@@ -26,9 +26,14 @@ public class GeneralController {
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
 	@RequestMapping("/")
-	public ModelAndView index() {
-		log.info("Homepage requested");
-		return new ModelAndView("redirect:/category/list");
+	public String index(Model model, Locale locale) {
+        log.info("/ requested");
+	    List<Category> categories = categoryRepository.findAll();
+
+        model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
+        model.addAttribute("categories", categories);
+        model.addAttribute("navSection", "category");
+        return "category/list";
 	}
 
 }
