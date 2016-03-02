@@ -27,6 +27,7 @@ public class Category {
     
     private String thumbnail;
 
+    private Boolean enabled;
     
     protected Category() {
     };
@@ -95,6 +96,14 @@ public class Category {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public long getId() {

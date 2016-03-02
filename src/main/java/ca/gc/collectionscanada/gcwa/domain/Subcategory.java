@@ -31,7 +31,9 @@ public class Subcategory {
 	@JoinColumn(name = "category_id")
 	private Category category;
 	
-	
+    private Boolean enabled;
+    
+    
 	protected Subcategory() {};
 	
 	@Override
@@ -103,5 +105,13 @@ public class Subcategory {
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 	
 }

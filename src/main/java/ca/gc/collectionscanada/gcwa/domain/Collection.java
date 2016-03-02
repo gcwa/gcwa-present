@@ -41,6 +41,8 @@ public class Collection {
 	@JsonIgnore
 	private java.util.Collection<Seed> seed;
 	
+    private Boolean enabled;
+    
 	protected Collection() {};
 	
 	@Override
@@ -112,5 +114,13 @@ public class Collection {
 	public void setSubcategory(Subcategory subcategory) {
 		this.subcategory = subcategory;
 	}
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
 }

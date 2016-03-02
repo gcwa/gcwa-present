@@ -34,7 +34,7 @@ public class CategoryController {
 
 	@RequestMapping(value="/list")
 	public String list(Model model, Locale locale) {
-		List<Category> categories = categoryRepository.findAll();
+		List<Category> categories = categoryRepository.findByEnabled(true);
 		log.info("/category/list requested");
 
 		model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
@@ -52,7 +52,7 @@ public class CategoryController {
 		if (category == null) { 
 			throw new ResourceNotFoundException(); 
 		}
-		List<Subcategory> subcategories = subcategoryRepository.findAllByCategory(category);
+		List<Subcategory> subcategories = subcategoryRepository.findAllByCategoryAndEnabled(category, true);
 		
 		model.addAttribute("sectionTitle", category.getTitle());
 		model.addAttribute("category", category);

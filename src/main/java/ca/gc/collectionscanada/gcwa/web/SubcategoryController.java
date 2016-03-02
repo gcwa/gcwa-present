@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import ca.gc.collectionscanada.gcwa.domain.Category;
-import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
 import ca.gc.collectionscanada.gcwa.domain.Collection;
 import ca.gc.collectionscanada.gcwa.domain.CollectionRepository;
 import ca.gc.collectionscanada.gcwa.domain.Subcategory;
@@ -56,7 +55,7 @@ public class SubcategoryController {
 		    sort = new Sort("titleEn");
 		}
 		 
-		List<Collection> collections = collectionRepository.findAllBySubcategory(subcategory, sort);
+		List<Collection> collections = collectionRepository.findAllBySubcategoryAndEnabled(subcategory, true, sort);
 
 		// Group collections by first letter (for alpha paginator)
 		Map<String, List<Collection>> alphabetizedCollections = new HashMap<String, List<Collection>>();

@@ -10,4 +10,5 @@ public interface CollectionRepository extends PagingAndSortingRepository<Collect
     List<Collection> findAll();
     List<Collection> findAllBySubcategory_Id(long id);
 	List<Collection> findAllBySubcategory(Subcategory subcategory, Sort sort);
+	List<Collection> findAllBySubcategoryAndEnabled(Subcategory subcategory, Boolean enabled, Sort sort);
 }
