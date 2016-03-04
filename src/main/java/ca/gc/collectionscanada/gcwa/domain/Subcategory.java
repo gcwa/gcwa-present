@@ -98,7 +98,11 @@ public class Subcategory {
 		return id;
 	}
 
-	public Category getCategory() {
+	public void setId(long id) {
+        this.id = id;
+    }
+
+    public Category getCategory() {
 		return category;
 	}
 

@@ -107,7 +107,11 @@ public class Collection {
 		return id;
 	}
 
-	public Subcategory getSubcategory() {
+	public void setId(long id) {
+        this.id = id;
+    }
+
+    public Subcategory getSubcategory() {
 		return subcategory;
 	}
 
