@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+
+<div>
+	
+	<div th:each="deptlist : ${groupedSeeds}">
+		<h2 th:text="${deptlist.key}" th:id="${deptlist.key}">Dept name</h2>
+		<ul>
+		<li th:each="seed : ${deptlist.value}">
+		  <a th:text="${seed.humanReadableUrl}" th:href="@{${waybackUrl}} + ${seed.url}">www.example.com</a>
+		</li>
+		</ul>
+	</div>
+  <div th:replace="_datemodified"></div>
+
+</div>
+
+</main>
+</html>
