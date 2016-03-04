@@ -27,13 +27,11 @@ public class GeneralController {
 
 	@RequestMapping("/")
 	public String index(Model model, Locale locale) {
-        log.info("/ requested");
 	    List<Category> categories = categoryRepository.findAll();
 
         model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
-        model.addAttribute("categories", categories);
         model.addAttribute("navSection", "category");
-        return "category/list";
+        return "home";
 	}
 
 }

@@ -1,0 +1,30 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="layout/content-secmenu">
+<main layout:fragment="content">
+
+<h1 id="wb-cont" property="name" th:text="${sectionTitle}">Section Title</h1>
+<p th:text="#{intro1.message}">Intro message</p>
+<section class="gc-prtts">
+    <div class="row">
+
+    <div class="col-lg-10">
+      <div class="panel panel-default">
+       <header class="panel-heading">
+        <h2 class="panel-title" th:text="#{section.federal.title}">Federal Government and Politics</h2>
+        </header>
+        <div class="panel-body">
+        <p th:text="#{section.federal.desc}">Description</p>
+        </div>
+        <footer class="panel-footer">
+        <p>
+            <a class="btn btn-primary" role="button" th:href="@{/subcategory/2}" th:text="#{section.federal.btn.bydepartment}"></a>
+            <a class="btn btn-primary" role="button" th:href="@{/seed/subcategory/2}" th:text="#{section.federal.btn.byurl}"></a>
+        </p>
+        </footer>
+      </div>
+            
+    </div></div>
+  </section>
+</main>
+</html>

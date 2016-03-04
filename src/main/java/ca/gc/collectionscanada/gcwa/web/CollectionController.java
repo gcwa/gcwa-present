@@ -49,8 +49,8 @@ public class CollectionController {
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
 	@RequestMapping(value = "/{id:\\d+}")
-	public String seed(@PathVariable("id") long id, Model model, Locale locale) {
-		log.info("/seed/" + String.valueOf(id) + "  requested");
+	public String collection(@PathVariable("id") long id, Model model, Locale locale) {
+		log.info("/collection/" + String.valueOf(id) + "  requested");
 
 		Collection collection = collectionRepository.findOne(id);
 		if (collection == null) {
@@ -84,8 +84,8 @@ public class CollectionController {
 		Subcategory subcategory = collection.getSubcategory();
 		Category category = subcategory.getCategory();
         Map<String, String> breadcrumbs = new LinkedHashMap<String, String>();
-        breadcrumbs.put("/category/" + category.getId(), category.getTitle());
-        breadcrumbs.put("/subcategory/" + subcategory.getId(), subcategory.getTitle());
+        //breadcrumbs.put("/category/" + category.getId(), category.getTitle());
+        //breadcrumbs.put("/subcategory/" + subcategory.getId(), subcategory.getTitle());
         breadcrumbs.put("/collection/" + collection.getId(), collection.getTitle());
 
 		model.addAttribute("sectionTitle", collection.getTitle());

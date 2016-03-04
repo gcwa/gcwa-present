@@ -10,7 +10,7 @@
 	  <img src="../static/images/ballot_box.jpg" th:src="@{/images/{img}(img=${category.thumbnail})}" alt="" class="img-responsive thumbnail mrgn-bttm-sm" />
 	</section>
 	
-	<section class="col-lg-4 col-md-6 mrgn-bttm-md">
+	<section class="col-lg-6 col-md-6 mrgn-bttm-md">
 		<ul>
 			<li th:each="subcategory : ${subcategories}">
 				<a href="#" th:href="@{/subcategory/} + ${subcategory.id}" th:text="${subcategory.title}">Sub Category 1</a>

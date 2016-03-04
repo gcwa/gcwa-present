@@ -74,7 +74,7 @@ public class SubcategoryController {
 
 		// Breadcrumbs parts
 		Map<String, String> breadcrumbs = new LinkedHashMap<String, String>();
-		breadcrumbs.put("/category/" + category.getId(), category.getTitle());
+		//breadcrumbs.put("/category/" + category.getId(), category.getTitle());
 
 		model.addAttribute("sectionTitle", subcategory.getTitle());
 		model.addAttribute("subcategory", subcategory);
