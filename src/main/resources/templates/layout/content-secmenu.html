@@ -189,6 +189,7 @@ ga('send', 'pageview');
 							<li><a th:href="#{footer.librarian.and.archivist.link}" th:text="#{footer.librarian.and.archivist}">Librarian and Archivist of Canada</a></li>
 							<li><a th:href="#{footer.service.and.program.link}" th:text="#{footer.service.and.program}">Services and Programs</a></li>
 							<li><a th:href="#{footer.lac.events.link}" th:text="#{footer.lac.events}">LAC's Events</a></li>
+							<li><a th:href="#{footer.lac.publications.link}" th:text="#{footer.lac.publications}">Publications</a></li>
 						</ul>
 					</section>
 					<section class="col-sm-3">
@@ -206,18 +207,14 @@ ga('send', 'pageview');
 						<ul class="list-unstyled">
 							<li><a th:href="#{footer.address.link}" th:text="#{footer.address}">Address</a></li>
 							<li><a th:href="#{footer.telephone.numbers.link}" th:text="#{footer.telephone.numbers}">Telephone Numbers</a></li>
-							<li><a th:href="#{footer.email.link}" th:text="#{footer.emails}">Emails</a></li>
 							<li><a th:href="#{footer.find.employee.link}" th:text="#{footer.find.employee}">Find an employee</a></li>
+							<li><a th:href="#{footer.feedback.link} + ${#httpServletRequest.requestURL}" th:text="#{footer.feedback}">Find an employee</a></li>
 						</ul>
 					</section>
 					<section class="col-sm-3">
-						<h3> <a th:href="#{footer.stay.connected.title.link}" th:text="#{footer.stay.connected.title}">Stay Connected</a></h3>
+						<h3 th:text="#{footer.stay.connected.title}">Stay Connected</h3>
 						<ul class="list-unstyled">
-							<li><a href="http://www.flickr.com/photos/lac-bac/collections/">Flickr </a></li>
-							<li><a href="https://twitter.com/@LibraryArchives">Twitter </a></li>
-							<li><a href="http://www.facebook.com/pages/Library-and-Archives-Canada/383985531647785"> Facebook </a></li>
-							<li><a href="http://www.youtube.com/user/LibraryArchiveCanada/">Youtube</a></li>
-							<li><a th:href="#{footer.rss.feed.link}" th:text="#{footer.rss.feed}"></a></li>
+						    <li><a th:href="#{footer.social.media.link}" th:text="#{footer.social.media}">Social Media</a></li>
 						</ul>
 					</section>
 				</div>
