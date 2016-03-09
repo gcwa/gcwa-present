@@ -7,10 +7,10 @@
 <meta charset="utf-8" />
 <!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
 		wet-boew.github.io/wet-boew/License-en.html / wet-boew.github.io/wet-boew/Licence-fr.html -->
-<title th:text="#{main.title}">Government of Canada Web Archive</title>
+<title th:text="#{main.baclac.title}">Library and Archives Canada</title>
 <meta content="width=device-width, initial-scale=1" name="viewport" />
 <!-- Meta data -->
-<meta name="description" th:content="#{main.title}" />
+<meta name="description" th:content="#{main.baclac.title}" />
 <meta name="dcterms.title" th:content="#{main.title}" />
 <meta name="dcterms.creator" content="Library and Archives Canada / Bibliothèque et Archives Canada" />
 <meta name="dcterms.language" title="ISO639-2" th:content="${#locale.language}" />
@@ -88,7 +88,7 @@ ga('send', 'pageview');
 			<div class="container">
 				<div class="row">
 					<div id="wb-sttl" class="col-md-5">
-						<a th:href="@{/(lang=(${#locale.language} == 'en' ? 'en' : 'fr'))}"> <span th:text="#{main.title}">Government of Canada</span>
+						<a th:href="#{main.baclac.title.link}"> <span th:text="#{main.baclac.title}">Government of Canada</span>
 						</a>
 					</div>
 					<object id="wmms" type="image/svg+xml" tabindex="-1" role="img"
