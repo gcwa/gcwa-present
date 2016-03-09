@@ -31,7 +31,8 @@ public class Seed {
     private java.util.Collection<Collection> collection = new ArrayList<Collection>();
 
     
-    protected Seed() {
+    public Seed() {
+        super();
     };
 
     public Seed(String url) {
@@ -52,6 +53,9 @@ public class Seed {
     }
     
     public String getHumanReadableUrl() {
+        if (url == null) {
+            return "";
+        }
         String tmpUrl = url.replaceFirst("https?://", "");
         tmpUrl = tmpUrl.replaceAll("/$", "");
         //TODO add elipse (...) on long url

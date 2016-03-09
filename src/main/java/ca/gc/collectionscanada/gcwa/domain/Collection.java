@@ -43,7 +43,9 @@ public class Collection {
 	
     private Boolean enabled;
     
-	protected Collection() {};
+	public Collection() {
+	    super();
+	};
 	
 	@Override
 	public String toString() {
