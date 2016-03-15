@@ -1,18 +1,13 @@
 <nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
-                <h2>Section Menu</h2>
-                <ul class="list-group menu list-unstyled">
-                    <li>
-                    <!-- <h3 th:text="#{main.title}">Content page - Secondary menu</h3>-->
-                        <ul class="list-group menu list-unstyled">
-                            <li><a class="list-group-item" th:classappend="${navSection}=='category'?'wb-navcurr':''" th:href="@{/}" th:text="#{intro1.title}">intro</a></li>
-<!--                            
-                            <li><a class="list-group-item" th:classappend="${navSection}=='basicsearch'?'wb-navcurr':''" th:href="@{/search}" th:text="#{search.basicsearch.title}">search</a></li>
-                            <li><a class="list-group-item" th:classappend="${navSection}=='advancedsearch'?'wb-navcurr':''" th:href="@{/search/advanced}" th:text="#{search.advancedsearch.title}">advancedsearch</a></li>
--->
-                            <li><a class="list-group-item" th:classappend="${navSection}=='about-us'?'wb-navcurr':''" th:href="@{/about-us}" th:text="#{aboutus.title}">About Us</a></li>
-                            <li><a class="list-group-item" th:classappend="${navSection}=='copyright-disclaimer'?'wb-navcurr':''" th:href="@{/copyright-disclaimer}" th:text="#{copyright.disclaimer.title}">Copyright</a></li>
-                            <li><a class="list-group-item" th:classappend="${navSection}=='help'?'wb-navcurr':''" th:href="@{/help}" th:text="#{help.title}">help</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+    <h2>Section Menu</h2>
+    <ul class="list-group menu list-unstyled">
+        <li>
+            <ul class="list-group menu list-unstyled">
+                <li><a class="list-group-item" th:classappend="${navSection}=='category'?'wb-navcurr':''" href="http://www.bac-lac.gc.ca/fra/decouvrez/archives-web-gouvernment/Pages/archives-web.aspx">Archives Web</a></li>
+                <li><a class="list-group-item" href="#">À propos de AWGC</a></li>
+                <li><a class="list-group-item" href="#">Droit d'auteur</a></li>
+                <li><a class="list-group-item" href="#">Aide</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>

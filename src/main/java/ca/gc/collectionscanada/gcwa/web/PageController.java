@@ -19,7 +19,7 @@ public class PageController {
 	private MessageSource message;
 
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
-
+/*
 	@RequestMapping("/help")
 	public String helpView(Model model, Locale locale) {
         model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));
@@ -40,4 +40,5 @@ public class PageController {
         model.addAttribute("navSection", "copyright-disclaimer");
         return "page/copyright-disclaimer";
     }
+*/
 }
