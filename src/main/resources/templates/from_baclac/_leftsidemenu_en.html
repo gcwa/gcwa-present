@@ -1,13 +1,24 @@
-<nav role="navigation" id="wb-sec" typeof="SiteNavigationElement" class="col-md-3 col-md-pull-9 visible-md visible-lg">
-    <h2>Section Menu</h2>
-    <ul class="list-group menu list-unstyled">
-        <li>
-            <ul class="list-group menu list-unstyled">
-                <li><a class="list-group-item" th:classappend="${navSection}=='category'?'wb-navcurr':''" href="http://www.bac-lac.gc.ca/eng/discover/archives-web-government/Pages/web-archives.aspx">Web Archives</a></li>
-                <li><a class="list-group-item" href="#">About GCWA</a></li>
-                <li><a class="list-group-item" href="#">Copyright</a></li>
-                <li><a class="list-group-item" href="#">help</a></li>
-            </ul>
-        </li>
-    </ul>
+<nav class="col-md-3 col-md-pull-9 visible-md visible-lg" id="wb-sec"
+	role="navigation" typeof="SiteNavigationElement">
+	<h2 id="wb-nav">Primary navigation (left column)</h2>
+
+	<ul class="list-group menu list-unstyled">
+		<li><h3 class="wb-navcurr">
+				<a
+					href="http://www.bac-lac.gc.ca/eng/discover/archives-web-government/Pages/web-archives.aspx">Government
+					of Canada Web Archives</a>
+			</h3>
+			<ul class="list-group menu list-unstyled">
+				<li><a class="list-group-item"
+					href="http://lacbac03.cloudapp.net/category/list">Browse by
+						institution</a></li>
+				<li><a class="list-group-item"
+					href="http://lacbac03.cloudapp.net/collection/1">Browse by URL</a></li>
+				<li><a class="list-group-item"
+					href="http://www.bac-lac.gc.ca/eng/discover/archives-web-government/Pages/disclaimers.aspx">Disclaimers</a></li>
+			</ul></li>
+	</ul>
+	<br />
+	<br />
+	<br />
 </nav>
