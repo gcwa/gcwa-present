@@ -31,6 +31,7 @@ public class GeneralController {
 
         model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
         model.addAttribute("navSection", "category");
+        // for now, go to "Browse by institution"
         return "redirect:/subcategory/2";
 	}
 

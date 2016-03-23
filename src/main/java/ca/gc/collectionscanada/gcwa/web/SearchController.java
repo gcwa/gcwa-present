@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/search")
 public class SearchController
 {
+/*
 	@Autowired
     private MessageSource message;
 	
@@ -43,8 +44,7 @@ public class SearchController
 		model.addAttribute("navSection", "advancedsearch");
         return "search/advancedsearch";
     }
-    
-/*
+
     @RequestMapping(value = "/result")
     public String searchResultView(SearchParameters searchParam, HttpServletRequest request, HttpServletResponse response, ModelMap myModel)
         throws IOException, InstantiationException, IllegalAccessException, ClassNotFoundException

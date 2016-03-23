@@ -31,6 +31,7 @@ import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 @Controller
 @RequestMapping("/collection")
 public class CollectionController {
+/*
 	@Autowired
 	private MessageSource message;
 
@@ -100,4 +101,5 @@ public class CollectionController {
 		model.addAttribute("navSection", "category");
 		return "collection/collection";
 	}
+*/
 }

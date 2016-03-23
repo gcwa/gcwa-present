@@ -48,7 +48,12 @@ public class SeedController {
 	@RequestMapping(value = "/subcategory/{id:\\d+}")
 	public String subcategory(@PathVariable("id") long id, Model model, Locale locale) {
 		log.info("/seed/subcategory/" + String.valueOf(id) + "  requested");
+        // Only Federal Government Web for now
+        if (id != 2) {
+            throw new ResourceNotFoundException();
+        }
 
+		
 		Subcategory subcategory = subcategoryRepository.findOne(id);
 		if (subcategory == null) {
 			throw new ResourceNotFoundException();

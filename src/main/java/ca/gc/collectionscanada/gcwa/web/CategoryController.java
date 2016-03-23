@@ -21,7 +21,8 @@ import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 @Controller
 @RequestMapping("/category")
 public class CategoryController {
-	@Autowired
+/*
+    @Autowired
 	private MessageSource message;
 
 	@Autowired
@@ -60,5 +61,5 @@ public class CategoryController {
 		model.addAttribute("navSection", "category");
 		return "category/category";
 	}
-
+*/
 }
