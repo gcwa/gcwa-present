@@ -4,12 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>ca.gc.collectionscanada</groupId>
-	<artifactId>gcwebarchive</artifactId>
-	<version>0.2.4-SNAPSHOT</version>
+	<artifactId>gcwebarchives</artifactId>
+	<version>0.2.6-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-	<name>gcwebarchive</name>
-	<description>gcwebarchive</description>
+	<name>gcwebarchives</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -102,9 +101,17 @@
 		</plugins>
 	</build>
 	
-	<url>http://collectionscanada.gc.ca/GCWebArchive</url>
 	<organization>
 		<name>Library and Archives Canada</name>
-		<url>http://www.lac-bac.gc.ca</url>
+		<url>http://www.bac-lac.gc.ca</url>
 	</organization>
+	<url>http://www.bac-lac.gc.ca/eng/discover/archives-web-government/Pages/web-archives.aspx</url>
+	<scm>
+	    <url>https://github.com/gcwa/gcwa-present</url>
+	</scm>
+	<issueManagement>
+	    <system>GitHub</system>
+	    <url>https://github.com/gcwa/gcwa-present/issues</url>
+	</issueManagement>
+	<description>Government of Canada Web Archives</description>
 </project>

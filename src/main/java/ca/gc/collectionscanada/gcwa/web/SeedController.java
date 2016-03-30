@@ -61,6 +61,12 @@ public class SeedController {
 
 		List<Seed> seeds = seedRepository.findBySubcategoryId(subcategory.getId());
 
+		// Hack, last last minute change, only for this page
+		if (id == 2) {
+		    subcategory.setTitleEn("Federal Government URLs");
+		    subcategory.setTitleFr("Adresses URL du Gouvernement Fédéral");
+		}
+		
 		// Group seeds by collection name
 		Map<String, List<Seed>> groupedSeeds = new HashMap<String, List<Seed>>();
 		for (Seed seed : seeds) {
