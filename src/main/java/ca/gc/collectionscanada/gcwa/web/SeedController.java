@@ -75,7 +75,9 @@ public class SeedController {
 			    if (groupedSeeds.containsKey(collection.getTitle()) == false) {
 			        groupedSeeds.put(collection.getTitle(), new ArrayList<Seed>());
 			    }
-			    groupedSeeds.get(collection.getTitle()).add(seed);
+			    if (groupedSeeds.get(collection.getTitle()).contains(seed) == false) {
+			        groupedSeeds.get(collection.getTitle()).add(seed);
+			    }
 			}
 			    
 		}
