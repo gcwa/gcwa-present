@@ -63,8 +63,8 @@ ga('send', 'pageview');
 					<li><a href="http://www.canada.ca/en/gov/dept/index.html" th:href="#{header.departments.url}" rel="external" th:text="#{header.departments}">Departments</a></li>
 					<li id="wb-lng"><h2>Language selection</h2>
 					<ul class="list-inline">
-					<li><a th:if="__${#locale.language}__!='en'" lang="en" href="?lang=en" th:href="@{/(lang=en)}" th:text="#{header.language.other}">English</a></li>
-                    <li><a th:if="__${#locale.language}__!='fr'" lang="fr" href="?lang=fr" th:href="@{/(lang=fr)}" th:text="#{header.language.other}">Français</a></li>
+					<li><a th:if="__${#locale.language}__!='en'" lang="en" href="?lang=en" th:href="@{__${#httpServletRequest.requestURI}__(lang=en)}" th:text="#{header.language.other}">English</a></li>
+                    <li><a th:if="__${#locale.language}__!='fr'" lang="fr" href="?lang=fr" th:href="@{__${#httpServletRequest.requestURI}__(lang=fr)}" th:text="#{header.language.other}">Français</a></li>
 					</ul>
 					</li>
 					</ul>
