@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -21,15 +22,9 @@ public class Seed {
     
     private String url;
     
-    @ManyToMany()
-    @JoinTable(name = "collection_seed",
-                    joinColumns = @JoinColumn(name = "seed_id"),
-                    inverseJoinColumns = @JoinColumn(name = "collection_id")
-    )
+    @ManyToOne()
     @JoinColumn(name = "collection_id")
-    @JsonIgnore
-    private java.util.Collection<Collection> collection = new ArrayList<Collection>();
-
+    private Collection collection;
     
     public Seed() {
         super();
@@ -61,14 +56,6 @@ public class Seed {
         //TODO add elipse (...) on long url
         return tmpUrl;
     }
-
-    public java.util.Collection<Collection> getCollection() {
-        return collection;
-    }
-
-    public void setCollection(java.util.Collection<Collection> collection) {
-        this.collection = collection;
-    }
     
     public long getId() {
         return id;
@@ -78,4 +65,11 @@ public class Seed {
         this.id = id;
     }
 
+    public Collection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(Collection collection) {
+        this.collection = collection;
+    }
 }

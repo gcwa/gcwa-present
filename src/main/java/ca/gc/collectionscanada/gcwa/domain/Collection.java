@@ -37,10 +37,6 @@ public class Collection {
 	@JoinColumn(name = "subcategory_id")
 	private Subcategory subcategory;
 	
-	@ManyToMany(mappedBy = "collection")
-	@JsonIgnore
-	private java.util.Collection<Seed> seed;
-	
     private Boolean enabled;
     
 	public Collection() {

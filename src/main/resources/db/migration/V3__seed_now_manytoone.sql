@@ -1,0 +1,1 @@
+ALTER TABLE `seed` ADD `collection_id` BIGINT(20) NOT NULL AFTER `id`;

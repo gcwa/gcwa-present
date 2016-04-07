@@ -70,16 +70,13 @@ public class SeedController {
 		// Group seeds by collection name
 		Map<String, List<Seed>> groupedSeeds = new HashMap<String, List<Seed>>();
 		for (Seed seed : seeds) {
-			java.util.Collection<Collection> collectionList = seed.getCollection();
-			for (Collection collection : collectionList) {
-			    if (groupedSeeds.containsKey(collection.getTitle()) == false) {
-			        groupedSeeds.put(collection.getTitle(), new ArrayList<Seed>());
-			    }
-			    if (groupedSeeds.get(collection.getTitle()).contains(seed) == false) {
-			        groupedSeeds.get(collection.getTitle()).add(seed);
-			    }
+			Collection collection = seed.getCollection();
+			if (groupedSeeds.containsKey(collection.getTitle()) == false) {
+			    groupedSeeds.put(collection.getTitle(), new ArrayList<Seed>());
 			}
-			    
+		    if (groupedSeeds.get(collection.getTitle()).contains(seed) == false) {
+		        groupedSeeds.get(collection.getTitle()).add(seed);
+		    }
 		}
 		Map<String, List<Seed>> groupedSeedsSorted = new TreeMap<String, List<Seed>>(groupedSeeds);
 		
