@@ -15,12 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
-/*    
+
 	@Autowired
 	private MessageSource message;
 
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
+	
+	@RequestMapping("/")
+    public String homeView(Model model, Locale locale) {
+        model.addAttribute("sectionTitle", message.getMessage("main.title", null, locale));
+        model.addAttribute("navSection", "home");
 
+        return "page/home_" + locale.getLanguage();
+    }
+	
+/*
 	@RequestMapping("/help")
 	public String helpView(Model model, Locale locale) {
         model.addAttribute("sectionTitle", message.getMessage("help.title", null, locale));

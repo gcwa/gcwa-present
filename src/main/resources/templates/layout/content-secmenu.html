@@ -128,9 +128,10 @@ ga('send', 'pageview');
 					<ol class="breadcrumb">
 						<li><a th:href="#{link.baclac.home.url}" th:text="#{link.baclac.home.title}" href="#">Home</a></li>
 						<li><a th:href="#{link.baclac.discover.url}" th:text="#{link.baclac.discover.title}" href="#">Discover the Collection</a></li>
-						<li><a th:href="#{link.baclac.gcwa.url}" th:text="#{link.baclac.gcwa.title}" href="#">Government of Canada Web Archive</a></li>
- 						<li th:each="bc : ${breadcrumbs}" th:if="#{breadcrumbs}"><a th:href="@{${bc.key}}" th:text="${bc.value}"></a></li>
-						<li th:text="${sectionTitle}">Section Title</li>
+						<li th:if="${sectionTitle}"><a th:href="#{link.baclac.gcwa.url}" th:text="#{link.baclac.gcwa.title}" href="#">Government of Canada Web Archive</a></li>
+						<li th:unless="${sectionTitle}" th:text="#{link.baclac.gcwa.title}">Government of Canada Web Archive</li>
+ 						<li th:each="bc : ${breadcrumbs}" th:if="#{breadcrumbs}"><a th:href="@{${bc.key}}" th:text="${bc.value}" ></a></li>
+						<li th:text="${sectionTitle}" th:if="${sectionTitle}">Section Title</li>
 					</ol>
 				</div>
 			</div>

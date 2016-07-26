@@ -20,19 +20,15 @@ public class GeneralController {
 	@Autowired
 	private MessageSource message;
 
-	@Autowired
-	private CategoryRepository categoryRepository;
-	
 	private final Logger log = LoggerFactory.getLogger(GeneralController.class);
 
-	@RequestMapping("/")
-	public String index(Model model, Locale locale) {
-	    List<Category> categories = categoryRepository.findAll();
-
-        model.addAttribute("sectionTitle", message.getMessage("intro1.title", null, locale));
-        model.addAttribute("navSection", "category");
-        // for now, go to "Browse by institution"
-        return "redirect:/subcategory/2";
+	@RequestMapping("/eng")
+	public String indexEng(Model model, Locale locale) {
+        return "redirect:/?lang=en";
 	}
 
+	@RequestMapping("/fra")
+    public String indexFra(Model model, Locale locale) {
+        return "redirect:/?lang=fr";
+    }
 }
