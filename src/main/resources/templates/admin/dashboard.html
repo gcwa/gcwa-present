@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+
+<h1>Curation Dashboard</h1>
+
+<h2>Shortcuts</h2>
+<ul>
+    <li><a th:href="@{/admin/collection/list/subcategory/2}">Federal Government Web</a></li>
+</ul>
+
+<h2>Admin</h2>
+<ul>
+    <li><a th:href="@{/admin/category/list}">Categories</a></li>
+    <li><a th:href="@{/admin/subcategory/list}">Sub Categories</a></li>
+    <li><a th:href="@{/admin/collection/list}">Collections</a></li>
+ </ul>
+
+<hr />
+
+<form th:action="@{/admin/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</main>
+</html>

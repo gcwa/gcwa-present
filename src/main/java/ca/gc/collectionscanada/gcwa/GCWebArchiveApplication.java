@@ -2,10 +2,9 @@ package ca.gc.collectionscanada.gcwa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class GCWebArchiveApplication extends SpringBootServletInitializer {
+public class GCWebArchiveApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(GCWebArchiveApplication.class, args);

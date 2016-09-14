@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
@@ -14,6 +15,12 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
    
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/admin/login").setViewName("admin/login");
+        registry.addViewController("/admin/dashboard").setViewName("admin/dashboard");
+    }
+    
     /**
      * Sets the locale default value to en_CA
      * 

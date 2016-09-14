@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+    <h1>Sub Categories</h1>
+
+    <table class="wb-tables table table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Enabled?</th>
+            <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="subcategory: ${subcategories}">
+            <td><a th:href="@{/admin/subcategory/} + ${subcategory.id}" th:text="${subcategory.title}">subcategory name</a></td>
+            <td th:text="${subcategory.description}">subcategory description</td>
+            <td th:text="${subcategory.enabled}">enabled</td>
+            <td><a th:href="@{/admin/collection/list/subcategory/} + ${subcategory.id}">manage collections</a></td>
+        </tr>
+    </tbody>
+</table>
+
+</main>
+        </html>

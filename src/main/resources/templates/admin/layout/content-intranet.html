@@ -1,0 +1,116 @@
+<!DOCTYPE html><!--[if lt IE 9]><html class="no-js lt-ie9" lang="en" dir="ltr"><![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="en" dir="ltr"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8" />
+<!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+wet-boew.github.io/wet-boew-intranet/License-en.html / wet-boew.github.io/wet-boew-intranet/Licence-fr.html -->
+<title>GCWA-Curate</title>
+<meta content="width=device-width,initial-scale=1" name="viewport" />
+<!-- Meta data -->
+<meta name="description" content="Curation tools for Government of Canada Web Archive" />
+<meta name="dcterms.title" content="GCWA - Curate" />
+<meta name="dcterms.creator" content="Library and Archives Canada / Bibliotheque et Archives Canada" />
+<meta name="dcterms.issued" title="W3CDTF" content="Date published (YYYY-MM-DD) / Date de publication (AAAA-MM-JJ)" />
+<meta name="dcterms.modified" title="W3CDTF" content="Date modified (YYYY-MM-DD) / Date de modification (AAAA-MM-JJ)" />
+<meta name="dcterms.subject" title="scheme" content="French subject terms / Termes de sujet en français" />
+<meta name="dcterms.language" title="ISO639-2" content="eng" />
+<!-- Meta data-->
+<!--[if gte IE 9 | !IE ]><!-->
+<link th:href="@{/wet-boew-intranet/theme-gc-intranet/assets/favicon.ico}" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" th:href="@{/wet-boew-intranet/theme-gc-intranet/css/theme.min.css}" />
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<link th:href="@{/wet-boew-intranet/theme-gc-intranet/assets/favicon.ico}" rel="shortcut icon" />
+<link rel="stylesheet" th:href="@{/wet-boew-intranet/theme-gc-intranet/css/ie8-theme.min.css}" />
+<script th:src="@{/wet-boew-intranet/js/jquery/1.11.1/jquery.min.js}"></script>
+<script th:src="@{/wet-boew-intranet/wet-boew/js/ie8-wet-boew.min.js}"></script>
+<![endif]-->
+<noscript><link rel="stylesheet" th:href="@{/wet-boew-intranet/wet-boew/css/noscript.min.css}" /></noscript>
+</head>
+<body vocab="http://schema.org/" typeof="WebPage">
+<ul id="wb-tphp">
+<li class="wb-slc">
+<a class="wb-sl" href="#wb-cont">Skip to main content</a>
+</li>
+<li class="wb-slc visible-sm visible-md visible-lg">
+<a class="wb-sl" href="#wb-info">Skip to "About this site"</a>
+</li>
+</ul>
+<header role="banner">
+<div id="wb-bnr">
+<div id="wb-bar">
+<div class="container">
+<div class="row">
+<object id="gcwu-sig" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/wet-boew-intranet/theme-gc-intranet/assets/sig-blk-en.svg}" aria-label="Government of Canada"></object>
+<section class="wb-mb-links col-xs-12 visible-sm visible-xs" id="wb-glb-mn">
+<h2>Search and menus</h2>
+<ul class="pnl-btn list-inline text-right">
+<li><a href="#mb-pnl" title="Search and menus" aria-controls="mb-pnl" class="overlay-lnk btn btn-sm btn-default" role="button"><span class="glyphicon glyphicon-search"><span class="glyphicon glyphicon-th-list"><span class="wb-inv">Search and menus</span></span></span></a></li>
+</ul>
+<div id="mb-pnl"></div>
+</section>
+</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+<div id="wb-sttl" class="col-md-12">
+<a th:href="@{/admin/dashboard}">
+<span>GCWA - Curate</span>
+</a>
+<object id="wmms" type="image/svg+xml" tabindex="-1" role="img" th:data="@{/wet-boew-intranet/theme-gc-intranet/assets/wmms-intra.svg}" aria-label="Symbol of the Government of Canada"></object>
+</div>
+</div>
+</div>
+</div>
+<span data-trgt="mb-pnl" class="wb-menu hide"></span>
+</header>
+<main role="main" property="mainContentOfPage" class="container" layout:fragment="content">
+    Content Here
+</main>
+<footer role="contentinfo" id="wb-info" class="visible-sm visible-md visible-lg wb-navcurr">
+    <div class="container">
+        <nav role="navigation">
+            <h2>About this site</h2>
+            <div class="row">
+                <section class="col-sm-3">
+                    <h3>Contact us</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="mailto:bac.archivesweb-webarchives.lac@canada.ca">bac.archivesweb-webarchives.lac@canada.ca</a></li>
+                    </ul>
+                </section>
+                <section class="col-sm-3">
+                    <h3>WebApps</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="http://lacbac03.cloudapp.net">GCWebArchives</a></li>
+                        <li><a href="http://v41webarcd01.lac-bac.int:8080/webcan/">WebCan</a></li>
+                    </ul>
+                </section>
+                <section class="col-sm-3">
+                    <h3>Partners</h3>
+                    <ul class="list-unstyled">
+                        <li><a href="httsp://five.partner.archive-it.org/591">ArchiveIt</a></li>
+                    </ul>
+                </section>
+            </div>
+            <ul id="gc-tctr" class="list-inline">
+                <li><a rel="license" href="http://www.bac-lac.gc.ca/eng/Pages/terms-and-conditions.aspx">Terms and conditions</a></li>
+                <li><a href="http://www.bac-lac.gc.ca/eng/transparency/Pages/transparency.aspx">Transparency</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+<!--[if gte IE 9 | !IE ]><!-->
+<script th:src="@{/wet-boew-intranet/js/jquery/2.1.4/jquery.js}"></script>
+<script th:src="@{/wet-boew-intranet/wet-boew/js/wet-boew.min.js}"></script>
+<!--<![endif]-->
+<!--[if lt IE 9]>
+<script th:src="@{/wet-boew-intranet/wet-boew/js/ie8-wet-boew2.min.js}"></script>
+
+<![endif]-->
+<script th:src="@{/wet-boew-intranet/theme-gc-intranet/js/theme.min.js}"></script>
+</body>
+</html>

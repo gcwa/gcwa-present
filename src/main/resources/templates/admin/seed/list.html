@@ -1,0 +1,64 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        (function() {
+            var rootUrl = /*[[@{/admin/}]]*/ '/';
+            var apiUrl = /*[[@{/admin/api/seeds}]]*/ '/api/seeds';
+            var collectionId = /*[[${collectionId}]]*/ null;
+            if (collectionId) {
+                var ajaxUrl = apiUrl + '/collection/' + collectionId;
+            } else {
+                var ajaxUrl = apiUrl;
+            }
+            window["wb-tables"] = {
+                "ajax": {
+                    "url": ajaxUrl,
+                    "dataSrc": ""
+                },
+                columns: [
+                    {data: "humanReadableUrl"},
+                    {
+                        "className":      'details-control',
+                        "orderable":      false,
+                        "data":           null,
+                        "defaultContent": '',
+                        render: function ( data, type, row) {
+                            return '<a href="' + rootUrl + 'seed/' + row.id + '">Edit</a>';
+                        }
+
+                    },
+
+
+
+
+                ],
+                "deferRender": true,
+                "order": [[0, 'asc']],
+                "pageLength": 50
+            }
+        })();
+        /*]]>*/
+    </script>
+
+  <h1>Seeds</h1>
+  <p th:if="${collection}">of collection: <a th:href="@{/admin/collection/} + ${collection.id}" th:text="${collection.title}"></a></p>
+  <p>back to <a th:href="@{/admin/collection/list}">Collections</a></p>
+
+        <table class="wb-tables table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Url</th>
+                <th>action</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+<a th:href="@{/admin/seed/new/} + ${collectionId}" class="btn btn-primary">Add a seed <span class="glyphicon glyphicon-plus-sign"></span></a>
+
+</main>
+</html>

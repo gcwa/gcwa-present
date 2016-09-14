@@ -1,0 +1,61 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+
+    <h1>Category</h1>
+    <h2 id="wb-cont" property="name" th:text="${category.getTitle()}">SubCategory Title</h2>
+
+    <div class="row">
+        <div class="col-sm-12">
+        <p><a th:href="@{/admin/subcategory/list/category/} + ${category.id}">manage subcategories</a></p>
+        </div>
+    </div>
+        
+    <form th:method="put" th:action="@{/admin/category}" class="form-horizontal" th:object="${category}">
+        <div class="row">
+            <section class="col-sm-6">
+                <div class="form-group">
+                    <label for="data1" class="col-sm-3 control-label">Title En</label>
+                    <div class="col-sm-9">
+                        <input type="text" th:field="*{titleEn}" size="60" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="data2" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                        <textarea rows="3" cols="80" class="form-control" th:field="*{descriptionEn}"></textarea>
+                    </div>
+                </div>
+            </section>
+            <section class="col-sm-6">
+                <div class="form-group">
+                    <label for="data1" class="col-sm-3 control-label">Title En</label>
+                    <div class="col-sm-9">
+                        <input type="text" size="60" class="form-control" th:field="*{titleFr}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="data2" class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                        <textarea rows="3" cols="80" class="form-control" th:field="*{descriptionFr}"></textarea>
+                    </div>
+                </div>
+            </section>
+    </div>
+
+        <div class="row">
+        <div class="form-group">
+            <div class="col-sm-offset-1 col-sm-1g">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </div>
+        </div>
+    </form>
+
+</main>
+</html>

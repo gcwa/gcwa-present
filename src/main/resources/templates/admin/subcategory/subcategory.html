@@ -1,0 +1,85 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+
+<h1>Sub Category</h1>
+<p>back to <a th:href="@{/admin/subcategory/list}">list</a></p>
+<div>
+ <p class="alert alert-success" th:if="${flashSuccessMsg}" th:text="${flashSuccessMsg}"></p>
+ 
+	<form method="post" th:action="@{/admin/subcategory}" class="form-horizontal" th:object="${subcategory}">
+    <input type="hidden" th:field="*{id}" />
+	<section class="panel panel-default">
+	<header class="panel-heading">
+        <h2 id="wb-cont" class="panel-title" property="name" th:text="${subcategory.title}">subcategory title</h2>
+        <p><a th:href="@{/admin/collection/list/subcategory/} + *{id}">manage collections</a></p>   
+    </header>	
+	<div class="panel-body">
+	
+		<div class="row">
+		<div class="col-lg-6">
+		<div class="form-group">
+			<label for="titleEn" class="col-sm-3 control-label">Title EN</label>
+			<div class="col-sm-9">
+				<input type="text" size="60" class="form-control" th:field="*{titleEn}" />
+			</div>
+		</div>
+		<div class="form-group">
+            <label for="descriptionEn" class="col-sm-3 control-label">Description En</label>
+            <div class="col-sm-9">
+                <textarea rows="3" cols="80" class="form-control" th:field="*{descriptionEn}"></textarea>
+            </div>
+        </div>
+        </div>
+        <div class="col-lg-6">
+		<div class="form-group">
+            <label for="titleFr" class="col-sm-3 control-label">Title FR</label>
+            <div class="col-sm-9">
+                <input type="text" size="60" class="form-control" th:field="*{titleFr}" />
+            </div>
+        </div>
+		<div class="form-group">
+            <label for="descriptionFr" class="col-sm-3 control-label">Description FR</label>
+            <div class="col-sm-9">
+                <textarea rows="3" cols="80" class="form-control" th:field="*{descriptionFr}"></textarea>
+            </div>
+        </div>
+        </div>
+        </div>
+        <hr />
+        
+	    <div class="form-group">
+        <label for="enabled" class="col-sm-2 control-label">Enabled?</label>
+        <div class="col-sm-10">
+            <input type="checkbox" th:field="*{enabled}" rows="3" cols="80" class="form-control" />
+        </div>
+        </div>
+        
+        <div class="form-group">
+        <label for="category" class="col-sm-2 control-label">Category</label>
+        <div class="col-sm-10">
+            <select th:field="*{category}" class="form-control">
+                <option th:each="category: ${allCategories}"
+                        th:value="${category.id}"
+                        th:text="${category.title}">category list</option>
+            </select>
+        </div>
+        </div>
+        
+        </div>
+        
+        <footer class="panel-footer">
+		<div class="form-group">
+			<div class="col-sm-offset-1 col-sm-11">
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</div>
+		</div>
+		</footer>
+	</section>	
+	</form>
+    
+</div>
+
+</main>
+</html>
