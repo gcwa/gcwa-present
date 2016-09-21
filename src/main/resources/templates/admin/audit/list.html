@@ -41,14 +41,16 @@
             <tr>
                 <th>Timestamp</th>
                 <th>Action</th>
-                <th>Title</th>
+                <th>Title EN</th>
+                <th>Title FR</th>
             </tr>
             </thead>
             <tbody>
             <tr  th:each="e : ${collectionHistory}">
                 <td th:text="${#calendars.format(e[1].timestamp,'yyyy-MM-dd&nbsp;HH:mm:ss')}"></td>
                 <td th:text="${e[2]}"></td>
-                <td th:text="${e[0].title}"></td>
+                <td th:text="${e[0].titleEn}"></td>
+                <td th:text="${e[0].titleFr}"></td>
             </tr>
             </tbody>
         </table>
