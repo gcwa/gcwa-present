@@ -1,0 +1,59 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  	  layout:decorator="admin/layout/content-intranet">
+<main layout:fragment="content">
+<script th:inline="javascript">
+        /*<![CDATA[*/
+        (function() {
+            window["wb-tables"] = {
+                "ordering": true,
+                "order": [[0, 'desc']],
+                "pageLength": 10
+            }
+        })();
+        /*]]>*/
+    </script>
+    
+  <h1>Audit</h1>
+  
+  <h2>Seed</h2>
+        <table class="wb-tables table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Action</th>
+                <th>URL</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="e : ${seedHistory}">
+                <td th:text="${#calendars.format(e[1].timestamp,'yyyy-MM-dd&nbsp;HH:mm:ss')}"></td>
+                <td th:text="${e[2]}"></td>
+                <td th:text="${e[0].url}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+  <h2>Collection</h2>
+
+      <table class="wb-tables table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Action</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="e : ${collectionHistory}">
+                <td th:text="${#calendars.format(e[1].timestamp,'yyyy-MM-dd&nbsp;HH:mm:ss')}"></td>
+                <td th:text="${e[2]}"></td>
+                <td th:text="${e[0].title}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        
+
+</main>
+</html>
