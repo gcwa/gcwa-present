@@ -7,7 +7,7 @@
 
 <div>
 <p class="alert alert-success" th:if="${flashSuccessMsg}" th:text="${flashSuccessMsg}"></p>
-	<form method="post" th:action="@{/seed}" class="form-horizontal" th:object="${seed}">
+	<form method="post" th:action="@{/admin/seed}" class="form-horizontal" th:object="${seed}">
 	   <input type="hidden" th:field="*{id}" />
 
         <section class="panel panel-default">
