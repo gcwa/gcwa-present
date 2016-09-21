@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.envers.Audited;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
+@Audited
 public class Subcategory {
 	
 	@Id

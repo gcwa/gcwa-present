@@ -1,19 +1,16 @@
 package ca.gc.collectionscanada.gcwa.domain;
 
-import java.util.ArrayList;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.envers.Audited;
 
 @Entity
+@Audited
 public class Seed {
 
     @Id
@@ -36,7 +33,7 @@ public class Seed {
 
     @Override
     public String toString() {
-        return String.format("Seed[url='%s'", url);
+        return String.format("Seed[url='%s']", url);
     }
 
     public String getUrl() {

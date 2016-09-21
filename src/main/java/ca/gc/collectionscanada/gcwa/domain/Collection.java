@@ -7,18 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.envers.Audited;
 import org.springframework.context.i18n.LocaleContextHolder;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * (W)eb (A)rchive (Collection), to avoid confusion with Java Collection
  *
  */
 @Entity
+@Audited
 public class Collection {
 	
 	@Id

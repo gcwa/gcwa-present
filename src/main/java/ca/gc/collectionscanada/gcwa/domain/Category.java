@@ -8,9 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.envers.Audited;
 import org.springframework.context.i18n.LocaleContextHolder;
 
 @Entity
+@Audited
 public class Category {
 
     @Id
