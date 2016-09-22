@@ -7,10 +7,18 @@
 
 <h2>Shortcuts</h2>
 <ul>
-    <li><a th:href="@{/admin/collection/list/subcategory/2}">Federal Government Web</a> <small>(subcategory)</small></li>
+    <li>Manage <a th:href="@{/admin/collection/list/subcategory/2}">Federal Government Web</a> subcategory</li>
+</ul>
+
+<h2>Helpful links</h2>
+<ul>
+    <li><a th:href="#{link.baclac.gcwa.url}">Web Archive Home</a></li>
+    <li><a th:href="${@environment.getProperty('gcwa.fullwayback.url')}">Private OpenWaybak with Full Index</a></li>
+    <li><a th:href="${@environment.getProperty('gcwa.fullwayback.url')}">Private OpenWaybak with Full Index</a></li>
 </ul>
 
 <h2>Admin</h2>
+Manage:
 <ul>
     <li><a th:href="@{/admin/category/list}">Categories</a></li>
     <ul>
@@ -20,8 +28,11 @@
             <ul><li>Seeds</li></ul>
         </ul>
     </ul>
-    <li><a th:href="@{/admin/audit}">Audit log</a></li>
- </ul>
+</ul>
+View:
+<ul>
+    <li><a th:href="@{/admin/audit}">audit log</a></li>
+</ul>
 
 <hr />
 
