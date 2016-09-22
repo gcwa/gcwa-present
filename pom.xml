@@ -5,7 +5,7 @@
 
 	<groupId>ca.gc.collectionscanada</groupId>
 	<artifactId>gcwebarchives</artifactId>
-	<version>1.2.0-SNAPSHOT</version>
+	<version>1.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
 	<name>gcwebarchives</name>
@@ -109,7 +109,7 @@
 		<name>Library and Archives Canada</name>
 		<url>http://www.bac-lac.gc.ca</url>
 	</organization>
-	<url>http://www.bac-lac.gc.ca/eng/discover/archives-web-government/Pages/web-archives.aspx</url>
+	<url>http://webarchive.bac-lac.gc.ca/</url>
 	<scm>
 	    <url>https://github.com/gcwa/gcwa-present</url>
 	</scm>
@@ -117,5 +117,5 @@
 	    <system>GitHub</system>
 	    <url>https://github.com/gcwa/gcwa-present/issues</url>
 	</issueManagement>
-	<description>Government of Canada Web Archives</description>
+	<description>Government of Canada Web Archive</description>
 </project>
