@@ -42,7 +42,7 @@
 		<div class="form-group">
 			<div class="col-sm-offset-1 col-sm-11">
 				<button type="submit" class="btn btn-primary">Save</button>&nbsp;
-				<a th:if="${seed.id}" th:href="@{/admin/seed/delete/} + ${seed.id}" class="btn-sm btn-danger">delete</a>
+				<a th:if="${seed.id}" th:href="@{/admin/seed/delete/} + ${seed.id}" class="btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this url');">delete</a>
 			</div>
 		</div>
 		</footer>
