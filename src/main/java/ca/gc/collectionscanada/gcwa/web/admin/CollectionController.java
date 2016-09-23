@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import ca.gc.collectionscanada.gcwa.domain.Collection;
 import ca.gc.collectionscanada.gcwa.domain.CollectionRepository;
+import ca.gc.collectionscanada.gcwa.domain.Seed;
 import ca.gc.collectionscanada.gcwa.domain.SeedRepository;
 import ca.gc.collectionscanada.gcwa.domain.Subcategory;
 import ca.gc.collectionscanada.gcwa.domain.SubcategoryRepository;
@@ -77,10 +78,11 @@ public class CollectionController {
         if (collection == null) {
             throw new ResourceNotFoundException();
         }
-
+        long seedCount = seedRepository.countByCollection_Id(id);
         List<Subcategory> allSubcategories = subcategoryRepository.findAll();
 
         model.addAttribute("collection", collection);
+        model.addAttribute("seedCount", seedCount);
         model.addAttribute("allSubcategories", allSubcategories);
         return "admin/collection/collection";
     }
@@ -122,5 +124,26 @@ public class CollectionController {
         collectionRepository.save(collection);
         redirectAttributes.addFlashAttribute("flashSuccessMsg", "Subcategory Updated");
         return "redirect:/admin/collection/" + collection.getId();
+    }
+    
+    /**
+     * Delete a collection
+     */
+    @RequestMapping(value = "/delete/{id:\\d+}")
+    public String delete(@PathVariable("id") long id, Model model, Locale locale,
+            RedirectAttributes redirectAttributes) {
+
+        Collection collection = collectionRepository.findOne(id);
+        long seedCount = seedRepository.countByCollection_Id(id);
+        
+        if (seedCount == 0) {
+            long subcategoryId = collection.getSubcategory().getId();
+            collectionRepository.delete(collection);
+            redirectAttributes.addFlashAttribute("flashSuccessMsg", "Collection Deleted");
+            return "redirect:/admin/subcategory/" + subcategoryId;
+        } else {
+            redirectAttributes.addFlashAttribute("flashErrorMsg", "Collection not deleted, still have " + seedCount + " assigned to it");
+            return "redirect:/admin/collection/" + id;
+        }        
     }
 }

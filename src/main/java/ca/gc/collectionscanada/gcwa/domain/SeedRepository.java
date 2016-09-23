@@ -12,6 +12,7 @@ public interface SeedRepository extends CrudRepository<Seed, Long> {
     List<Seed> findAllByCollection_Id(long id);
     List<Seed> findByCollection(Collection collection, Sort sort);
     Category findOneById(long id);
+    long countByCollection_Id(long id);
 
     /* @TODO order by url, then subcat */
     @Query("SELECT s FROM Seed s JOIN FETCH s.collection c JOIN FETCH c.subcategory sc WHERE sc.id = ?1 ORDER BY s.url")
