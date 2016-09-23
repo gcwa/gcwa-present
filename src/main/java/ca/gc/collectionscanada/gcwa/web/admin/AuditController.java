@@ -28,13 +28,18 @@ public class AuditController {
         
         AuditReader reader = AuditReaderFactory.get(entityManager);
         
+        /**
+         * Info: forRevisionsOfEntity.getResultList() returns a list of objects
+         * Object (seed, collection, etc)
+         * Revision Info (timestamp, revision id, etc)
+         * Revision Type (add,mod,del)
+         */
+        
         @SuppressWarnings("unchecked")
         List<Object[]> seedHistory = reader.createQuery()
                 .forRevisionsOfEntity(Seed.class, false, true)
                 .setMaxResults(50)
                 .addOrder(AuditEntity.revisionNumber().desc())
-                //.addProjection(AuditEntity.revisionProperty("timestamp"))
-                //.addProjection(AuditEntity.property("url"))
                 .getResultList();
         model.addAttribute("seedHistory", seedHistory);
         
@@ -43,8 +48,6 @@ public class AuditController {
                 .forRevisionsOfEntity(Collection.class, false, true)
                 .setMaxResults(50)
                 .addOrder(AuditEntity.revisionNumber().desc())
-                //.addProjection(AuditEntity.revisionProperty("timestamp"))
-                //.addProjection(AuditEntity.property("url"))
                 .getResultList();
         model.addAttribute("collectionHistory", collectionHistory);
         
