@@ -1,11 +1,32 @@
-/target/
-build/
 gcwebarchives.log
 application-prod.properties
 
-# IntelliJ IDEA
-#  https://intellij-support.jetbrains.com/hc/en-us/articles/206827587-How-to-manage-projects-under-Version-Control-Systems
-.idea/dictionnaries/
-.idea/workspace.xml
-.idea/tasks.xml
+
+## Ignore the MVN compiled output directories from version tracking
+target/
+
+## Ignore project files created by Eclipse
+.settings/
+.project
+.classpath
+
+## Ignore project files created by IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+overlays/
+
+## Ignore project files created by NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+META-INF/
+
+##Mac noise
+.DS_Store
 
