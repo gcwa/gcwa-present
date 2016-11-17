@@ -88,7 +88,7 @@ public class CollectionController {
     }
 
     /**
-     * Empty form to create new Collection entity
+     * Empty form to create new Collection entity for subcategory ID
      */
     @RequestMapping(value = "/new/{id:\\d+}")
     public String collectionNew(@PathVariable("id") long id, Model model, Locale locale) {
@@ -104,7 +104,7 @@ public class CollectionController {
     }
 
     /**
-     * Empty form to create new Collection entity for subcategory X
+     * Empty form to create new Collection entity
      */
     @RequestMapping(value = "/new")
     public String collectionNew(Model model, Locale locale) {

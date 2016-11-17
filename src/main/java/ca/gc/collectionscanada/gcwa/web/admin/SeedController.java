@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -64,7 +65,8 @@ public class SeedController {
         if (seed == null) {
             throw new ResourceNotFoundException();
         }
-        List<Collection> allCollections = collectionRepository.findAll();
+        Sort sort = new Sort("titleEn");
+        List<Collection> allCollections = collectionRepository.findAll(sort);
 
         model.addAttribute("seed", seed);
         model.addAttribute("allCollections", allCollections);
@@ -78,7 +80,8 @@ public class SeedController {
         Seed seed = new Seed();
         Collection collection = collectionRepository.findOne(id);
         seed.setCollection(collection);
-        List<Collection> allCollections = collectionRepository.findAll();
+        Sort sort = new Sort("titleEn");
+        List<Collection> allCollections = collectionRepository.findAll(sort);
 
         model.addAttribute("seed", seed);
         model.addAttribute("allCollections", allCollections);
