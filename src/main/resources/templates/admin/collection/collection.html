@@ -4,7 +4,7 @@
 <main layout:fragment="content">
 
 <h1>Collection</h1>
-<p>back to <a th:href="@{/admin/collection/list} + (${collection.subcategory.id} ? '/subcategory/'+${collection.subcategory.id} : '')">list</a></p>
+<p>back to <a th:href="@{/admin/collection/list} + (${collection.subcategory} ? '/subcategory/'+${collection.subcategory.id} : '')">list</a></p>
 
 <div>
 <p class="alert alert-success" th:if="${flashSuccessMsg}" th:text="${flashSuccessMsg}"></p>
