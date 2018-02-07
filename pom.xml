@@ -110,12 +110,5 @@
 		<url>http://www.bac-lac.gc.ca</url>
 	</organization>
 	<url>http://webarchive.bac-lac.gc.ca/</url>
-	<scm>
-	    <url>https://github.com/gcwa/gcwa-present</url>
-	</scm>
-	<issueManagement>
-	    <system>GitHub</system>
-	    <url>https://github.com/gcwa/gcwa-present/issues</url>
-	</issueManagement>
 	<description>Government of Canada Web Archive</description>
 </project>
