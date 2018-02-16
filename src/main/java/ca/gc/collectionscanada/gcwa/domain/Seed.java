@@ -25,7 +25,7 @@ public class Seed {
     
     public Seed() {
         super();
-    };
+    }
 
     public Seed(String url) {
         this.url = url;

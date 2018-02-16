@@ -32,7 +32,7 @@ public class Category {
     private Boolean enabled;
     
     protected Category() {
-    };
+    }
 
     @Override
     public String toString() {

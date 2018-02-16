@@ -40,9 +40,9 @@ public class Collection {
     
 	public Collection() {
 	    super();
-	};
-	
-	@Override
+	}
+
+    @Override
 	public String toString() {
 		return String.format(
 				"Collection[id=%d, title='%s']",

@@ -1,35 +1,22 @@
 package ca.gc.collectionscanada.gcwa.web;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
-
+import ca.gc.collectionscanada.gcwa.domain.Collection;
+import ca.gc.collectionscanada.gcwa.domain.*;
+import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ca.gc.collectionscanada.gcwa.domain.Collection;
-import ca.gc.collectionscanada.gcwa.domain.Seed;
-import ca.gc.collectionscanada.gcwa.domain.SeedRepository;
-import ca.gc.collectionscanada.gcwa.domain.Subcategory;
-import ca.gc.collectionscanada.gcwa.domain.SubcategoryRepository;
-import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
+import java.util.*;
 
 @Controller
 @RequestMapping("/seed")
 public class SeedController {
-	@Autowired
-	private MessageSource message;
 
 	@Autowired
 	private SeedRepository seedRepository;

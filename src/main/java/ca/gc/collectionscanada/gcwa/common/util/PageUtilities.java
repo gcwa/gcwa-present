@@ -65,9 +65,7 @@ public class PageUtilities
     }
 
 
-    public static String appendExclusionsToQuery(String query, @Value("${exclusions.queryExclusionsFile}") String exclusionsFileString) 
-    		throws IOException
-    {
+    public static String appendExclusionsToQuery(String query, @Value("${exclusions.queryExclusionsFile}") String exclusionsFileString) {
     	DataInputStream in = null;
     	BufferedReader br = null;
         String newQuery = "";

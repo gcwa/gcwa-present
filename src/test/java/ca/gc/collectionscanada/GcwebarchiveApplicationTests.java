@@ -1,21 +1,17 @@
 package ca.gc.collectionscanada;
 
+import ca.gc.collectionscanada.gcwa.GCWebArchiveApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import ca.gc.collectionscanada.gcwa.GCWebArchiveApplication;
-
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = GCWebArchiveApplication.class)
-@WebAppConfiguration
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = GCWebArchiveApplication.class)
 public class GcwebarchiveApplicationTests {
 
-	@Test
-	public void contextLoads() {
-	}
+    @Test
+    public void contextLoads() {
+    }
 
 }

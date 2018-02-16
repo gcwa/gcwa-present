@@ -36,9 +36,9 @@ public class Subcategory {
     private Boolean enabled;
     
     
-	protected Subcategory() {};
-	
-	@Override
+	protected Subcategory() {}
+
+    @Override
 	public String toString() {
 		return String.format(
 				"Subcategory[id=%d, title='%s']",
