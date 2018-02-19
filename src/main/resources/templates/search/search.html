@@ -10,7 +10,7 @@
 		<div class="form-group">
  			<label for="data1" th:text="#{search.message}"></label>
             <input class="form-control" id="data1" name="q" type="text"
-				required="required" pattern=".{2,}" th:value="${results.title}" data-rule-minlength="2" />
+				required="required" pattern=".{2,}" th:value="${metadata.query}" data-rule-minlength="2" />
 		</div>
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary" th:text="#{button.search}">
@@ -24,20 +24,14 @@
 
     <div class="datatable_wrapper">
     <ol>
-        <li th:each="item : ${results.items}">
+        <li th:each="item : ${items}">
             <h3><a th:href="${item.link}"  th:text="${item.title}">Entry title</a></h3>
-            <div th:utext="${item.description.value}"></div>
+            <div th:utext="${item.description}"></div>
             <dl class="dl-horizontal">
-            <th:block th:each="f : ${item.foreignMarkup}">
-                <th:block th:if="${f.getName().equals('site')}">
                     <dt th:text="#{search.results.item.site}"></dt>
-                    <dd th:text="${f.getValue()}"></dd>
-                </th:block>
-                <th:block th:if="${f.getName().equals('type')}">
-                    <dt th:if="${f.getName().equals('type')}" th:text="#{search.results.item.type}"></dt>
-                    <dd th:if="${f.getName().equals('type')}" th:text="${f.getValue()}"></dd>
-                </th:block>
-            </th:block>
+                    <dd th:text="${item.site}"></dd>
+                    <dt th:text="#{search.results.item.type}"></dt>
+                    <dd th:text="${item.type}"></dd>
             </dl>
         </li>
     </ol>
