@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 /**
  * Full text search into the archives
@@ -25,20 +26,22 @@ public class SearchController {
 
     @RequestMapping("")
     public String index(@RequestParam(value = "q", required = false) String query,
+    		@RequestParam(value = "mimetype", required = false) String contentType,
     		Model model, Locale locale) {
 
-        log.info("/search searching for: " + query);
+        if (query != null) {
+           log.info("/search searching for: " + query);
 
-        Search archiveit = new Search();
-        Channel searchResults = archiveit.SearchQuery(query);
+            Search archiveit = new Search();
+            Channel searchResults = archiveit.SearchQuery(query, contentType);
 
-        SearchMetadata metadata = archiveit.hydrateMetadata(searchResults);
-        List<SearchItem> items = archiveit.hydrateResults(searchResults);
+            SearchMetadata metadata = archiveit.hydrateMetadata(searchResults);
+            List<SearchItem> items = archiveit.hydrateResults(searchResults);
 
-        model.addAttribute("metadata", metadata);
-        model.addAttribute("items", items);
-        //DEBUG
-        model.addAttribute("results", searchResults);
+            model.addAttribute("metadata", metadata);
+            model.addAttribute("items", items);
+            model.addAttribute("mimetype", contentType);
+        }
 
         return "search/search";
     }
