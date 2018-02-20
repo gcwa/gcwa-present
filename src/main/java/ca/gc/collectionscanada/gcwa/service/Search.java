@@ -1,8 +1,13 @@
 package ca.gc.collectionscanada.gcwa.service;
 
+import ca.gc.collectionscanada.gcwa.domain.SearchItem;
+import ca.gc.collectionscanada.gcwa.domain.SearchMetadata;
 import com.rometools.rome.feed.rss.Channel;
+import com.rometools.rome.feed.rss.Item;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -23,6 +28,19 @@ public class Search {
         Channel searchResults = restTemplate.getForObject(url, Channel.class, q);
 
         return searchResults;
+    }
+
+    public SearchMetadata hydrateMetadata(Channel results) {
+	    return new SearchMetadata(results);
+    }
+
+    public List<SearchItem> hydrateResults(Channel results) {
+        List<SearchItem> items = new ArrayList<>();
+        for (Item rssItem : results.getItems()) {
+            items.add(new SearchItem(rssItem));
+        }
+
+        return items;
     }
 
 }
