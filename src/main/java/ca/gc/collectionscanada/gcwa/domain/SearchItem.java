@@ -1,7 +1,6 @@
 package ca.gc.collectionscanada.gcwa.domain;
 
 import com.rometools.rome.feed.rss.Item;
-import org.apache.commons.lang3.text.WordUtils;
 import org.jdom2.Element;
 
 public class SearchItem {
@@ -40,6 +39,15 @@ public class SearchItem {
     private String type;
     private Long collection;
     private Long index;
+    private String captureDate;
+
+    public String getCaptureDate() {
+        return captureDate;
+    }
+
+    public void setCaptureDate(String captureDate) {
+        this.captureDate = captureDate;
+    }
 
     public String getLink() {
         return link;
