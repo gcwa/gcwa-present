@@ -27,13 +27,13 @@ public class SearchMetadata {
                     setQuery(element.getValue());
                     break;
                 case "startIndex":
-                    setStartIndex(Long.getLong(element.getValue()));
+                    setStartIndex(Long.parseLong(element.getValue()));
                     break;
                 case "itemsPerPage":
-                    setItemsPerPage(Long.getLong(element.getValue()));
+                    setItemsPerPage(Long.parseLong(element.getValue()));
                     break;
                 case "totalResults":
-                    setTotalResults(Long.getLong(element.getValue()));
+                    setTotalResults(Long.parseLong(element.getValue()));
                     break;
             }
         }

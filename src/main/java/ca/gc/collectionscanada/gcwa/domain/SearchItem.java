@@ -22,7 +22,7 @@ public class SearchItem {
                     setType(element.getValue());
                     break;
                 case "collection":
-                    setCollection(Long.getLong(element.getValue()));
+                    setCollection(Long.parseLong(element.getValue()));
                     break;
             }
         }
