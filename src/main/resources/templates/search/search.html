@@ -3,6 +3,8 @@
   	  layout:decorator="layout/content-secmenu">
 <main layout:fragment="content">
 
+<link rel="stylesheet" th:href="@{/css/resultlist.css}" href="../../static/css/resultlist.css" />
+
 <h1 id="wb-cont" property="name" th:text="#{search.title}">Search Title</h1>
 
 <div class="wb-frmvld">
@@ -33,21 +35,31 @@
 	</form>
 </div>
 
-    <div class="datatable_wrapper" th:if="${items}">
-    <ol>
-        <li th:each="item : ${items}">
-            <h3><a th:href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.link}"  th:text="${item.title}">Entry title</a></h3>
-            <!--FIXME link to proper capture date once we have it: href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.captureDate} + '/' + ${item.link}" -->
-            <div th:utext="${item.description}"></div>
-            <dl class="dl-horizontal">
-                    <dt th:text="#{search.results.item.site}"></dt>
-                    <dd th:text="${item.site}"></dd>
-                    <dt th:text="#{search.results.item.type}"></dt>
-                    <dd th:text="${item.type}"></dd>
-            </dl>
+<div class="datatable_wrapper ClientSearchResultList" th:if="${items}">
+
+    <h2 th:text="${metadata.getTotalResults()} + ' ' + #{search.basicsearch.results.result}">num of results</h2>
+
+    <ol class="ResultOL">
+        <li class="ResultLI" th:each="item,iter : ${items}" th:style="${iter.index} % 2 == 0 ? 'background-color: #f0f0f0'">
+            <div class="ResultItemCheckBox HideToPrinter" th:text="${iter.index} + 1">1</div>
+            <div class="ResultItemRecord">
+                <div class="RecordWrapper">
+                <h3><a th:href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.link}"  th:text="${item.title}">Entry title</a></h3>
+                <!--FIXME link to proper capture date once we have it: href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.captureDate} + '/' + ${item.link}" -->
+                <div class="allWidth fontdot9" th:utext="${item.description}"></div>
+                <dl class="RecordRow">
+                        <dt th:text="#{search.results.item.site}"></dt>
+                        <dd th:text="${item.site}"></dd>
+                        <dt th:text="#{search.results.item.type}"></dt>
+                        <dd th:text="${item.type}"></dd>
+                </dl>
+                </div>
+            </div>
         </li>
     </ol>
-    </div>
+
+
+</div>
 
 </main>
 </html>
