@@ -1,0 +1,175 @@
+﻿
+@media screen
+{
+    .ClientSearchResultList .AllTable { display: table; border-collapse: separate; border-spacing: 2px; width: 100%; }
+    .ClientSearchResultList .AllTable .AllRow { display: table-row; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer { display: table-cell; vertical-align: top; width: 20%; padding: 1px; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer { border : 1px solid silver; border-radius:4px; overflow: hidden;}
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer h3 { margin-top: 0; font-weight: 400; font-size: 16px; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer h4 { margin-top: 0; margin-bottom: 0; font-weight: 400; font-size: .9em; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer h5 { margin-top: 0; margin-bottom: 0; font-weight: 400; font-size: 1em; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .Top{ background: #ebf2fc;  border-bottom: 1px solid silver;  padding: 12px;}
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .CountWarn { background: #f8fbac;  border: 1px solid silver; border-radius: 4px; padding: 4px; color: #0f4ffe; font-weight: 400; font-size: .9em;}
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody{ padding: 5px; width: 100%; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody .OneFacet{ padding-left: 5px; margin-top: 5px; width: 100%; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody .OneFacet .FacetName{ font-weight: 600; font-size: .9em; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody .OneFacet .Highlight{ color: #83b0ec; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody .OneFacet .SubFacets { margin-bottom: 15px; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetBody .OneFacet .SubFacets .OneFacet .FacetName { font-weight: 400; font-size: .9em; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .SubFacets{ padding-left: 0; width: 100%; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .SubFacets ul { list-style: none; padding-left: 7px; }
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetOptions{ width: 100%; margin-bottom: 15px;}
+    .ClientSearchResultList .AllTable .AllRow .LeftContainer .FacetsContainer .FacetOptions ul { list-style: none; padding-left: 7px; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer { display: table-cell; vertical-align: top;  width: 78%; }
+
+    .ClientSearchResultList .tab-links { border-spacing: 10px 0; display: table; list-style: none; margin: 0; padding: 0; position: relative; }
+    .ClientSearchResultList .tab-links > li { min-width: 110px; border-bottom: 0; top: 1px; background: #ebf2fc; border-color: #ccc; border-style: solid; border-top-left-radius:4px; border-top-right-radius: 4px; border-width: 1px; color: #000; cursor: pointer; display: table-cell; left: -10px; position: relative; text-align: center; }
+    .ClientSearchResultList .tab-links > li.active { background: #fff; border-bottom: 0; cursor: default; z-index: 2; }
+    .ClientSearchResultList .tab-links > li.active a,
+    .ClientSearchResultList .tab-links > li.active span { display: inline-block; width: 100%; border-color: #666; border-style: solid; border-width: 4px 0 0; cursor: default; padding: 7px; }
+    .ClientSearchResultList .tab-links > li > a { color: #000; padding: 7px; text-decoration: none; display: inline-block; width: 100%; }
+    .ClientSearchResultList .tab-links > li > a:focus,
+    .ClientSearchResultList .tab-links > li > a:hover { width: 100%; background: #ccc; background: rgba(204,204,204,0.9); }
+    .ClientSearchResultList .tab-content { border: #ccc 1px solid; }
+
+    .ClientSearchResultList .InlineDiv:first-of-type select{ display: inline-block; margin-right: 5px; }
+    .ClientSearchResultList .InlineDiv select{ display: inline-block; }
+    .ClientSearchResultList .BtnSelectAll { margin: 5px; display: inline-block; min-width: 115px; }
+    .ClientSearchResultList .BtnUnselectAll { margin: 5px; display: inline-block; min-width: 115px; }
+    .ClientSearchResultList .BtnViewItem { margin: 5px; display: inline-block; }
+    .ClientSearchResultList .PerPageContainer ul { display: inline-block; }
+    .ClientSearchResultList a.PerPage { text-decoration: none !important; padding: 5px; }
+    .ClientSearchResultList a.PerPageCurrent { border: 1px solid silver; pointer-events: none; border-radius: 2px; }
+    .ClientSearchResultList .Img26 { margin-left: 10px; height: 26px; width: 26px; font-size: 26px; }
+    .ClientSearchResultList .ResultOL { table-layout: fixed; display: table; width: 100%; margin-top:15px; border-spacing: 0; padding-left: 15px; }
+    .ClientSearchResultList .ResultOL .ResultTableCaption { display: table-caption;  width: 100%; }
+    .ClientSearchResultList .ResultOL .ResultLI { display: table-row; width: 100%; vertical-align: top; }
+    .ClientSearchResultList .ResultOL .ResultLI div { width: 100%; vertical-align: top; }
+    .ClientSearchResultList .ResultOL .ResultLI div div { width:auto; vertical-align: top; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemCheckBox { display: table-cell; width: 6%; padding-left: 10px; padding-top: 15px; font-weight: 600;}
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemCheckBox input[type=checkbox] { -ms-transform: scale(1.5); -moz-transform: scale(1.5); -webkit-transform: scale(1.5); -o-transform: scale(1.5); transform: scale(1.5); margin: 0; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord { display: table-cell; padding: 10px;}
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .NavigationArrow { width: 30px; overflow: hidden; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .NavigationArrow a:link,
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .NavigationArrow a:visited { color: #333; text-align: center; display: block; padding: 73px 0 74px 0; /*margin: -10em;*/ background: #bbb; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .NavigationArrow a:hover { background: #ccc; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .GalleryWrapper { padding: 10px 5px; background: #777; overflow: hidden; height: 170px !important; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .GalleryWrapper .Gallery { display: inline-block; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .GalleryWrapper .slick-slide { padding:0 5px; margin-right: 10px;}
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .PreviewImages { width: 100%; font-size: .9em; padding: 5px 0 10px 25px;}
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper { width: 100%; margin-top: 5px; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper h3 { font-size: 1em; margin-top: 0; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper { height: 150px; width: 270px; padding: 0; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper .Thumb { height: 150px; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper:hover { cursor: pointer; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper a { text-decoration-line: none !important; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper button { height: 40px; width: 53px; position: relative; top: -95px; left: 40%; z-index: 2;  background-color: transparent; border: medium none; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper .VideoOverlay { position: relative; z-index: 5; opacity: .1; background: #0b0b0b; top: -225px; height: 150px; width: 270px;
+                                                                                                                                                            background: -o-linear-gradient(top, black 20%, white 50%);
+                                                                                                                                                            background: -moz-linear-gradient(top, black 20%, white 50%);
+                                                                                                                                                            background: -webkit-linear-gradient(top, black 20%, white 50%);
+                                                                                                                                                            background: -ms-linear-gradient(top, black 20%, white 50%);
+                                                                                                                                                            background: linear-gradient(top, black 20%, white 50%);
+    }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .VideoWrapper .VideoTitle { position: relative; z-index: 10; top: -195px; max-width: 250px; font-size:.9em; font-family: Roboto,Arial,Helvetica,sans-serif; text-shadow: 0 0 5px rgba(0,0,0, 1); transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1) 0s; vertical-align:top; text-align: left ; color: #eee; overflow: hidden; overflow-wrap: normal; padding: 5px; text-overflow: ellipsis; white-space: nowrap; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow { display: block; margin-left:0px; width: 100%; margin-bottom: 5px; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dl { float:left; clear: left; width: 100%; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dt { display: table-cell; text-align: left; margin-bottom: 0px; margin-right: 5px; float: left;}
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd { display: table-cell; text-align: left; word-break: normal; margin: 0 0 5px; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd ul { padding-left: 0; }
+    .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd li { list-style: none; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer { display: table; align-self: center; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagingRow { display: table-row; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagingCell { display: table-cell; padding: 10px; vertical-align: middle;}
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagerLink { text-decoration: none !important; padding: 5px; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .GotoError { display: table-caption; color: red; width: 100%; text-align: center; font-weight: 600;}
+
+    .InlineControlShort { display:inline !important; width: 70px; margin: 0 10px 0 10px; }
+    .InlineControl { display:inline !important; margin: 0 10px 0 10px; }
+    .InlineDiv { display: inline-block; }
+    .TopPad5 { padding-top: 5px; }
+    .TopPad15 { padding-top: 15px; }
+    .AllPad5 { padding: 5px; }
+    .AllPad5 article ul {list-style:none; } 
+    .AllPad5 article ul li { display: inline; }
+    .allWidth { display: inherit; text-align: left; word-break: normal; width: 100%; margin-bottom: 5px;}
+    .allWidth ul { padding-left: 0; }
+    .allWidth li { list-style: none; }
+    .summary { font-size: .9em; color:gray; }
+    .hidden { display: none; }
+    .fontweight600 { font-weight: 600;}
+    .fontdot9 { font-size: .9em; }
+    .fontgray { color:gray; }
+    .paddingleft_0 { padding-left: 0; }
+    .padding_5_0_10_0 { padding: 5px 0 10px 0; }
+    .padding_5 { padding: 5px; }
+    .maringB10 { margin-bottom: 10px; }
+    .maringB5 { margin-bottom: 5px; }
+    .maringL5 { margin-left: 5px; }
+    .floatRight { float: right; }
+    .cursorPointer { cursor: pointer; }
+    .cssnowrap { white-space: nowrap; }
+    .Icon26 { height: 26px; width: 26px; font-size: 26px; color: #295376; font-weight: 400; margin: 10px 0 0 7px; cursor: pointer; }
+    .Icon26-disabled { height: 26px; width: 26px; font-size: 26px; color: #b0adad; font-weight: 400; margin-left: 7px; margin: 10px 0 0 7px; cursor: default; }
+    .Icon15red { height: 15px; width: 15px; font-size: 15px; color: #fa2f1f; font-weight: 400; margin-right: 5px; cursor: pointer; }
+    .Icon17red { height: 17px; width: 17px; font-size: 17px; color: #fa2f1f; font-weight: 400; margin-right: 5px; cursor: pointer; }
+    
+    .Timer { width: 100%; background-color: #f7f7ba; border: 1px solid silver; }
+    .Timer tr td { padding: 3px; border: 1px solid silver; }
+
+    /*************** on focus *******************/
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .TabsContainer .form-control:focus { border: 3px #555 solid ; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .TabsContainer .btn:focus { border: 3px #555 solid ; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .TabsContainer .ResultOL .ResultLI .ResultItemRecord .NavigationArrow a:focus { border: 3px #555 solid ; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .TabsContainer .ResultOL .ResultLI .ResultItemRecord .GalleryWrapper a:focus { border: 3px #555 solid; }
+    .ClientSearchResultList .AllTable .AllRow .RightContainer .TabsContainer .ResultOL .ResultLI .ResultItemRecord .GalleryWrapper img:focus { border: 3px #555  solid; }
+    .AllPad5 article a:focus { border: 3px #555 solid; }
+
+    /*************** GALLERY SPECIFIC *******************/
+	#justified_gallery_zHLTuN .sgg-caption { background: rgb(0,0,0); background: rgba(0,0,0,0.6); color: #ffffff; font-size: 1.8em; font-weight: 700; font-family: Lobster; }
+	#load_more_zHLTuN { background: #444444; color: #ffffff; }
+
+    .gallery_a_img { border-radius: 4px; height: 150px; }
+    .gallery_a_img:hover { border: 3px solid #777; }
+
+    .rec_a_img { border-radius: 4px; height: 150px; margin-left: 0 !important; margin-top: 0 !important; }
+    .rec_a_img:hover { border: 3px solid #777; }
+
+    .sgg-load-more { border-radius: 4px;  overflow: hidden; }
+    .sgg-load-more:hover{ background-color:#295376 !important; }
+    .sgg-load-more:focus{ background-color:#295376 !important; }
+
+    /*************** CONTEXT HIERARCHY SPECIFIC *******************/
+    .context { border: 1px solid grey; border-radius: 4px; display: block; background-color: #fff; }
+    .context ul { list-style: none; padding: 5px 5px 10px 20px; }
+    li .i0 { padding-left: 0; display: table; border-spacing: 0; }
+    li .i1 { padding-left: 20px; display: table; border-spacing: 0; }
+    li .i2 { padding-left: 40px; display: table; border-spacing: 0; }
+    li .i3 { padding-left: 60px; display: table; border-spacing: 0; }
+    li .i4 { padding-left: 80px; display: table; border-spacing: 0; }
+    li .i5 { padding-left: 100px; display: table; border-spacing: 0; }
+    li .i6 { padding-left: 120px; display: table; border-spacing: 0; }
+    li .i7 { padding-left: 140px; display: table; border-spacing: 0; }
+    li .i8 { padding-left: 160px; display: table; border-spacing: 0; }
+    li .i9 { padding-left: 180px; display: table; border-spacing: 0; }
+    li .i10 { padding-left: 200px; display: table; border-spacing: 0; }
+    li .i11 { padding-left: 220px; display: table; border-spacing: 0; }
+    li .i12 { padding-left: 240px; display: table; border-spacing: 0; }
+    li .i13 { padding-left: 260px; display: table; border-spacing: 0; }
+    li .i14 { padding-left: 280px; display: table; border-spacing: 0; }
+    .dAllContextRec { display: table-row; }
+    .dLineImg { width: 20px; display: table-cell; background-image: url("/_layouts/images/ClientFacingSearch_ResultList/empty.gif"); background-repeat: repeat-y; }
+    .dLineImg img { margin-top: -5px; }
+    .dHLvlImg { width: 20px; display: table-cell; background-image: url("/_layouts/images/ClientFacingSearch_ResultList/dot.gif"); background-repeat: repeat-y; vertical-align: top; }
+    .dHLvlImg img { margin-top: -5px; }
+    .dDesc { padding-left: 3px; display: inline; font-size: .9em;}
+
+    .sPdfsMaps { font-size: .85em; color: #777; margin: 0 2px 0 2px; }
+    
+    .download_wrapper { border: 1px solid grey; border-radius: 4px; display: block; background-color: #f6faff; padding: 10px; margin: 10px 10px 0 10px; }
+}
+
+@media print
+{ 
+    .HideToPrinter { display: none !important; height: 0 !important; width: 0 !important; position: absolute; left: 0px; top: 0px; z-index: -1;} 
+}
