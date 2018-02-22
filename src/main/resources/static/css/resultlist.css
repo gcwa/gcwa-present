@@ -78,11 +78,11 @@
     .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd { display: table-cell; text-align: left; word-break: normal; margin: 0 0 5px; }
     .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd ul { padding-left: 0; }
     .ClientSearchResultList .ResultOL .ResultLI .ResultItemRecord .RecordWrapper .RecordRow dd li { list-style: none; }
-    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer { display: table; align-self: center; }
-    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagingRow { display: table-row; }
-    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagingCell { display: table-cell; padding: 10px; vertical-align: middle;}
-    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .PagerLink { text-decoration: none !important; padding: 5px; }
-    .ClientSearchResultList .AllTable .AllRow .RightContainer .PagingContainer .GotoError { display: table-caption; color: red; width: 100%; text-align: center; font-weight: 600;}
+    .ClientSearchResultList .PagingContainer { display: table; align-self: center; }
+    .ClientSearchResultList .PagingContainer .PagingRow { display: table-row; }
+    .ClientSearchResultList .PagingContainer .PagingCell { display: table-cell; padding: 10px; vertical-align: middle;}
+    .ClientSearchResultList .PagingContainer .PagerLink { text-decoration: none !important; padding: 5px; }
+    .ClientSearchResultList .PagingContainer .GotoError { display: table-caption; color: red; width: 100%; text-align: center; font-weight: 600;}
 
     .InlineControlShort { display:inline !important; width: 70px; margin: 0 10px 0 10px; }
     .InlineControl { display:inline !important; margin: 0 10px 0 10px; }

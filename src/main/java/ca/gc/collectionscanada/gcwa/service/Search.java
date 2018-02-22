@@ -12,12 +12,17 @@ import java.util.*;
  * Service to access Archive It Opensearch API
  */
 public class Search {
-	public Channel SearchQuery(String query, String contentType)  {
-        String url = "https://archive-it.org/search-master/opensearch?q={q}&i=3935&i=4365&i=4988&i=5238";
+
+    public static final int RESULTS_PER_PAGE = 10;
+
+	public Channel SearchQuery(String query, String contentType, Integer startPosition)  {
+        String url = "https://archive-it.org/search-master/opensearch?q={q}&n={n}&p={p}&i=3935&i=4365&i=4988&i=5238";
         Map<String, String> uriParameters = new HashMap<>();
         uriParameters.put("q", query);
-        uriParameters.put("t", contentType);
+        uriParameters.put("p", String.valueOf(startPosition));
+        uriParameters.put("n", String.valueOf(RESULTS_PER_PAGE));
 
+        uriParameters.put("t", contentType);
         if (contentType != null && !contentType.isEmpty() && !contentType.equals("0")) {
             url = url.concat("&t={t}");
         }

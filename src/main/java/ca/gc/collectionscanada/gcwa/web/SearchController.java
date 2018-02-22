@@ -26,21 +26,26 @@ public class SearchController {
 
     @RequestMapping("")
     public String index(@RequestParam(value = "q", required = false) String query,
-    		@RequestParam(value = "mimetype", required = false) String contentType,
+    		@RequestParam(value = "t", required = false) String contentType,
+            @RequestParam(value = "p", required = false) Integer startPosition,
     		Model model, Locale locale) {
 
         if (query != null) {
-           log.info("/search searching for: " + query);
+            log.info("/search searching for: " + query);
 
+            if (startPosition == null) { startPosition = 0; }
             Search archiveit = new Search();
-            Channel searchResults = archiveit.SearchQuery(query, contentType);
+            Channel searchResults = archiveit.SearchQuery(query, contentType, startPosition);
 
             SearchMetadata metadata = archiveit.hydrateMetadata(searchResults);
             List<SearchItem> items = archiveit.hydrateResults(searchResults);
+            int currentPage = (int)Math.ceil((metadata.getStartIndex()) / (float)metadata.getItemsPerPage()) + 1;
 
             model.addAttribute("metadata", metadata);
             model.addAttribute("items", items);
-            model.addAttribute("mimetype", contentType);
+            model.addAttribute("contentType", contentType);
+            model.addAttribute("totalPages", metadata.getTotalResults() / metadata.getItemsPerPage());
+            model.addAttribute("currentPage", currentPage);
         }
 
         return "search/search";

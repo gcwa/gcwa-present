@@ -5,7 +5,9 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.jdom2.Element;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SearchMetadata {
     private String description;
@@ -15,6 +17,7 @@ public class SearchMetadata {
     private String query;
     private Long totalResults;
     private Long responseTime;
+    private Map<String, String> urlParams = new HashMap<>();
 
     public SearchMetadata() {
     }
@@ -34,6 +37,13 @@ public class SearchMetadata {
                     break;
                 case "totalResults":
                     setTotalResults(Long.parseLong(element.getValue()));
+                    break;
+                case "urlParams":
+                    for (Element child : element.getChildren()) {
+                        //FIXME add code to handle 'i'
+                        addUrlParams(child.getAttributeValue("name"),
+                            child.getAttributeValue("value"));
+                    }
                     break;
             }
         }
@@ -95,5 +105,29 @@ public class SearchMetadata {
 
     public void setResponseTime(Long responseTime) {
         this.responseTime = responseTime;
+    }
+
+    public Map<String, String> getUrlParams() { return urlParams; }
+
+    public String getUrlParam(String k) {
+        return this.urlParams.get(k);
+    }
+
+    public void addUrlParams(String k, String v) {
+        this.urlParams.put(k, v);
+    }
+
+    @Override
+    public String toString() {
+        return "SearchMetadata{" +
+            "description='" + description + '\'' +
+            ", title='" + title + '\'' +
+            ", startIndex=" + startIndex +
+            ", itemsPerPage=" + itemsPerPage +
+            ", query='" + query + '\'' +
+            ", totalResults=" + totalResults +
+            ", responseTime=" + responseTime +
+            ", urlParams=" + urlParams +
+            '}';
     }
 }
