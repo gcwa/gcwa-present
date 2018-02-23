@@ -17,9 +17,9 @@
         <div class="form-group">
             <label for="contentype" th:text="#{search.results.item.type}"></label>
             <select id="contentype" name="t" size="1">
-                <option value="0">All formats</option>
+                <option value="0" th:text="#{search.basicsearch.format.all}">All formats</option>
                 <option value="text/html" th:selected="${contentType} == 'text/html'">HTML</option>
-                <option value="text/plain" th:selected="${contentType} == 'text/plain'">Plain text</option>
+                <option value="text/plain" th:selected="${contentType} == 'text/plain'" th:text="#{search.basicsearch.format.plaintext}">Plain text</option>
                 <option value="application/pdf" th:selected="${contentType} == 'application/pdf'">PDF</option>
                 <option value="application/postscript" th:selected="${contentType} == 'application/postscript'">Postscript</option>
                 <option value="application/msword" th:selected="${contentType} == 'application/msword'">Microsoft Word</option>
