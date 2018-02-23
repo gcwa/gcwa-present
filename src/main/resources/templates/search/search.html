@@ -62,16 +62,16 @@
         <div id="_GotoError_" class="GotoError" style="display: none;">
         </div>
         <div class="PagingRow dataTable_paginate">
-            <h3>Pagination</h3>
+            <h3 th:text="#{pagination.title}">Pagination</h3>
             <ul>
                 <th:block th:if="${currentPage} > 1">
-                <li class="PagingCell"><a id="lnkFirst" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=0)}" title="First" class="PagerLink"><span class="glyphicon glyphicon-fast-backward"></span>&nbsp;First</a></li>
-                <li class="PagingCell"><a id="lnkPrevious" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}-${metadata.itemsPerPage})}" title="Previous" class="PagerLink"><span class="glyphicon glyphicon-backward"></span>&nbsp;Previous</a></li>
+                    <li class="PagingCell"><a id="lnkFirst" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=0)}" title="First" th:title="#{pagination.first}" class="PagerLink"><span class="glyphicon glyphicon-fast-backward"></span>&nbsp;<span th:text="#{pagination.first}" th:remove="tag">First</span></a></li>
+                    <li class="PagingCell"><a id="lnkPrevious" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}-${metadata.itemsPerPage})}" title="Previous" th:title="#{pagination.previous}" class="PagerLink" ><span class="glyphicon glyphicon-backward"></span>&nbsp;<span th:text="#{pagination.previous}" th:remove="tag">Previous</span></a></li>
                 </th:block>
-                <li class="PagingCell"><label id="pageNumberLabel" for="_GoToPage_">Page:</label> <input id="_GoToPage_" title="Enter page number" class="form-control InlineControlShort" value="1" th:value="${currentPage}" aria-labelledby="pageNumberLabel _GoToPage_ ofTotalPages" type="text" /><span id="ofTotalPages">of&nbsp;<strong th:text="${totalPages}"></strong></span>&nbsp;<a id="lnkGo" href="#" onclick="return GotoPage($(this)); " title="Go" class="btn btn-default">Go</a></li>
+                <li class="PagingCell"><label id="pageNumberLabel" for="_GoToPage_">Page:</label> <input id="_GoToPage_" th:title="#{pagination.enter.page.nummer}" class="form-control InlineControlShort" value="1" th:value="${currentPage}" aria-labelledby="pageNumberLabel _GoToPage_ ofTotalPages" type="text" /><span id="ofTotalPages"><span th:text="#{pagination.of}" th:remove="tag">of</span>&nbsp;<strong th:text="${totalPages}"></strong></span>&nbsp;<a id="lnkGo" href="#" onclick="return GotoPage($(this)); " th:title="#{pagination.go}" class="btn btn-default" th:text="#{pagination.go}">Go</a></li>
                 <th:block th:if="${currentPage} &lt; ${totalPages}">
-                <li class="PagingCell"><a id="lnkNext" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}+${metadata.itemsPerPage})}" title="Next" class="PagerLink">Next&nbsp;<span class="glyphicon glyphicon-forward"></span></a></li>
-                <li class="PagingCell"><a id="lnkLast" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${totalPages}*${metadata.itemsPerPage})}" title="Last" class="PagerLink">Last&nbsp;<span class="glyphicon glyphicon-fast-forward"></span></a></li>
+                    <li class="PagingCell"><a id="lnkNext" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}+${metadata.itemsPerPage})}" th:title="#{pagination.next}" class="PagerLink"><span th:text="#{pagination.next}" th:remove="tag">Next</span>&nbsp;<span class="glyphicon glyphicon-forward"></span></a></li>
+                    <li class="PagingCell"><a id="lnkLast" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${totalPages}*${metadata.itemsPerPage})}" th:title="#{pagination.last}" class="PagerLink"><span th:text="#{pagination.last}" th:remove="tag">Last</span>&nbsp;<span class="glyphicon glyphicon-fast-forward"></span></a></li>
                 </th:block>
             </ul>
             <script type="text/javascript" th:inline="javascript">
@@ -80,19 +80,19 @@
                 function GotoPage(jqThis){
                     var pNbr = $('#_GoToPage_').val();
                     if (isNaN(pNbr)) {
-                        $('#_GotoError_').html('The page number has to be numeric');
+                        $('#_GotoError_').html(/*[[#{pagination.error.numeric}]]*/'page number should be a number');
                         $('#_GotoError_').show();
 
                         return false;
                     }
-                    else if (pNbr <= /*[[${totalPages}]]*/) {
+                    else if (pNbr <= /*[[${totalPages}]]*/ 2) {
                         $('#_GotoError_').html('');
                         $('#_GotoError_').hide();
                         jqThis.prop('href', jqThis.prop('href') + '&start=' + ($('#_GoToPage_').val() - 1) * /*[[${metadata.itemsPerPage}]]*/);
                         return true;
                     }
                     else {
-                        $('#_GotoError_').html('Page number cannot be greater than " + /*[[${totalPages}]]*/);
+                        $('#_GotoError_').html(/*[[#{pagination.error.upperlimit}]]*/'page number too high');
                         $('#_GotoError_').show();
                         return false;
                     }
