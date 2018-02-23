@@ -16,6 +16,7 @@ public class Search {
     public static final int RESULTS_PER_PAGE = 10;
 
 	public Channel SearchQuery(String query, String contentType, Integer startPosition)  {
+	    //FIXME collection (i) should come from database, configured via an admin page
         String url = "https://archive-it.org/search-master/opensearch?q={q}&n={n}&p={p}&i=3935&i=4365&i=4988&i=5238";
         Map<String, String> uriParameters = new HashMap<>();
         uriParameters.put("q", query);
@@ -28,11 +29,11 @@ public class Search {
         }
 
         //FIXME only for temp dev
-        Properties props = System.getProperties();
-        props.put("http.proxyHost", "localhost");
-        props.put("http.proxyPort", "3128");
-        props.put("https.proxyHost", "localhost");
-        props.put("https.proxyPort", "3128");
+//        Properties props = System.getProperties();
+//        props.put("http.proxyHost", "localhost");
+//        props.put("http.proxyPort", "3128");
+//        props.put("https.proxyHost", "localhost");
+//        props.put("https.proxyPort", "3128");
 
         RestTemplate restTemplate = new RestTemplate();
         // Automatically using rometools RSS 2.0 converter
