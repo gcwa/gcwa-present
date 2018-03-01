@@ -2,10 +2,11 @@ package ca.gc.collectionscanada.gcwa.web;
 
 import ca.gc.collectionscanada.gcwa.domain.SearchItem;
 import ca.gc.collectionscanada.gcwa.domain.SearchMetadata;
-import ca.gc.collectionscanada.gcwa.service.Search;
+import ca.gc.collectionscanada.gcwa.service.SearchService;
 import com.rometools.rome.feed.rss.Channel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Locale;
-import java.util.Optional;
 
 /**
  * Full text search into the archives
@@ -23,6 +23,9 @@ import java.util.Optional;
 public class SearchController {
 
     private final Logger log = LoggerFactory.getLogger(SearchController.class);
+
+    @Autowired
+    SearchService searchService;
 
     @RequestMapping("")
     public String index(@RequestParam(value = "q", required = false) String query,
@@ -34,17 +37,24 @@ public class SearchController {
             log.info("/search searching for: " + query);
 
             if (startPosition == null) { startPosition = 0; }
-            Search archiveit = new Search();
-            Channel searchResults = archiveit.SearchQuery(query, contentType, startPosition);
+            Channel searchResults = searchService.SearchQuery(query, contentType, startPosition);
 
-            SearchMetadata metadata = archiveit.hydrateMetadata(searchResults);
-            List<SearchItem> items = archiveit.hydrateResults(searchResults);
+            SearchMetadata metadata = searchService.hydrateMetadata(searchResults);
+            List<SearchItem> items = searchService.hydrateResults(searchResults);
             int currentPage = (int)Math.ceil((metadata.getStartIndex()) / (float)metadata.getItemsPerPage()) + 1;
+
+            // because the api cannot display all the results
+            Long maxResults;
+            if (metadata.getTotalResults() > SearchService.MAX_TOTAL_RESULTS) {
+                maxResults = SearchService.MAX_TOTAL_RESULTS;
+            } else {
+                maxResults = metadata.getTotalResults();
+            }
 
             model.addAttribute("metadata", metadata);
             model.addAttribute("items", items);
             model.addAttribute("contentType", contentType);
-            model.addAttribute("totalPages", metadata.getTotalResults() / metadata.getItemsPerPage());
+            model.addAttribute("totalPages", maxResults / metadata.getItemsPerPage());
             model.addAttribute("currentPage", currentPage);
         }
 

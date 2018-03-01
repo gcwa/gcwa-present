@@ -4,6 +4,8 @@ import ca.gc.collectionscanada.gcwa.domain.SearchItem;
 import ca.gc.collectionscanada.gcwa.domain.SearchMetadata;
 import com.rometools.rome.feed.rss.Channel;
 import com.rometools.rome.feed.rss.Item;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
@@ -11,13 +13,19 @@ import java.util.*;
 /**
  * Service to access Archive It Opensearch API
  */
-public class Search {
+@Service
+public class SearchService {
+
+    @Value("${gcwa.opensearch.querystring.collections}")
+    private String querystringCollections;
 
     public static final int RESULTS_PER_PAGE = 10;
+    // the API have a hard limit, won't return more than X even if totalResults is greater
+    public static final long MAX_TOTAL_RESULTS = 99;
 
 	public Channel SearchQuery(String query, String contentType, Integer startPosition)  {
-	    //FIXME collection (i) should come from database, configured via an admin page
-        String url = "https://archive-it.org/search-master/opensearch?q={q}&n={n}&p={p}&i=3935&i=4365&i=4988&i=5238";
+        String url = "https://archive-it.org/search-master/opensearch?q={q}&n={n}&p={p}" + querystringCollections;
+        System.out.println(url);
         Map<String, String> uriParameters = new HashMap<>();
         uriParameters.put("q", query);
         uriParameters.put("p", String.valueOf(startPosition));
@@ -28,7 +36,7 @@ public class Search {
             url = url.concat("&t={t}");
         }
 
-        //FIXME only for temp dev
+//        //FIXME only for temp dev
 //        Properties props = System.getProperties();
 //        props.put("http.proxyHost", "localhost");
 //        props.put("http.proxyPort", "3128");
