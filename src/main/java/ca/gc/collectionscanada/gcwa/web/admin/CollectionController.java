@@ -27,9 +27,6 @@ import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 @RequestMapping("/admin/collection")
 public class CollectionController {
     @Autowired
-    private MessageSource message;
-
-    @Autowired
     private SeedRepository seedRepository;
 
     @Autowired
@@ -61,7 +58,7 @@ public class CollectionController {
     public String listForSubcategory(@PathVariable("id") long id, Model model, Locale locale) {
         log.info("/admin/collection/list requested");
 
-        Subcategory subcategory = subcategoryRepository.findOne(id);
+        Subcategory subcategory = subcategoryRepository.findOneById(id);
         List<Collection> collections = collectionRepository.findAllBySubcategory_Id(id);
 
         model.addAttribute("collections", collections);
@@ -74,7 +71,7 @@ public class CollectionController {
     public String seed(@PathVariable("id") long id, Model model, Locale locale) {
         log.info("/admin/seed/" + String.valueOf(id) + "  requested");
 
-        Collection collection = collectionRepository.findOne(id);
+        Collection collection = collectionRepository.findOneById(id);
         if (collection == null) {
             throw new ResourceNotFoundException();
         }
@@ -93,7 +90,7 @@ public class CollectionController {
     @RequestMapping(value = "/new/{id:\\d+}")
     public String collectionNew(@PathVariable("id") long id, Model model, Locale locale) {
         List<Subcategory> allSubcategories = subcategoryRepository.findAll();
-        Subcategory subcategory = subcategoryRepository.findOne(id);
+        Subcategory subcategory = subcategoryRepository.findOneById(id);
         Collection collection = new Collection();
         collection.setSubcategory(subcategory);
         collection.setEnabled(true);
@@ -133,7 +130,7 @@ public class CollectionController {
     public String delete(@PathVariable("id") long id, Model model, Locale locale,
             RedirectAttributes redirectAttributes) {
 
-        Collection collection = collectionRepository.findOne(id);
+        Collection collection = collectionRepository.findOneById(id);
         long seedCount = seedRepository.countByCollection_Id(id);
         
         if (seedCount == 0) {

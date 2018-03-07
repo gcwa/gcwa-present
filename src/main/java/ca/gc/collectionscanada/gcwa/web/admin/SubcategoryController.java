@@ -25,9 +25,6 @@ import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 @RequestMapping("/admin/subcategory")
 public class SubcategoryController {
     @Autowired
-    private MessageSource message;
-
-    @Autowired
     private CategoryRepository categoryRepository;
 
     @Autowired
@@ -62,7 +59,7 @@ public class SubcategoryController {
     public String subcategory(@PathVariable("id") long id, Model model, Locale locale) {
         log.info("/admin/subcategory/" + String.valueOf(id) + "  requested");
 
-        Subcategory subcategory = subcategoryRepository.findOne(id);
+        Subcategory subcategory = subcategoryRepository.findOneById(id);
         if (subcategory == null) {
             throw new ResourceNotFoundException();
         }

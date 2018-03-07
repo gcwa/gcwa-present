@@ -11,7 +11,7 @@ public interface SeedRepository extends CrudRepository<Seed, Long> {
     List<Seed> findAll();
     List<Seed> findAllByCollection_Id(long id);
     List<Seed> findByCollection(Collection collection, Sort sort);
-    Category findOneById(long id);
+    Seed findOneById(long id);
     long countByCollection_Id(long id);
 
     /* @TODO order by url, then subcat */

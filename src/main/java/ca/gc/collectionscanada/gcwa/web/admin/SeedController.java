@@ -25,9 +25,6 @@ import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 @RequestMapping("/admin/seed")
 public class SeedController {
     @Autowired
-    private MessageSource message;
-
-    @Autowired
     private CollectionRepository collectionRepository;
 
     @Autowired
@@ -51,7 +48,7 @@ public class SeedController {
 
         // this one will load via ajax
 
-        Collection collection = collectionRepository.findOne(id);
+        Collection collection = collectionRepository.findOneById(id);
         model.addAttribute("collectionId", id);
         model.addAttribute("collection", collection);
         return "admin/seed/list";
@@ -61,7 +58,7 @@ public class SeedController {
     public String seed(@PathVariable("id") long id, Model model, Locale locale) {
         log.info("/admin/seed/" + String.valueOf(id) + "  requested");
 
-        Seed seed = seedRepository.findOne(id);
+        Seed seed = seedRepository.findOneById(id);
         if (seed == null) {
             throw new ResourceNotFoundException();
         }
@@ -78,7 +75,7 @@ public class SeedController {
         log.info("/admin/seed/new requested");
 
         Seed seed = new Seed();
-        Collection collection = collectionRepository.findOne(id);
+        Collection collection = collectionRepository.findOneById(id);
         seed.setCollection(collection);
         Sort sort = new Sort("titleEn");
         List<Collection> allCollections = collectionRepository.findAll(sort);
@@ -105,7 +102,7 @@ public class SeedController {
     public String delete(@PathVariable("id") long id, Model model, Locale locale,
             RedirectAttributes redirectAttributes) {
 
-        Seed seed = seedRepository.findOne(id);
+        Seed seed = seedRepository.findOneById(id);
         long collectionId = seed.getCollection().getId();
         seedRepository.delete(seed);
         redirectAttributes.addFlashAttribute("flashSuccessMsg", "Seed Deleted");

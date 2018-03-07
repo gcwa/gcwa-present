@@ -35,7 +35,7 @@ public class SubcategoryController {
             throw new ResourceNotFoundException();
         }
         
-		Subcategory subcategory = subcategoryRepository.findOne(id);
+		Subcategory subcategory = subcategoryRepository.findOneById(id);
 		if (subcategory == null) {
 			throw new ResourceNotFoundException();
 		}

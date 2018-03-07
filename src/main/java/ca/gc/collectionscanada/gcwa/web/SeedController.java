@@ -41,7 +41,7 @@ public class SeedController {
         }
 
 		
-		Subcategory subcategory = subcategoryRepository.findOne(id);
+		Subcategory subcategory = subcategoryRepository.findOneById(id);
 		if (subcategory == null) {
 			throw new ResourceNotFoundException();
 		}
