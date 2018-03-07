@@ -1,8 +1,9 @@
 package ca.gc.collectionscanada.gcwa.web.admin;
 
-import java.util.List;
-import java.util.Locale;
-
+import ca.gc.collectionscanada.gcwa.domain.Category;
+import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
+import ca.gc.collectionscanada.gcwa.domain.SubcategoryRepository;
+import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,10 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import ca.gc.collectionscanada.gcwa.domain.Category;
-import ca.gc.collectionscanada.gcwa.domain.CategoryRepository;
-import ca.gc.collectionscanada.gcwa.domain.SubcategoryRepository;
-import ca.gc.collectionscanada.gcwa.exceptions.ResourceNotFoundException;
+import java.util.List;
+import java.util.Locale;
 
 @Controller("adminCategoryController")
 @RequestMapping("/admin/category")
@@ -47,7 +46,7 @@ public class CategoryController {
     public String category(@PathVariable("id") long id, Model model, Locale locale) {
         log.info("/admin/category/" + String.valueOf(id) + "  requested");
 
-        Category category = categoryRepository.findOne(id);
+        Category category = categoryRepository.findOneById(id);
         if (category == null) {
             throw new ResourceNotFoundException();
         }

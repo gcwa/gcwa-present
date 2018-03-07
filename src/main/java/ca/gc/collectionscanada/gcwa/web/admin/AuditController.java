@@ -1,10 +1,7 @@
 package ca.gc.collectionscanada.gcwa.web.admin;
 
-import java.util.List;
-import java.util.Locale;
-
-import javax.persistence.EntityManager;
-
+import ca.gc.collectionscanada.gcwa.domain.Collection;
+import ca.gc.collectionscanada.gcwa.domain.Seed;
 import org.hibernate.envers.AuditReader;
 import org.hibernate.envers.AuditReaderFactory;
 import org.hibernate.envers.query.AuditEntity;
@@ -13,8 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ca.gc.collectionscanada.gcwa.domain.Collection;
-import ca.gc.collectionscanada.gcwa.domain.Seed;
+import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Locale;
 
 @Controller
 @RequestMapping("/admin/audit")

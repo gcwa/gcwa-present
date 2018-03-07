@@ -1,7 +1,7 @@
 package ca.gc.collectionscanada.gcwa.web.admin.api;
 
-import java.util.List;
-
+import ca.gc.collectionscanada.gcwa.domain.Seed;
+import ca.gc.collectionscanada.gcwa.domain.SeedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import ca.gc.collectionscanada.gcwa.domain.Seed;
-import ca.gc.collectionscanada.gcwa.domain.SeedRepository;
+import java.util.List;
 
 @RestController
 @RequestMapping("/admin/api")
