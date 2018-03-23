@@ -1,13 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  	  layout:decorator="admin/layout/content-intranet">
+  	  layout:decorate="admin/layout/content-intranet">
 <main layout:fragment="content">
 <script th:inline="javascript">
         /*<![CDATA[*/
         (function() {
             window["wb-tables"] = {
                 "ordering": true,
-                "order": [[0, 'desc']],
+                "order": [ [0, 'desc'] ],
                 "pageLength": 10
             }
         })();
