@@ -15,6 +15,11 @@
 				required="required" pattern=".{2,}" th:value="${metadata?.query}" data-rule-minlength="2" />
 		</div>
         <div class="form-group">
+            <label for="host" th:text="#{search.message.host}"></label>
+            <input class="form-control" id="host" name="s" type="text" th:placeholder="#{search.message.host.example}"
+                   pattern=".{2,}" th:value="${metadata?.host}" data-rule-minlength="2" />
+        </div>
+        <div class="form-group">
             <label for="contentype" th:text="#{search.results.item.type}"></label>
             <select id="contentype" name="t" size="1">
                 <option value="0" th:text="#{search.basicsearch.format.all}">All formats</option>
@@ -47,9 +52,8 @@
                 <h3><a th:href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.link}"  th:text="${item.title}">Entry title</a></h3>
                 <!--FIXME link to proper capture date once we have it: href="'http://wayback.archive-it.org/' + ${item.collection} + '/' + ${item.captureDate} + '/' + ${item.link}" -->
                 <div class="allWidth fontdot9" th:utext="${item.description}"></div>
+                    <div><a th:href="@{''(q=${metadata.query},t=${contentType},s=${item.site})}"><span th:text="#{search.results.item.morefrom}"></span> <strong th:text="${item.site}">example.com</strong></a></div>
                 <dl class="RecordRow">
-                        <dt th:text="#{search.results.item.site}"></dt>
-                        <dd th:text="${item.site}"></dd>
                         <dt th:text="#{search.results.item.type}"></dt>
                         <dd th:text="${item.type}"></dd>
                 </dl>
@@ -65,13 +69,13 @@
             <h3 th:text="#{pagination.title}">Pagination</h3>
             <ul>
                 <th:block th:if="${currentPage} > 1">
-                    <li class="PagingCell"><a id="lnkFirst" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=0)}" title="First" th:title="#{pagination.first}" class="PagerLink"><span class="glyphicon glyphicon-fast-backward"></span>&nbsp;<span th:text="#{pagination.first}" th:remove="tag">First</span></a></li>
-                    <li class="PagingCell"><a id="lnkPrevious" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}-${metadata.itemsPerPage})}" title="Previous" th:title="#{pagination.previous}" class="PagerLink" ><span class="glyphicon glyphicon-backward"></span>&nbsp;<span th:text="#{pagination.previous}" th:remove="tag">Previous</span></a></li>
+                    <li class="PagingCell"><a id="lnkFirst" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=0,s=${metadata.host})}" title="First" th:title="#{pagination.first}" class="PagerLink"><span class="glyphicon glyphicon-fast-backward"></span>&nbsp;<span th:text="#{pagination.first}" th:remove="tag">First</span></a></li>
+                    <li class="PagingCell"><a id="lnkPrevious" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}-${metadata.itemsPerPage},s=${metadata.host})}" title="Previous" th:title="#{pagination.previous}" class="PagerLink" ><span class="glyphicon glyphicon-backward"></span>&nbsp;<span th:text="#{pagination.previous}" th:remove="tag">Previous</span></a></li>
                 </th:block>
                 <li class="PagingCell"><label id="pageNumberLabel" for="_GoToPage_">Page:</label> <input id="_GoToPage_" th:title="#{pagination.enter.page.nummer}" class="form-control InlineControlShort" value="1" th:value="${currentPage}" aria-labelledby="pageNumberLabel _GoToPage_ ofTotalPages" type="text" /><span id="ofTotalPages"><span th:text="#{pagination.of}" th:remove="tag">of</span>&nbsp;<strong th:text="${totalPages}"></strong></span>&nbsp;<a id="lnkGo" href="#" onclick="return GotoPage($(this)); " th:title="#{pagination.go}" class="btn btn-default" th:text="#{pagination.go}">Go</a></li>
                 <th:block th:if="${currentPage} &lt; ${totalPages}">
-                    <li class="PagingCell"><a id="lnkNext" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}+${metadata.itemsPerPage})}" th:title="#{pagination.next}" class="PagerLink"><span th:text="#{pagination.next}" th:remove="tag">Next</span>&nbsp;<span class="glyphicon glyphicon-forward"></span></a></li>
-                    <li class="PagingCell"><a id="lnkLast" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${totalPages}*${metadata.itemsPerPage})}" th:title="#{pagination.last}" class="PagerLink"><span th:text="#{pagination.last}" th:remove="tag">Last</span>&nbsp;<span class="glyphicon glyphicon-fast-forward"></span></a></li>
+                    <li class="PagingCell"><a id="lnkNext" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${metadata.startIndex}+${metadata.itemsPerPage},s=${metadata.host})}" th:title="#{pagination.next}" class="PagerLink"><span th:text="#{pagination.next}" th:remove="tag">Next</span>&nbsp;<span class="glyphicon glyphicon-forward"></span></a></li>
+                    <li class="PagingCell"><a id="lnkLast" href="#" th:href="@{''(q=${metadata.query},t=${contentType},p=${totalPages}*${metadata.itemsPerPage},s=${metadata.host})}" th:title="#{pagination.last}" class="PagerLink"><span th:text="#{pagination.last}" th:remove="tag">Last</span>&nbsp;<span class="glyphicon glyphicon-fast-forward"></span></a></li>
                 </th:block>
             </ul>
             <script type="text/javascript" th:inline="javascript">

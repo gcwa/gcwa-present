@@ -23,9 +23,8 @@ public class SearchService {
     // the API have a hard limit, won't return more than X even if totalResults is greater
     public static final long MAX_TOTAL_RESULTS = 99;
 
-	public Channel SearchQuery(String query, String contentType, Integer startPosition)  {
+	public Channel SearchQuery(String query, String contentType, Integer startPosition, String host)  {
         String url = "https://archive-it.org/search-master/opensearch?q={q}&n={n}&p={p}" + querystringCollections;
-        System.out.println(url);
         Map<String, String> uriParameters = new HashMap<>();
         uriParameters.put("q", query);
         uriParameters.put("p", String.valueOf(startPosition));
@@ -36,12 +35,20 @@ public class SearchService {
             url = url.concat("&t={t}");
         }
 
-//        //FIXME only for temp dev
-//        Properties props = System.getProperties();
-//        props.put("http.proxyHost", "localhost");
-//        props.put("http.proxyPort", "3128");
-//        props.put("https.proxyHost", "localhost");
-//        props.put("https.proxyPort", "3128");
+        uriParameters.put("s", host);
+        if (host != null && !host.isEmpty()) {
+            url = url.concat("&s={s}");
+            url = url.concat("&h=0");
+        }
+
+        System.out.println(url);
+
+        //FIXME only for temp dev
+        Properties props = System.getProperties();
+        props.put("http.proxyHost", "localhost");
+        props.put("http.proxyPort", "3128");
+        props.put("https.proxyHost", "localhost");
+        props.put("https.proxyPort", "3128");
 
         RestTemplate restTemplate = new RestTemplate();
         // Automatically using rometools RSS 2.0 converter

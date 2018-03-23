@@ -31,13 +31,15 @@ public class SearchController {
     public String index(@RequestParam(value = "q", required = false) String query,
     		@RequestParam(value = "t", required = false) String contentType,
             @RequestParam(value = "p", required = false) Integer startPosition,
+            @RequestParam(value = "s", required = false) String host,
     		Model model, Locale locale) {
 
         if (query != null) {
             log.info("/search searching for: " + query);
 
             if (startPosition == null) { startPosition = 0; }
-            Channel searchResults = searchService.SearchQuery(query, contentType, startPosition);
+            if (host == null) { host = ""; }
+            Channel searchResults = searchService.SearchQuery(query, contentType, startPosition, host);
 
             SearchMetadata metadata = searchService.hydrateMetadata(searchResults);
             List<SearchItem> items = searchService.hydrateResults(searchResults);

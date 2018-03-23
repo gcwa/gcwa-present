@@ -40,7 +40,6 @@ public class SearchMetadata {
                     break;
                 case "urlParams":
                     for (Element child : element.getChildren()) {
-                        //FIXME add code to handle 'i'
                         addUrlParams(child.getAttributeValue("name"),
                             child.getAttributeValue("value"));
                     }
@@ -116,6 +115,8 @@ public class SearchMetadata {
     public void addUrlParams(String k, String v) {
         this.urlParams.put(k, v);
     }
+
+    public String getHost() { return getUrlParam("s"); }
 
     @Override
     public String toString() {
