@@ -2,12 +2,7 @@ package ca.gc.collectionscanada.gcwa.domain;
 
 import java.util.Locale;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import org.hibernate.envers.Audited;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -21,7 +16,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 public class Collection {
 	
 	@Id
-	@GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	private String titleEn;

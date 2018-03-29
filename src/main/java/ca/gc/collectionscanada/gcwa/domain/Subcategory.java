@@ -18,7 +18,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 public class Subcategory {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
 	private String titleEn;
