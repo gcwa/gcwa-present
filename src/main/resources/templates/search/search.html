@@ -43,7 +43,8 @@
 <div class="datatable_wrapper ClientSearchResultList" th:if="${items}">
 
     <h2 th:text="${metadata.getTotalResults()} + ' ' + #{search.basicsearch.results.result}">num of results</h2>
-
+    <span><small th:text="#{search.results.browse.limit}"></small></span>
+    
     <ol class="ResultOL">
         <li class="ResultLI" th:each="item,iter : ${items}" th:style="${iter.index} % 2 == 0 ? 'background-color: #f0f0f0'">
             <div class="ResultItemCheckBox HideToPrinter" th:text="(${iter.index} + 1) + (${metadata.itemsPerPage} * (${currentPage} - 1))">1</div>
