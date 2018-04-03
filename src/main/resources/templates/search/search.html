@@ -7,6 +7,10 @@
 
 <h1 id="wb-cont" property="name" th:text="#{search.title}">Search Title</h1>
 
+<div class="alert alert-warning">
+    <p th:text="#{search.beta.warning}">development version</p>
+</div>
+
 <div class="wb-frmvld">
 	<form method="get" action="#" th:action="@{/search}" id="validation-example">
 		<div class="form-group">
